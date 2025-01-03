@@ -1,11 +1,4 @@
----
-name: theme
-about: Describe this issue template's purpose here.
-title: ''
-labels: ''
-assignees: ''
 
----
 
 [theme]:fog
 [introduce]:静态博客主题，不适合追求简洁的博主使用
