@@ -1,4 +1,8 @@
+---
+name: theme
+about: 主题.
 
+---
 
 [theme]:fog
 [introduce]:静态博客主题，不适合追求简洁的博主使用
