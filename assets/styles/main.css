@@ -1548,6 +1548,10 @@ video {
   justify-content: space-between;
 }
 
+.wl-gap-5 {
+  gap: 1.25rem;
+}
+
 .wl-overflow-hidden {
   overflow: hidden;
 }
@@ -1769,14 +1773,19 @@ video {
   padding-right: 6rem;
 }
 
+.wl-px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .wl-px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.wl-py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+.wl-py-1\.5 {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
 }
 
 .wl-py-2\.5 {

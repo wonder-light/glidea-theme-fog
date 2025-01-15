@@ -19,7 +19,7 @@
       {% include './bar/sidebar.j2' ignore missing with context %}
       {# --------------- pc端菜单栏👆 ---------------- #}
     {% endblock %}
-    <div id="wl-main" class="wl-text-center wl-relative xl:wl-px-4 xl:wl-ml-[25%] xl:wl-w-7/12 wl-min-h-dvh wl-flex wl-flex-col wl-justify-between">
+    <div id="wl-main" class="wl-text-center wl-relative wl-transition-all wl-duration-700 xl:wl-px-4 xl:wl-ml-[25%] xl:wl-w-7/12 wl-min-h-dvh wl-flex wl-flex-col wl-justify-between">
       {% block content %}
       {% endblock %}
     </div>

@@ -9,5 +9,21 @@
 {# --------------- 头部👆 ---------------- #}
 {# --------------- 内容👇 ---------------- #}
 {% block content %}
+  <div class="wl-min-h-dvh wl-w-full wl-animate-fade-in wl-bg-zinc-800/50 wl-shadow-blur wl-rounded-lg wl-pb-12 wl-text-white m-xl:wl-mt-16">
+    <div class="wl-pt-12 wl-pl-12 wl-text-4xl wl-font-bold wl-text-left wl-underline">标签</div>
+    <div class="wl-mt-8 wl-px-24 wl-relative wl-list-none m-xl:wl-p-0">
+      <div class="wl-flex wl-flex-wrap wl-gap-5">
+        {% set nums = [0, 1, 2, 3, 4, 5, 6] %}
+        {% set bg = ['wl-bg-red-400','wl-bg-orange-400','wl-bg-amber-400','wl-bg-emerald-400','wl-bg-teal-400','wl-bg-indigo-400','wl-bg-fuchsia-400'] %}
+        {% set shadow = ['wl-shadow-red-400','wl-shadow-orange-400','wl-shadow-amber-400','wl-shadow-emerald-400','wl-shadow-teal-400','wl-shadow-indigo-400','wl-shadow-fuchsia-400'] %}
+        {% for tag in tags %}
+          {% set index = (nums|random) %}
+          <a class="wl-py-1.5 wl-px-3 wl-transition-all {{ bg[index] }} wl-rounded-full wl-shadow-md {{ shadow[index] }}" data-pjax href="{{ tag.link if tag.use }}">
+            {{ tag.name }}
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 {% endblock %}
 {# --------------- 内容👆 ---------------- #}
