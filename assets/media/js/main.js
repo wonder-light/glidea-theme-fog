@@ -76,12 +76,17 @@ class SiteMenu {
   }
   
   static close() {
-    "left" === SiteMenu.menuPosition && ($("#wl-side-all").css("left", "-30%"), $("#wl-main").css("width", "60vw")
-                                                                                             .css("margin-left", "20vw"), SiteMenu.sideState = !1, $("#wl-side-tabs")
-      .removeClass("active"))
+    if ("left" === SiteMenu.menuPosition) {
+      $("#wl-side-all").css("left", "-30%");
+      $("#wl-main").css("width", "60vw").css("margin-left", "20vw");
+      SiteMenu.sideState = false;
+      $("#wl-side-tabs").removeClass("active");
+    }
   }
   
-  static openAndClose() {SiteMenu.sideState ? SiteMenu.close() : SiteMenu.open()}
+  static openAndClose() {
+    SiteMenu.sideState ? SiteMenu.close() : SiteMenu.open();
+  }
   
   static setIcons() {
     let el = $(".wl-menu-icon");
