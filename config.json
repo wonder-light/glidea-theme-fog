@@ -217,7 +217,7 @@
       "note": "请输入图片外链"
     },
     {
-      "name": "commentschoice",
+      "name": "commentChoice",
       "label": "第三方评论系统选择",
       "group": "配置",
       "value": "default",
@@ -255,7 +255,7 @@
       "note": "[valine/阅读量统计] Leancloud_key"
     },
     {
-      "name": "twikoo_id",
+      "name": "twikooId",
       "label": "cloudbase环境id",
       "group": "配置",
       "value": "",

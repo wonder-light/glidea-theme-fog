@@ -77,13 +77,13 @@ declare class Fog {
   //请输入图片外链
   donateImg: string;
   //第三方评论系统选择
-  commentschoice: 'default' | 'valine' | 'twikoo';
+  commentChoice: 'default' | 'valine' | 'twikoo';
   //[valine/阅读量统计] Leancloud_appId
   Leancloud_appId: string;
   //[valine/阅读量统计] Leancloud_key
   Leancloud_key: string;
   //[twikoo] 配置查看文档 https://twikoo.js.org/
-  twikoo_id: string;
+  twikooId: string;
   //是否开启哔哔, [丰富版说说系统]配置查看文档
   bbchoice: boolean;
   //哔哔-昵称
