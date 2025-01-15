@@ -1,6 +1,13 @@
-{% set siteTitle = [post.title,themeConfig.siteName]|join(' | ') %}
-{% set siteKeys = [post.tags|join(','),post.title,themeConfig.siteAuthor]|join(',') %}
-{% set siteDescription = post.abstract if post.abstract else post.description %}
 {% extends './base/base.j2' %}
+{# --------------- 头部👇 ---------------- #}
+{% block head %}
+  {% set siteTitle = [post.title,themeConfig.siteName]|join(' | ') %}
+  {% set siteKeys = [post.tags|join(','),post.title,themeConfig.siteAuthor,'小站','世界','博客','blog']|join(',') %}
+  {% set siteDescription = post.abstract if post.abstract else post.description %}
+  {{ super() }}
+{% endblock %}
+{# --------------- 头部👆 ---------------- #}
+{# --------------- 内容👇 ---------------- #}
 {% block content %}
 {% endblock %}
+{# --------------- 内容👆 ---------------- #}

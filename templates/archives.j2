@@ -1,6 +1,13 @@
-{% set siteTitle = ['归档',themeConfig.siteName]|join(' | ') %}
-{% set siteKeys = ['归档',themeConfig.siteName,themeConfig.siteAuthor]|join(',') %}
-{% set siteDescription = themeConfig.siteDescription %}
 {% extends './base/base.j2' %}
+{# --------------- 头部👇 ---------------- #}
+{% block head %}
+  {% set siteTitle = ['归档',themeConfig.siteName]|join(' | ') %}
+  {% set siteKeys = ['归档','小站','世界','博客','blog',themeConfig.siteName,themeConfig.siteAuthor]|join(',') %}
+  {% set siteDescription = themeConfig.siteDescription %}
+  {{ super() }}
+{% endblock %}
+{# --------------- 头部👆 ---------------- #}
+{# --------------- 内容👇 ---------------- #}
 {% block content %}
 {% endblock %}
+{# --------------- 内容👆 ---------------- #}
