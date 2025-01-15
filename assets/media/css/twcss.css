@@ -352,15 +352,7 @@ hr {
   --tw-backdrop-sepia:
 }
 
-.mask-img-110 {
-  -webkit-mask-image: linear-gradient(110deg, transparent 20%, #ffffff 50%);
-  mask-image: linear-gradient(110deg, transparent 20%, #ffffff 50%)
-}
 
-.mask-img-250 {
-  -webkit-mask-image: linear-gradient(250deg, transparent 20%, #ffffff 50%);
-  mask-image: linear-gradient(250deg, transparent 20%, #ffffff 50%)
-}
 
 .wl-text-split {
   &:after, &:before {
@@ -845,7 +837,7 @@ hr {
   height: 100%
 }
 
-.wl-h-screen {
+.wl-min-h-dvh {
   height: 100vh
 }
 
@@ -985,7 +977,7 @@ hr {
   width: 100%
 }
 
-.wl-w-screen {
+.wl-min-w-dvh {
   width: 100vw
 }
 

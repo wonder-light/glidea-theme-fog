@@ -33,11 +33,11 @@ declare class Fog {
   // 菜单栏布局
   menuPosition: 'top' | 'left';
   // 文章列表风格
-  postlistMode: 'default' | 'elegant';
+  postListMode: 'default' | 'elegant';
   // 优雅模式武侠风
   elegantMen: boolean;
   // 网站名称颜色 默认：antiquewhite
-  sitenameColor: string;
+  siteNameColor: string;
   // 网站描述颜色 默认：white
   sitedescribtionColor: string;
   // 网站菜单按钮颜色 默认：antiquewhite

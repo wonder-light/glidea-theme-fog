@@ -3,4 +3,5 @@
 {% set siteDescription = themeConfig.siteDescription %}
 {% extends './base/base.j2' %}
 {% block content %}
+  {% include './post/post-list.j2' ignore missing with context %}
 {% endblock %}

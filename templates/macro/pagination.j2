@@ -1,0 +1,26 @@
+{% macro wlPagination(page) %}
+  {# ---------进度条👇--------- #}
+  {# num: 总数量, baseUrl: 基础 URL, currentUrl: 当前 URL #}
+  {% if page and (page.total > 0) %}
+    <div class="wl-pt-8 wl-pb-8">
+      <div class="wl-w-full wl-flex wl-justify-center wl-select-none">
+        <div class="wl-flex wl-relative wl-text-base wl-text-black">
+          {% set baseClass = 'wl-block wl-w-9 wl-h-9 wl-leading-9 wl-mx-2.5 wl-shadow-xl wl-rounded-md wl-text-white' %}
+          {% set activeClass = 'wl-bg-gray-200/75 hover:wl-bg-cyan-200/75' %}
+          {% set noActiveClass = 'wl-cursor-not-allowed wl-pointer-events-none wl-bg-gray-200/75' %}
+          <a class="{{ baseClass }} {{ noActiveClass if page.current <= 1 else activeClass }}" data-pjax aria-label="上一页" href="{{ page.prev }}" id="wl-prev">&laquo;</a>
+          {# 分成长度为 total 的列表 #}
+          {% for foo in []|slice(page.total, 0) %}
+            <a class="{{ baseClass }} {{ activeClass if page.current != loop.index else 'wl-bg-cyan-200/75' }} "
+               data-pjax aria-label="第{{ loop.index }}页" id="page{{ loop.index }}"
+               href="{{ page.base }}{{ ('/page/' + loop.index|string) if loop.index > 1 }}">
+              {{ loop.index }}
+            </a>
+          {% endfor %}
+          <a class="{{ baseClass }} {{ activeClass if page.current < page.total else noActiveClass }}" data-pjax aria-label="下一页" href="{{ page.next }}" id="wl-next">&raquo;</a>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {# ---------进度条👆--------- #}
+{% endmacro %}

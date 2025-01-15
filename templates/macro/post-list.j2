@@ -1,0 +1,10 @@
+{% macro postLists(postItems) -%}
+  {% from './macro/post-list-item.j2' import postListItem as listItem with context %}
+  {# ---------显示 post 列表👇--------- #}
+  {% for post in postItems %}
+    {# odd: false, even: true #}
+    {% set isEven = loop.cycle(false, true) %}
+    {{ listItem(post, isEven) }}
+  {% endfor %}
+  {# ---------显示 post 列表👆--------- #}
+{%- endmacro %}

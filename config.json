@@ -31,7 +31,7 @@
       "note": "两种风格"
     },
     {
-      "name": "postlistMode",
+      "name": "postListMode",
       "label": "文章列表风格",
       "group": "布局",
       "value": "default",
@@ -57,7 +57,7 @@
       "note": ""
     },
     {
-      "name": "sitenameColor",
+      "name": "siteNameColor",
       "group": "颜色",
       "value": "antiquewhite",
       "type": "input",
