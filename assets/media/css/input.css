@@ -1,18 +1,9 @@
 @import "markdown.css";
+@import "twcss.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer components {
-  .mask-img-110 {
-    mask-image: linear-gradient(110deg, transparent 20%, #ffffff 50%)
-  }
-  
-  .mask-img-250 {
-    mask-image: linear-gradient(250deg, transparent 20%, #ffffff 50%)
-  }
-}
 
 @font-face {
   font-family: 'FXAiQingQiXiangSuo';
@@ -52,5 +43,17 @@
   --wl-section-color: #ce8e4c;
   --wl-selection-bg: #586e75;
 }
+
+@layer components {
+  .mask-img-110 {
+    mask-image: linear-gradient(110deg, transparent 20%, #ffffff 50%)
+  }
+  
+  .mask-img-250 {
+    mask-image: linear-gradient(250deg, transparent 20%, #ffffff 50%)
+  }
+}
+
+
 
 
