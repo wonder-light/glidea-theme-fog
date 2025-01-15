@@ -9,5 +9,42 @@
 {# --------------- 头部👆 ---------------- #}
 {# --------------- 内容👇 ---------------- #}
 {% block content %}
+  <div class="wl-min-h-dvh wl-animate-fade-in wl-bg-zinc-800/50 wl-shadow-blur wl-rounded-lg wl-pb-12 wl-text-white m-xl:wl-mt-16">
+    {# { 2019: [...], 2018: [...] } #}
+    {% set years = posts|groupby(attribute='date',filter='substring',named={'start': 0, 'end': 4}) %}
+    {% for year, items in years %}
+      <div class="wl-pt-12 wl-pl-12 wl-text-4xl wl-font-bold wl-text-left wl-underline">{{ year }}</div>
+      <ul class="wl-mt-5 wl-px-24 wl-relative wl-list-none m-xl:wl-p-0">
+        {% for post in items %}
+          <li class="wl-relative wl-w-4/5 wl-bg-white/70 wl-ml-7 wl-p-3.5 wl-pl-6 wl-rounded-md wl-shadow-lg [&:not(:first-child)]:wl-mt-16">
+          <span class="archives-dot wl-w-0.5 wl-h-full wl-opacity-80 wl-absolute -wl-left-8 wl-top-0 wl-bg-rose-500 m-xl:wl-hidden">
+            <span class="wl-w-3.5 wl-h-3.5 wl-border-2 wl-border-white wl-border-solid wl-rounded-full wl-absolute wl-bg-rose-500 wl-top-0 -wl-left-1.25"></span>
+            <span class="wl-w-3.5 wl-h-3.5 wl-border-2 wl-border-white wl-border-solid wl-rounded-full wl-absolute wl-bg-rose-500 wl-bottom-0 -wl-left-1.25"></span>
+          </span>
+            <div>
+              <a data-pjax href="{{ post.link }}">
+                <div class="wl-text-black wl-text-left wl-font-light wl-text-xl wl-line-clamp-1">{{ post.title }}</div>
+                <div class="wl-text-left wl-pt-4">
+                <span class="wl-mt-2.5 wl-py-1.25 wl-px-2.5 wl-bg-rose-500 wl-font-bold wl-rounded-xl wl-text-xxs">
+                  <i class="wl-pr-1 fa fa-calendar"></i>
+                  {#  2024-11-15 #}
+                  {{ post.date|substring(end=10) }}
+                </span>
+                  <span class="wl-ml-2.5 wl-mt-2.5 wl-py-1.25 wl-px-2.5 wl-bg-orange-400 wl-font-bold wl-rounded-xl wl-text-xxs">
+                  <i class="wl-pr-1 fa fa-clock-o"></i> {{ post.stats.text }}
+                </span>
+                </div>
+                <img src="{{ post.feature }}" alt="{{ post.title }}" class="wl-absolute wl-right-0 wl-top-0 wl-h-full wl-rounded-md mask-img-110">
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+    {# ---------进度条👇--------- #}
+    {% from './macro/pagination.j2' import wlPagination with context %}
+    {{ wlPagination(pagination) }}
+    {# ---------进度条👆--------- #}
+  </div>
 {% endblock %}
 {# --------------- 内容👆 ---------------- #}
