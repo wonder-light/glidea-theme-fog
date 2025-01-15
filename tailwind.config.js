@@ -6,7 +6,23 @@ module.exports = {
   ],
   prefix: 'wl-',
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'xl': '1200px',
+        'm-xl': { 'max': '1199px' },
+      },
+      spacing: {
+        '1.25': '0.3125rem',
+        '28': '7rem',
+        '52': '13rem',
+        '100': '25rem',
+        '128': '32rem',
+        '200': '50rem',
+      },
+      borderWidth: {
+        '3': '3px',
+      }
+    },
   },
   plugins: [],
 }

@@ -18,7 +18,7 @@
         {% set shadow = ['wl-shadow-red-400','wl-shadow-orange-400','wl-shadow-amber-400','wl-shadow-emerald-400','wl-shadow-teal-400','wl-shadow-indigo-400','wl-shadow-fuchsia-400'] %}
         {% for tag in tags %}
           {% set index = (nums|random) %}
-          <a class="wl-py-1.5 wl-px-3 wl-transition-all {{ bg[index] }} wl-rounded-full wl-shadow-md {{ shadow[index] }}" data-pjax href="{{ tag.link if tag.use }}">
+          <a class="wl-py-1.5 wl-px-3 wl-transition-all {{ bg[index] }} wl-rounded-full wl-shadow-md {{ shadow[index] }}" data-pjax href="{{ tag.link if tag.used }}">
             {{ tag.name }}
           </a>
         {% endfor %}
