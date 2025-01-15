@@ -1,3 +1,4 @@
+@import "base.css";
 @import "markdown.css";
 @import "twcss.css";
 
@@ -54,6 +55,59 @@
   }
 }
 
-
+.wl-text-split {
+  &:after, &:before {
+    content: attr(data-text);
+    left: 0;
+    position: absolute;
+    top: -.5rem;
+    width: 100%;
+    --tw-text-opacity: 1;
+    color: rgb(255 237 213/var(--tw-text-opacity));
+    transition-duration: .15s;
+    transition-duration: .3s;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1)
+  }
+  
+  .wl-group:nth-child(odd) &:hover:before {
+    left: -.25rem
+  }
+  
+  .wl-group:nth-child(2n) &:hover:before {
+    left: .25rem
+  }
+  
+  &:before {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%)
+  }
+  
+  .wl-group:nth-child(odd) &:hover:after {
+    left: .25rem
+  }
+  
+  .wl-group:nth-child(2n) &:hover:after {
+    left: -.25rem
+  }
+  
+  &:after {
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%)
+  }
+  
+  &:hover {
+    border-style: solid;
+    border-top-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(34 211 238/var(--tw-border-opacity))
+  }
+  
+  &:hover {
+    &:after, &:before {
+      --tw-text-opacity: 1;
+      color: rgb(165 243 252/var(--tw-text-opacity));
+      transition-delay: .1s
+    }
+  }
+}
 
 

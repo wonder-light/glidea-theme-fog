@@ -1,20 +1,20 @@
-.wl-p-text h1,
-.wl-p-text h2,
-.wl-p-text h3,
-.wl-p-text h4,
-.wl-p-text h5,
-.wl-p-text h6 {
+.wl-markdown-text h1,
+.wl-markdown-text h2,
+.wl-markdown-text h3,
+.wl-markdown-text h4,
+.wl-markdown-text h5,
+.wl-markdown-text h6 {
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
 }
 
-.wl-p-text h1 {
+.wl-markdown-text h1 {
   font-size: 1.6em;
   line-height: 2.2;
   margin-bottom: 1.5em;
 }
 
-.wl-p-text h2 {
+.wl-markdown-text h2 {
   margin-bottom: 1.25em;
   font-size: 1.45em;
   line-height: 2.1;
@@ -26,11 +26,11 @@
   transition: all ease-in-out 0.1s;
 }
 
-.wl-p-text h2:hover {
+.wl-markdown-text h2:hover {
   background-position: -100% -100%;
 }
 
-.wl-p-text h3 {
+.wl-markdown-text h3 {
   margin-bottom: 1em;
   font-size: 1.3em;
   line-height: 1.8;
@@ -40,17 +40,17 @@
   transition: all linear 0.1s;
 }
 
-.wl-p-text h3:hover {
+.wl-markdown-text h3:hover {
   border-bottom: 2px solid var(--wl-m-h3);
 }
 
-.wl-p-text h4 {
+.wl-markdown-text h4 {
   margin-bottom: 0.8em;
   font-size: 1.06em;
   line-height: 1.6;
 }
 
-.wl-p-text h4::before {
+.wl-markdown-text h4::before {
   content: "";
   margin-right: 7px;
   display: inline-block;
@@ -62,13 +62,13 @@
   vertical-align: middle;
 }
 
-.wl-p-text h5 {
+.wl-markdown-text h5 {
   margin-bottom: 0.625em;
   font-size: 0.93em;
   line-height: 1.4;
 }
 
-.wl-p-text h5::before {
+.wl-markdown-text h5::before {
   content: "-";
   color: var(--wl-m-h4);
   margin-right: 7px;
@@ -76,19 +76,19 @@
   vertical-align: middle;
 }
 
-.wl-p-text h6 {
+.wl-markdown-text h6 {
   margin-bottom: 0.625em;
   font-size: 0.87em;
   line-height: 1.2;
 }
 
-.wl-p-text p {
+.wl-markdown-text p {
   color: rgba(0, 0, 0, 0.7);
   line-height: 1.8;
   margin-bottom: 10px;
 }
 
-.wl-p-text a {
+.wl-markdown-text a {
   /* 超链接 */
   border-bottom: 2px solid var(--wl-m-a);
   padding: 0 4px;
@@ -98,7 +98,7 @@
   /* 修复空链接（标题锚点）显示底部下划线的问题（padding宽度引起的问题），但是自定义锚点怎么处理？因为自定义的锚点链接里有一个空格，非空，所以自定义锚点时请额外加上alt="none"，这将会使得链接“消失” */
 }
 
-.wl-p-text a::before {
+.wl-markdown-text a::before {
   content: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 1024 1024'%3E%3Cpath  d='M477.934459 330.486594A50.844091 50.844091 0 0 1 406.752731 258.796425L512 152.532274a254.220457 254.220457 0 0 1 359.467726 359.467726L762.66137 618.772592a50.844091 50.844091 0 1 1-71.690168-71.690169l106.772591-106.772592a152.532274 152.532274 0 0 0-215.578947-215.578947z m70.164846 361.501489A50.844091 50.844091 0 1 1 619.789474 762.66137l-107.281033 107.281033A254.220457 254.220457 0 0 1 152.532274 512L259.813307 406.752731a50.844091 50.844091 0 1 1 72.19861 69.656405l-107.789474 107.281033a152.532274 152.532274 0 0 0 215.578947 215.578947z m-126.601788-16.77855a50.844091 50.844091 0 1 1-71.690168-71.690169l251.678252-251.678252a50.844091 50.844091 0 0 1 71.690169 71.690169z'/%3E%3C/svg%3E");
   color: var(--wl-m-a-img);
   display: inline-block;
@@ -108,51 +108,51 @@
   vertical-align: sub;
 }
 
-.wl-p-text a:hover {
+.wl-markdown-text a:hover {
   color: var(--wl-m-a-hover);
   border-bottom: 2px solid var(--wl-m-a-hover);
   transition: all linear 0.3s;
 }
 
-.wl-p-text a:empty,
-.wl-p-text a[alt="none"],
-.wl-p-text a[alt="null"] {
+.wl-markdown-text a:empty,
+.wl-markdown-text a[alt="none"],
+.wl-markdown-text a[alt="null"] {
   padding-left: 0;
   /*直接上display:none消除超链接会导致锚点失效，visibility:hidden又占位*/
   padding-right: 0;
 }
 
-.wl-p-text > ol,
-.wl-p-text > ul {
+.wl-markdown-text > ol,
+.wl-markdown-text > ul {
   padding-left: 35px;
   line-height: 1.6;
   margin-bottom: 16px;
 }
 
-.wl-p-text > ol > li,
-.wl-p-text > ul > li {
+.wl-markdown-text > ol > li,
+.wl-markdown-text > ul > li {
   padding: 0.2rem 0;
 }
 
-.wl-p-text > ol > li::marker,
-.wl-p-text > ul > li::marker {
+.wl-markdown-text > ol > li::marker,
+.wl-markdown-text > ul > li::marker {
   color: var(--wl-m-h3);
 }
 
-.wl-p-text > ol {
+.wl-markdown-text > ol {
   list-style-type: decimal;
 }
 
-.wl-p-text > ul {
+.wl-markdown-text > ul {
   list-style-type: square;
 }
 
-.wl-p-text img {
+.wl-markdown-text img {
   width: 80%;
   margin: 15px auto;
 }
 
-.wl-p-text pre::before {
+.wl-markdown-text pre::before {
   /* 代码块 - 红绿灯图片 */
   content: "";
   display: block;
@@ -166,33 +166,33 @@
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNDUwcHgiIGhlaWdodD0iMTMwcHgiPgogIDxlbGxpcHNlIGN4PSI2NSIgY3k9IjY1IiByeD0iNTAiIHJ5PSI1MiIgc3Ryb2tlPSJyZ2IoMjIwLDYwLDU0KSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJyZ2IoMjM3LDEwOCw5NikiLz4KICA8ZWxsaXBzZSBjeD0iMjI1IiBjeT0iNjUiIHJ4PSI1MCIgcnk9IjUyIiAgc3Ryb2tlPSJyZ2IoMjE4LDE1MSwzMykiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0icmdiKDI0NywxOTMsODEpIi8+CiAgPGVsbGlwc2UgY3g9IjM4NSIgY3k9IjY1IiByeD0iNTAiIHJ5PSI1MiIgIHN0cm9rZT0icmdiKDI3LDE2MSwzNykiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0icmdiKDEwMCwyMDAsODYpIi8+Cjwvc3ZnPg==);
 }
 
-.wl-p-text pre code {
+.wl-markdown-text pre code {
   font-size: 0.8em;
   white-space: inherit;
   overflow-y: auto;
   border-radius: 10px;
 }
 
-.wl-p-text pre code table {
+.wl-markdown-text pre code table {
   margin: 0;
 }
 
-.wl-p-text pre code tr:nth-child(2n) {
+.wl-markdown-text pre code tr:nth-child(2n) {
   background: none;
 }
 
-.wl-p-text pre code td,
-.wl-p-text pre code th {
+.wl-markdown-text pre code td,
+.wl-markdown-text pre code th {
   text-align: left;
   border: none;
 }
 
-.wl-p-text *:not(pre) code {
+.wl-markdown-text *:not(pre) code {
   /* 行内代码 */
   font-size: inherit;
 }
 
-.wl-p-text blockquote {
+.wl-markdown-text blockquote {
   /* 引用 */
   font-size: 1.25em;
   padding: 20px;
@@ -201,48 +201,48 @@
   border-color: var(--wl-m-blo-bd);
 }
 
-.wl-p-text summary {
+.wl-markdown-text summary {
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
 }
 
-.wl-p-text table {
+.wl-markdown-text table {
   width: 100%;
   margin: 30px auto;
   border-collapse: separate;
   border-spacing: 5px;
 }
 
-.wl-p-text td,
-.wl-p-text th {
+.wl-markdown-text td,
+.wl-markdown-text th {
   padding: 5px;
   text-align: center;
   border-width: 1px;
   border-style: solid;
 }
 
-.wl-p-text tr:nth-child(2n) {
+.wl-markdown-text tr:nth-child(2n) {
   background: none;
 }
 
-.wl-p-text mark {
+.wl-markdown-text mark {
   background: #fbe598;
 }
 
-.wl-p-text del {
+.wl-markdown-text del {
   /* 删除线 */
   color: var(--wl-m-del);
 }
 
-.wl-p-text hr {
+.wl-markdown-text hr {
   /* 分隔线*/
   padding: 0;
   border-top: 2px solid var(--wl-m-hr);
 }
 
-.wl-p-text figcaption {
+.wl-markdown-text figcaption {
   /* 图片描述文字 */
   color: var(--wl-m-del);
 }
