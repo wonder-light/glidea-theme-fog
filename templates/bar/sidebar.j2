@@ -1,0 +1,106 @@
+{# 三角栏👇 #}
+<div id="wl-side-tabs" class="wl-group wl-fixed wl-left-5 wl-top-0 wl-z-10 wl-w-12 wl-h-12 wl-cursor-pointer wl-transition-all wl-duration-700">
+  <span class="wl-absolute wl-top-1/2 wl-left-1/2 wl-w-7 wl-h-1 wl-transition-all wl-bg-cyan-200 -wl-mt-2 group-[.active]:wl-mt-0 group-[.active]:wl-rotate-45"></span>
+  <span class="wl-absolute wl-top-1/2 wl-left-1/2 wl-w-7 wl-h-1 wl-transition-all wl-bg-cyan-200 wl-delay-75 group-[.active]:wl-w-0"></span>
+  <span class="wl-absolute wl-top-1/2 wl-left-1/2 wl-w-7 wl-h-1 wl-transition-all wl-bg-cyan-200 wl-mt-2 wl-delay-150 group-[.active]:wl-mt-0 group-[.active]:-wl-rotate-45"></span>
+</div>
+{# 三角栏👆 #}
+
+{# --------------- 左侧菜单栏👇 ------------------------ #}
+<div id="wl-side-all" class="wl-h-screen wl-fixed wl-left-0 wl-w-[22%] wl-flex wl-justify-center wl-transition-all wl-duration-700 m-xl:wl-hidden">
+  <div id="wl-side" class="wl-w-full wl-relative wl-overflow-y-auto wl-animate-fade-in wl-bg-white/10 wl-backdrop-blur-sm">
+    {# 音乐栏👇 #}
+    <div class="wl-absolute wl-top-2.5 wl-right-2.5">
+      {% if site.customConfig.aplayerChoice %}
+        <a onclick="Utils.showAplayer()" class="wl-cursor-pointer">
+          <i class="wl-text-xl">
+            <img src='{{ themeConfig.domain }}/media/images/music.png' alt="音乐播放器" class="wl-w-10">
+          </i>
+        </a>
+      {% endif %}
+    </div>
+    {# 音乐栏👆 #}
+    <div class="wl-flex wl-justify-center wl-rounded-full wl-mt-10">
+      <img id="wl-avatar" class="wl-w-24 wl-rounded-full wl-overflow-hidden wl-shadow-2xl wl-transition-all wl-duration-1000 hover:wl-rotate-360" src="{{ themeConfig.domain }}/images/avatar.png?v=1731812219940" alt="头像">
+    </div>
+    <div class="wl-font-kaiti wl-mt-5 wl-text-center wl-text-2xl wl-font-bold wl-text-orange-100 site-name">{{ themeConfig.siteAuthor }}</div>
+    <span id="wordAnim1" class="wl-font-kaiti wl-mt-4 wl-text-center wl-text-xs wl-text-white wl-flex wl-justify-center site-description" data-text='["{{ themeConfig.siteDescription }}"]'>&nbsp;</span>
+    <div class="wl-flex wl-justify-center wl-w-full wl-mt-2.5 wl-font-kaiti wl-text-white">
+      <span class="wl-w-full wl-text-lg wl-flex wl-justify-center">文章</span>
+      <span class="wl-w-full wl-text-lg wl-flex wl-justify-center">标签</span>
+    </div>
+    <div class="wl-flex wl-justify-center wl-w-full wl-mt-2.5 wl-font-kaiti wl-text-white">
+      <span class="wl-w-full wl-text-lg wl-flex wl-justify-center" id="site-info-posts-num">{{ site.posts|length }}</span>
+      <span class="wl-w-full wl-text-lg wl-flex wl-justify-center">{{ site.tags|length }}</span>
+    </div>
+    {# 社交按钮👇 #}
+    {% if site.customConfig.socialChoice != 'close' %}
+      <div class="wl-group wl-mt-4 wl-mx-auto wl-w-64 wl-h-9 wl-bg-gray-400 wl-rounded wl-flex wl-items-center wl-justify-center wl-overflow-hidden wl-relative wl-cursor-pointer">
+      <span class="wl-absolute wl-w-full wl-h-full wl-bg-orange-400 wl-text-white wl-text-center wl-text-xs wl-p-2.5 wl-rounded wl-z-20 wl-transition-all wl-duration-500 group-hover:-wl-translate-x-full">
+        {{ site.customConfig.socialText if site.customConfig.socialText else '社交' }}
+      </span>
+        {% set items = ['github', 'QQ', 'zhihu', 'bilibili', 'wechat', 'weibo', 'wyy', 'steam'] %}
+        {% for item in items %}
+          {% if site.customConfig[item] %}
+            {% set itemValue = site.customConfig[item] %}
+            {% set attr = ('href="'+itemValue+'"') if (item != 'QQ' and item != 'wechat') else (['onclick="Utils.show', item|capitalize, '(', "'", itemValue, "'", ')"']|join('')) %}
+            <a class="wl-flex-1 wl-flex wl-justify-center wl-z-10" {{ attr }} target="_blank">
+              <i>
+                <img class="wl-w-5 wl-cursor-pointer" src="{{ themeConfig.domain }}/media/images/{{ item }}.png" alt="{{ item }}">
+              </i>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+    {# 社交按钮👆 #}
+    {# ------------ 加载菜单按钮👇 ------------------------- #}
+    <div class="wl-mt-2.5">
+      {% for menu in menus %}
+        <div class="wl-group wl-flex wl-justify-center wl-font-kaiti wl-mt-3.5 wl-text-center wl-text-base wl-font-bold wl-h-8">
+          <a class="wl-mr-4 wl-text-orange-100 wl-flex wl-items-center wl-justify-center" href="{{ menu.link|e }}" data-pjax>
+            <i><img class="wl-menu-icon wl-w-5 wl-cursor-pointer" src="" alt="{{ menu.name }}"></i>
+            &nbsp;
+            <span class="wl-text-split wl-text-xl wl-text-transparent wl-uppercase wl-leading-4 wl-border-t wl-border-solid wl-border-t-transparent wl-relative wl-top-1/4" data-text="{{ menu.name }}">
+              {{ menu.name }}
+            </span>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    {# ------------ 加载菜单按钮👆 ------------------------ #}
+    <hr class="wl-my-4">
+    <div class="wl-w-full wl-h-32 wl-mt-4 wl-animate-fade-in">
+      <div class="wl-text-white wl-text-center wl-text-sm foot-info">
+        <div>
+          欢迎光临 | Theme: <a href="https://github.com/wonder-light/glidea-theme-fog">Fog</a>
+        </div>
+        {% if site.customConfig.siteGoTimeChoice %}
+          <div id="site-go-times" class="wl-inline wl-text-xs">载入时间中...</div>
+        {% endif %}
+        <div id="vistornum" style="margin:0">
+            <span id="container_site_uv">
+              <i class="fa-solid fa-heart" aria-hidden="true" style="color: red;"></i>
+              总访问量:<span id="value_site_pv"></span>
+              &nbsp;&nbsp;|&nbsp;&nbsp;
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+              访问人数:<span id="value_site_uv" style="color: lightgreen"></span>
+            </span>
+        </div>
+        <div class="wl-text-white wl-text-center wl-text-base">
+          {{ themeConfig.footerInfo }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{# --------------- 左侧菜单栏👆 ------------------------ #}
+
+{# ----------------- 顶部菜单栏👇 ------------------------ #}
+
+{# ----------------- 顶部菜单栏👆 ------------------------ #}
+
+
+{# ------ 根据自定义配置声明变量👇 --------------------- #}
+<div id="side-post-title" title="{{ site.posts|length }}" content="{{ site.posts|map(attribute='title')|join('')|length }}" class="wl-hidden"></div>
+{# ------ 根据自定义配置声明变量👆 --------------------- #}

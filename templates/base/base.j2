@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" id="wl-view">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="x-pjax-version" content="v123">
+  {% block head %}
+    {% include './common/head.j2' ignore missing with context %}
+  {% endblock %}
+</head>
+<body>
+  {% block loading %}
+    {% include './common/loading.j2' ignore missing with context %}
+  {% endblock %}
+  <div id="wl-content" class="wl-w-full xl:wl-relative">
+    {% block sidebar %}
+      {# --------------- pc端菜单栏👇 ---------------- #}
+      {% include './bar/sidebar.j2' ignore missing with context %}
+      {# --------------- pc端菜单栏👆 ---------------- #}
+    {% endblock %}
+    <div id="wl-main" class="wl-text-center wl-relative xl:wl-px-4 xl:wl-ml-[25%] xl:wl-w-7/12 ">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+  {% block background %}
+    <!------------ 加载全局背景图功能👇（开始时没有写好，这功能有点鸡肋/(ㄒoㄒ)/~~） -->
+    <img id="wl-bg" class="wl-fixed wl-w-full wl-h-full wl-inset-0 -wl-z-10 wl-backdrop-blur-sm wl-object-cover wl-blur-xs"
+         src="{{ themeConfig.domain }}/media/images/custom-bgimage.png"
+         mobile-src="{{ themeConfig.domain }}/media/images/custom-mobilebg.jpg" alt="背景">
+    <!------------ 加载全局背景图功能👆（开始时没有写好，这功能有点鸡肋/(ㄒoㄒ)/~~） -->
+  {% endblock %}
+  {% block script %}
+    {% include './common/script.j2' ignore missing with context %}
+  {% endblock %}
+</body>
+</html>

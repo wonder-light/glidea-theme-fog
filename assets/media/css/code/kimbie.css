@@ -1,0 +1,92 @@
+:root {
+    --hj-color: #84613d;
+    --hj-comment-color: #a57a4c;
+    --hj-name-color: #dc3958;
+    --hj-number-color: #f79a32;
+    --hj-string-color: #889b4a;
+    --hj-keyword-color: #98676a;
+    --hj-attribute-color: #f06431;
+    --hj-background: #fbebd4;
+}
+
+:root[theme=dark] {
+    --hj-color: #d3af86;
+    --hj-comment-color: #d6baad;
+    --hj-name-color: #dc3958;
+    --hj-number-color: #f79a32;
+    --hj-string-color: #889b4a;
+    --hj-keyword-color: #98676a;
+    --hj-attribute-color: #f06431;
+    --hj-background: #221a0f;
+}
+
+
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*
+    Name:     Kimbie (light)
+    Author:   Jan T. Sott
+    License:  Creative Commons Attribution-ShareAlike 4.0 Unported License
+    URL:      https://github.com/idleberg/Kimbie-highlight.js
+*/
+.hljs {
+  background: var(--hj-background);
+  color: var(--hj-color)
+}
+/* Kimbie Comment */
+.hljs-comment,
+.hljs-quote {
+  color: var(--hj-comment-color)
+}
+/* Kimbie Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-meta {
+  color: var(--hj-name-color)
+}
+/* Kimbie Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-deletion,
+.hljs-link {
+  color: var(--hj-number-color)
+}
+/* Kimbie Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: var(--hj-string-color)
+}
+/* Kimbie Purple */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-function {
+  color: var(--hj-keyword-color)
+}
+/* Kimbie Yellow */
+.hljs-title,
+.hljs-section,
+.hljs-attribute {
+  color: var(--hj-attribute-color)
+}
+.hljs-emphasis {
+  font-style: italic
+}
+.hljs-strong {
+  font-weight: bold
+}

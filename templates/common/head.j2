@@ -1,0 +1,63 @@
+{# 添加到上下文: siteTitle, siteKeys, siteDescription  #}
+{% set currentTitle = siteTitle if siteTitle else themeConfig.siteAuthor %}
+{% set currentKeys = siteKeys if siteKeys else site.tags|map(attribute='name')|join(',') %}
+{% set currentDesc = siteDescription if siteDescription else (themeConfig.siteAuthor + '的小站，欢迎来到我的小站呀，很高兴遇见你！') %}
+
+<title>{{ currentTitle }}</title>
+<link rel="icon" href="{{ themeConfig.domain }}/favicon.ico">
+<meta name="author" content="{{ themeConfig.siteAuthor }}"/>
+<meta name="keywords" content="{{ currentKeys }}"/>
+<meta name="description" content="{{ currentDesc }}"/>
+<meta property="og:title" content="{{ currentTitle }}">
+<meta property="og:description" content="{{ currentDesc }}"/>
+<meta property="og:url" content="{{ themeConfig.domain }}">
+<meta property="og:image" content="{{ themeConfig.domain }}/images/avatar.png?v={{ site.utils.now }}"/>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="{{ themeConfig.domain }}">
+<meta name="twitter:creator" content="{{ themeConfig.siteAuthor }}">
+<meta name="twitter:title" content="{{ currentTitle }}">
+<meta property="twitter:description" content="{{ currentDesc }}">
+<meta name="twitter:image" content="{{ themeConfig.domain }}/images/avatar.png?v={{ site.utils.now }}">
+<meta name="msvalidate.01" content="A0565B49BBC385AD9AD88B7B7C449B22" about="bing验证网站的元数据"/>
+<meta name="baidu-site-verification" content="codeva-kT1BL6mNgP" about="baidu验证网站的元数据"/>
+
+{# 链接 #}
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ themeConfig.domain }}/media/css/twcss.css">
+<link rel="stylesheet" href="{{ themeConfig.domain }}/styles/main.css">
+<!-- aplayer播放器加载👇 -->
+{% if site.customConfig.aplayerChoice %}
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+{% endif %}
+<!--<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.1/css/all.min.css">-->
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+<script src="https://fastly.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+<!-- fancybox -->
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
+<script src="https://fastly.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<!-- jquery.pjax -->
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>-->
+<script src="https://fastly.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+<!-- 代码高亮插件 -->
+<script src="https://fastly.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<!-- 代码显示行数插件 -->
+<script src="https://fastly.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<!-- 代码渲染风格css -->
+<link rel="stylesheet" href="{{ themeConfig.domain }}/media/css/code/material.css">
+<!-- 代码复制插件 -->
+<script src="https://fastly.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+<!-- 数学公式 -->
+<link href="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.js"></script>
+<!-- -----------------twikoo评论系统引入👇 --------->
+<script src="https://fastly.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js"></script>
+<!-- -----------------twikoo评论系统引入👆 --------->
+<!--核心功能加载-->
+<script src="{{ themeConfig.domain }}/media/js/main.js"></script>
+<!-- 分享功能 -->
+{% if site.customConfig.shareChoice %}
+  <script src="https://fastly.jsdelivr.net/npm/share2/dist/Share.js"></script>
+{% endif %}
+

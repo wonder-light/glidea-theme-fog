@@ -1,0 +1,6 @@
+{% set siteTitle = [post.title,themeConfig.siteName]|join(' | ') %}
+{% set siteKeys = [post.tags|join(','),post.title,themeConfig.siteAuthor]|join(',') %}
+{% set siteDescription = post.abstract if post.abstract else post.description %}
+{% extends './base/base.j2' %}
+{% block content %}
+{% endblock %}

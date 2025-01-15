@@ -1,0 +1,156 @@
+:root {
+    --hj-color: #24292e;
+    --hj-keyword-color: #d73a49;
+    --hj-class-color: #6f42c1;
+    --hj-attribute-color: #005cc5;
+    --hj-string-color: #032f62;
+    --hj-symbol-color: #e36209;
+    --hj-comment-color:#6a737d;
+    --hj-name-color: #22863a;
+    --hj-section-color: #005cc5;
+    --hj-bullet-color: #735c0f;
+    --hj-additio-color: #22863a;
+    --hj-deletion-color: #b31d28;
+    --hj-background: #ffffff;
+    --hj-addition-background: #f0fff4;
+    --hj-deletion-background: #ffeef0;
+}
+
+:root[theme=dark] {
+    --hj-color: #adbac7;
+    --hj-keyword-color: #f47067;
+    --hj-class-color: #dcbdfb;
+    --hj-attribute-color: #6cb6ff;
+    --hj-string-color: #96d0ff;
+    --hj-symbol-color: #f69d50;
+    --hj-comment-color: #768390;
+    --hj-name-color: #8ddb8c;
+    --hj-section-color: #316dca;
+    --hj-bullet-color: #eac55f;
+    --hj-additio-color: #b4f1b4;
+    --hj-deletion-color: #ffd8d3;
+    --hj-background: #22272e;
+    --hj-addition-background: #1b4721;
+    --hj-deletion-background: #78191b;
+}
+
+
+
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+  Theme: GitHub
+  Description: Light theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-light
+  Current colors taken from GitHub's CSS
+*/
+.hljs {
+  color: var(--hj-color);
+  background: var(--hj-background);
+}
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  /* prettylights-syntax-keyword */
+  color: var(--hj-keyword-color);
+}
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  /* prettylights-syntax-entity */
+  color: var(--hj-class-color);
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+  /* prettylights-syntax-constant */
+  color: var(--hj-attribute-color);
+}
+.hljs-regexp,
+.hljs-string,
+.hljs-meta .hljs-string {
+  /* prettylights-syntax-string */
+  color: var(--hj-string-color);
+}
+.hljs-built_in,
+.hljs-symbol {
+  /* prettylights-syntax-variable */
+  color: var(--hj-symbol-color);
+}
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+  /* prettylights-syntax-comment */
+  color: var(--hj-comment-color);
+}
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+  /* prettylights-syntax-entity-tag */
+  color: var(--hj-name-color);
+}
+.hljs-subst {
+  /* prettylights-syntax-storage-modifier-import */
+  color: var(--hj-color);
+}
+.hljs-section {
+  /* prettylights-syntax-markup-heading */
+  color: var(--hj-section-color);
+  font-weight: bold
+}
+.hljs-bullet {
+  /* prettylights-syntax-markup-list */
+  color: var(--hj-bullet-color);
+}
+.hljs-emphasis {
+  /* prettylights-syntax-markup-italic */
+  color: var(--hj-color);
+  font-style: italic
+}
+.hljs-strong {
+  /* prettylights-syntax-markup-bold */
+  color: var(--hj-color);
+  font-weight: bold
+}
+.hljs-addition {
+  /* prettylights-syntax-markup-inserted */
+  color: var(--hj-additio-color);
+  background-color: var(--hj-addition-background)
+}
+.hljs-deletion {
+  /* prettylights-syntax-markup-deleted */
+  color: var(--hj-section-color);
+  background-color: var(--hj-deletion-background)
+}
+.hljs-char.escape_,
+.hljs-link,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+  /* purposely ignored */
+  
+}
