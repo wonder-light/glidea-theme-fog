@@ -24,7 +24,7 @@
       <img id="wl-avatar" class="wl-w-24 wl-rounded-full wl-overflow-hidden wl-shadow-2xl wl-transition-all wl-duration-1000 hover:wl-rotate-360" src="{{ themeConfig.domain }}/images/avatar.png?v={{ site.utils.now }}" alt="头像">
     </div>
     <div class="wl-font-kaiti wl-mt-5 wl-text-center wl-text-2xl wl-font-bold wl-text-orange-100 site-name">{{ themeConfig.siteAuthor }}</div>
-    <span id="wordAnim1" class="wl-font-kaiti wl-mt-4 wl-text-center wl-text-xs wl-text-white wl-flex wl-justify-center site-description" data-text='["{{ themeConfig.siteDescription }}"]'>&nbsp;</span>
+    <span id="wordAnim1" class="wl-font-kaiti wl-mt-4 wl-text-center wl-text-base wl-text-white wl-flex wl-justify-center site-description" data-text='["{{ themeConfig.siteDescription }}"]'>&nbsp;</span>
     <div class="wl-flex wl-justify-center wl-w-full wl-mt-2.5 wl-font-kaiti wl-text-white">
       <span class="wl-w-full wl-text-lg wl-flex wl-justify-center">文章</span>
       <span class="wl-w-full wl-text-lg wl-flex wl-justify-center">标签</span>
@@ -57,11 +57,11 @@
     {# ------------ 加载菜单按钮👇 ------------------------- #}
     <div class="wl-mt-2.5">
       {% for menu in menus %}
-        <div class="wl-group wl-flex wl-justify-center wl-font-kaiti wl-mt-3.5 wl-text-center wl-text-base wl-font-bold wl-h-8">
+        <div class="wl-group wl-flex wl-justify-center wl-font-kaiti wl-mt-3.5 wl-text-center wl-text-base wl-font-bold wl-h-8 site-menu">
           <a class="wl-mr-4 wl-text-orange-100 wl-flex wl-items-center wl-justify-center" href="{{ menu.link|e }}" data-pjax>
             <i><img class="wl-menu-icon wl-w-5 wl-cursor-pointer" src="" alt="{{ menu.name }}"></i>
             &nbsp;
-            <span class="wl-text-split wl-text-xl wl-text-transparent wl-uppercase wl-leading-4 wl-border-t wl-border-solid wl-border-t-transparent wl-relative wl-top-1/4" data-text="{{ menu.name }}">
+            <span class="wl-text-split wl-group wl-text-xl wl-text-transparent wl-uppercase wl-leading-4 wl-border-t wl-border-solid wl-border-t-transparent wl-relative wl-top-1/4" data-text="{{ menu.name }}">
               {{ menu.name }}
             </span>
           </a>
@@ -87,7 +87,7 @@
               访问人数:<span id="value_site_uv" style="color: lightgreen"></span>
             </span>
         </div>
-        <div class="wl-text-white wl-text-center wl-text-base">
+        <div class="wl-text-center wl-text-base">
           {{ themeConfig.footerInfo }}
         </div>
       </div>

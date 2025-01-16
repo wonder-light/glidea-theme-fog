@@ -1,129 +1,75 @@
-{# 无图标题 - titleWithoutImgColor #}
-{% if titleWithoutImgColor and titleWithoutImgColor != 'white' %}
-  .posttitlewithoutimg {
-  color: {{ titleWithoutImgColor }};
-  }
-{% endif %}
-
 {# 网站标题颜色 #}
-{% if sitenameColor and sitenameColor != 'antiquewhite' %}
-  .sitename {
-  color: {{ sitenameColor }};
+{% if siteNameColor and siteNameColor != 'antiquewhite' %}
+  .site-name {
+  color: {{ siteNameColor }};
   }
 {% endif %}
 
 {# 网站描述颜色 #}
-{% if sitedescribtionColor and sitedescribtionColor != 'white' %}
-  .description {
-  color: {{ sitedescribtionColor }};
+{% if siteDescriptionColor and siteDescriptionColor != 'white' %}
+  .site-description {
+  color: {{ siteDescriptionColor }};
   }
 {% endif %}
 
 {# 网站菜单按钮颜色 #}
-{% if sitemenuColor and sitemenuColor != 'antiquewhite' %}
-  .menubutton {
-  color: {{ sitemenuColor }};
-  }
-
-  .menucontainer span::before,
-  .menucontainer span::after {
-  color:{{ sitemenuColor }};
-  content: attr(data-text);
-  position: absolute;
-  top: -0.5em;
-  left: 0;
-  width: 100%;
-  transition: 0.3s ease-out;
-  }
-
-  .menubutton:visited{
-  color: {{ sitemenuColor }};
-  }
-
-  .menutopbutton{
-  color: {{ sitemenuColor }};
-  }
-
-  .menutopbutton:visited{
-  color: {{ sitemenuColor }};
+{% if siteMenuColor and siteMenuColor != 'antiquewhite' %}
+  .wl-text-split::after, .wl-text-split::before {
+  color: {{ siteMenuColor }};
   }
 {% endif %}
 
-
+{# 文章标题颜色 #}
 {% if titleColor and titleColor != 'white' %}
-  .posttitle {
-  color: {{ titleColor }};
-  }
-  .eleg-title{
+  .article-title {
   color: {{ titleColor }};
   }
 {% endif %}
 
 {# 底部信息颜色 #}
-{% if footinfoColor and footinfoColor != 'white' %}
-  #sitegotimeDate,#sitegotimes,#footinfo,#footinfo a{
-  color: {{ footinfoColor }};
+{% if footInfoColor and footInfoColor != 'white' %}
+  .foot-info {
+  color: {{ footInfoColor }};
   }
 {% endif %}
-
-{# 移动端网站描述颜色 #}
-{% if appinfoColor and appinfoColor != 'white' %}
-  .mobiledescribtion{
-  color: {{ footinfoColor }};
-  }
-{% endif %}
-
-.navbar-inverse{
-background-color: rgba(143,168,171,0.8);
-}
 
 {# 站点名称字体 #}
-{% if sitenameFont and sitenameFont != 'Arial' %}
-  .sitename{
-  font-family: {{ sitenameFont }};
+{% if siteNameFont and siteNameFont != 'kaiti' %}
+  .site-name{
+  font-family: {{ siteNameFont }};
   }
 {% endif %}
 
 {# 站点介绍字体 #}
-{% if sitedescFont and sitedescFont != 'Arial' %}
-  .description{
-  font-family: {{ sitedescFont }};
+{% if siteDescriptionFont and siteDescriptionFont != 'kaiti' %}
+  .site-description {
+  font-family: {{ siteDescriptionFont }};
   }
 {% endif %}
 
-{# 站点文章信息字体 #}
-{% if siteinfoFont and siteinfoFont != 'Arial' %}
-  .siteinfo{
-  font-family: {{ sitedescFont }};
+{# 文章标题字体 #}
+{% if titleFont and titleFont != 'Arial' %}
+  .article-title {
+  font-family: {{ titleFont }};
   }
 {% endif %}
 
 {# 菜单栏字体 #}
-{% if sitemenuFont and sitemenuFont != 'kaiti' %}
-  .menubutton{
-  font-family: {{ sitemenuFont }};
+{% if siteMenuFont and siteMenuFont != 'kaiti' %}
+  .site-menu {
+  font-family: {{ siteMenuFont }};
   }
 {% endif %}
 
+{# 菜单栏字体 #}
+{% if postFont and postFont != 'kaiti' %}
+  .wl-markdown-text {
+  font-family: {{ siteMenuFont }};
+  }
+{% endif %}
+
+{# 自定义 CSS #}
 {% if customCss %}
   {{ customCss }}
 {% endif %}
-
-{% if menuposition == 'top' %}
-  .navbar-inverse .navbar-nav>li>a{
-  color: {{ sitemenuColor }};
-  }
-{% endif %}
-
-
-{% if socialchoice == 'close' %}
-  #socialMenu{
-  display:none;
-  }
-
-  .topshare-button{
-  display:none;
-  }
-{% endif %}
-
 

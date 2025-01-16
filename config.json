@@ -40,17 +40,6 @@
       ],
       "note": "两种风格"
     },
-    
-    
-    
-    {
-      "name": "live2d",
-      "label": "是否开启看板娘",
-      "group": "布局",
-      "value": true,
-      "type": "switch",
-      "note": ""
-    },
     {
       "name": "siteNameColor",
       "group": "颜色",
@@ -60,7 +49,7 @@
       "note": "网站名称颜色 默认：antiquewhite"
     },
     {
-      "name": "sitedescribtionColor",
+      "name": "siteDescriptionColor",
       "group": "颜色",
       "value": "white",
       "type": "input",
@@ -68,7 +57,7 @@
       "note": "网站描述颜色 默认：white"
     },
     {
-      "name": "sitemenuColor",
+      "name": "siteMenuColor",
       "group": "颜色",
       "value": "antiquewhite",
       "type": "input",
@@ -84,7 +73,7 @@
       "note": "文章标题颜色 默认：white"
     },
     {
-      "name": "footinfoColor",
+      "name": "footInfoColor",
       "group": "颜色",
       "value": "white",
       "type": "input",
@@ -92,39 +81,31 @@
       "note": "底部信息颜色（默认:white）"
     },
     {
-      "name": "appinfoColor",
-      "group": "颜色",
-      "value": "white",
-      "type": "input",
-      "card": "color",
-      "note": "手机端博客首页网站描述颜色（默认:white）"
-    },
-    {
-      "name": "sitenameFont",
+      "name": "siteNameFont",
       "label": "站点名称字体",
       "group": "字体",
-      "value": "Arial",
+      "value": "kaiti",
       "type": "input",
-      "note": ""
+      "note": "可以使用 kaiti, Arial 等等已有的字体"
     },
     {
-      "name": "sitedescFont",
+      "name": "siteDescriptionFont",
       "label": "站点介绍字体",
       "group": "字体",
-      "value": "Arial",
+      "value": "kaiti",
       "type": "input",
       "note": ""
     },
     {
-      "name": "siteinfoFont",
-      "label": "站点文章信息字体",
+      "name": "titleFont",
+      "label": "文章标题字体",
       "group": "字体",
       "value": "Arial",
       "type": "input",
       "note": ""
     },
     {
-      "name": "sitemenuFont",
+      "name": "siteMenuFont",
       "label": "菜单栏字体",
       "group": "字体",
       "value": "kaiti",
@@ -139,6 +120,16 @@
       "type": "input",
       "note": ""
     },
+    
+    {
+      "name": "live2d",
+      "label": "是否开启看板娘",
+      "group": "布局",
+      "value": true,
+      "type": "switch",
+      "note": ""
+    },
+    
     {
       "name": "siteGoTimeChoice",
       "label": "是否开启站点创建时间",

@@ -32,32 +32,32 @@ declare class Fog {
   menuPosition: 'top' | 'left';
   // 文章列表风格
   postListMode: 'default' | 'elegant';
+  // 网站名称颜色 默认：antiquewhite
+  siteNameColor: string;
+  // 网站描述颜色 默认：white
+  siteDescriptionColor: string;
+  // 网站菜单按钮颜色 默认：antiquewhite
+  siteMenuColor: string;
+  //文章标题颜色 默认：white
+  titleColor: string;
+  //底部信息颜色（默认:white）
+  footInfoColor: string;
+  // 站点名称字体
+  siteNameFont: string;
+  // 站点介绍字体
+  siteDescriptionFont: string;
+  // 文章标题字体
+  titleFont: string;
+  // 菜单栏字体
+  siteMenuFont: string;
+  // 文章正文字体
+  postFont: string;
+  
   
   
   // 是否开启看板娘
   live2d: boolean;
-  // 网站名称颜色 默认：antiquewhite
-  siteNameColor: string;
-  // 网站描述颜色 默认：white
-  sitedescribtionColor: string;
-  // 网站菜单按钮颜色 默认：antiquewhite
-  sitemenuColor: string;
-  //文章标题颜色 默认：white
-  titleColor: string;
-  //底部信息颜色（默认:white）
-  footinfoColor: string;
-  //手机端博客首页网站描述颜色（默认:white）
-  appinfoColor: string;
-  //
-  sitenameFont: string;
-  //
-  sitedescFont: string;
-  //
-  siteinfoFont: string;
-  //
-  sitemenuFont: string;
-  //
-  postFont: string;
+ 
   // 是否开启站点创建时间
   siteGoTimeChoice: boolean;
   //输入日期（格式:2020/22/02）
