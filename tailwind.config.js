@@ -24,7 +24,10 @@ module.exports = {
       },
       boxShadow: {
         'blur': '-10px 10px 10px #0000007F',
-      }
+      },
+      borderRadius: {
+        '43': '43%',
+      },
     },
   },
   plugins: [],

@@ -54,10 +54,6 @@ body {
   }
 }
 
-.wl-animate-spin {
-  animation: wl-spin 1s linear infinite
-}
-
 .wl-grid-cols-2 {
   grid-template-columns:repeat(2, minmax(0, 1fr))
 }
@@ -124,18 +120,6 @@ body {
 .wl-blur-xs {
   --tw-blur: blur(2px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
-}
-
-.wl-animate-duration-5 {
-  animation-duration: 5s
-}
-
-.wl-animate-duration-7 {
-  animation-duration: 7s
-}
-
-.wl-animate-duration-9 {
-  animation-duration: 9s
 }
 
 .img-loading {

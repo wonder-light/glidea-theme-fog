@@ -403,10 +403,6 @@ body {
   }
 }
 
-.wl-animate-spin {
-  animation: wl-spin 1s linear infinite
-}
-
 .wl-grid-cols-2 {
   grid-template-columns:repeat(2, minmax(0, 1fr))
 }
@@ -472,18 +468,6 @@ body {
 .wl-blur-xs {
   --tw-blur: blur(2px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
-}
-
-.wl-animate-duration-5 {
-  animation-duration: 5s
-}
-
-.wl-animate-duration-7 {
-  animation-duration: 7s
-}
-
-.wl-animate-duration-9 {
-  animation-duration: 9s
 }
 
 .img-loading {
@@ -1147,12 +1131,20 @@ video {
   left: -0.625rem
 }
 
+.-wl-left-36 {
+  left: -9rem
+}
+
 .-wl-left-8 {
   left: -2rem
 }
 
 .wl-bottom-0 {
   bottom: 0px
+}
+
+.wl-bottom-1\/4 {
+  bottom: 25%
 }
 
 .wl-bottom-10 {
@@ -1219,6 +1211,10 @@ video {
   top: 0.625rem
 }
 
+.wl-top-28 {
+  top: 7rem
+}
+
 .-wl-z-10 {
   z-index: -10
 }
@@ -1229,6 +1225,10 @@ video {
 
 .wl-z-20 {
   z-index: 20
+}
+
+.wl-col-span-2 {
+  grid-column: span 2 / span 2
 }
 
 .wl-float-right {
@@ -1367,6 +1367,10 @@ video {
   display: flex
 }
 
+.wl-grid {
+  display: grid
+}
+
 .wl-hidden {
   display: none
 }
@@ -1377,6 +1381,14 @@ video {
 
 .wl-h-12 {
   height: 3rem
+}
+
+.wl-h-200 {
+  height: 50rem
+}
+
+.wl-h-24 {
+  height: 6rem
 }
 
 .wl-h-3\.5 {
@@ -1419,6 +1431,10 @@ video {
   min-height: 25rem
 }
 
+.wl-min-h-12 {
+  min-height: 3rem
+}
+
 .wl-min-h-5 {
   min-height: 1.25rem
 }
@@ -1443,8 +1459,16 @@ video {
   width: 3rem
 }
 
+.wl-w-128 {
+  width: 32rem
+}
+
 .wl-w-2\/5 {
   width: 40%
+}
+
+.wl-w-200 {
+  width: 50rem
 }
 
 .wl-w-24 {
@@ -1512,6 +1536,17 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
 }
 
+@keyframes wl-spin {
+
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+.wl-animate-spin {
+  animation: wl-spin 1s linear infinite
+}
+
 .wl-cursor-not-allowed {
   cursor: not-allowed
 }
@@ -1528,6 +1563,10 @@ video {
 
 .wl-list-none {
   list-style-type: none
+}
+
+.wl-grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr))
 }
 
 .wl-flex-col {
@@ -1558,6 +1597,10 @@ video {
   gap: 0.625rem
 }
 
+.wl-gap-4 {
+  gap: 1rem
+}
+
 .wl-gap-5 {
   gap: 1.25rem
 }
@@ -1578,8 +1621,16 @@ video {
   white-space: nowrap
 }
 
+.wl-break-words {
+  overflow-wrap: break-word
+}
+
 .wl-rounded {
   border-radius: 0.25rem
+}
+
+.wl-rounded-43 {
+  border-radius: 43%
 }
 
 .wl-rounded-full {
@@ -1624,6 +1675,11 @@ video {
   border-width: 3px
 }
 
+.wl-border-x-8 {
+  border-left-width: 8px;
+  border-right-width: 8px
+}
+
 .wl-border-l-3 {
   border-left-width: 3px
 }
@@ -1643,6 +1699,11 @@ video {
 
 .wl-border-current {
   border-color: currentColor
+}
+
+.wl-border-cyan-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(165 243 252 / var(--tw-border-opacity, 1))
 }
 
 .wl-border-red-500 {
@@ -1680,6 +1741,14 @@ video {
 .wl-bg-cyan-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(165 243 252 / var(--tw-bg-opacity, 1))
+}
+
+.wl-bg-cyan-200\/40 {
+  background-color: rgb(165 243 252 / 0.4)
+}
+
+.wl-bg-cyan-200\/70 {
+  background-color: rgb(165 243 252 / 0.7)
 }
 
 .wl-bg-cyan-200\/75 {
@@ -1735,6 +1804,11 @@ video {
   background-color: rgb(248 113 113 / var(--tw-bg-opacity, 1))
 }
 
+.wl-bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1))
+}
+
 .wl-bg-rose-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(244 63 94 / var(--tw-bg-opacity, 1))
@@ -1764,6 +1838,14 @@ video {
 
 .wl-bg-zinc-800\/50 {
   background-color: rgb(39 39 42 / 0.5)
+}
+
+.wl-bg-opacity-10 {
+  --tw-bg-opacity: 0.1
+}
+
+.wl-bg-opacity-40 {
+  --tw-bg-opacity: 0.4
 }
 
 .wl-bg-cover {
@@ -2021,6 +2103,10 @@ video {
   color: rgb(255 237 213 / var(--tw-text-opacity, 1))
 }
 
+.wl-text-orange-100\/50 {
+  color: rgb(255 237 213 / 0.5)
+}
+
 .wl-text-orange-400 {
   --tw-text-opacity: 1;
   color: rgb(251 146 60 / var(--tw-text-opacity, 1))
@@ -2152,6 +2238,18 @@ video {
 .wl-duration-700 {
   transition-duration: 700ms
 }
+
+.wl-animate-duration-5 {
+    animation-duration: 5s;
+  }
+
+.wl-animate-duration-7 {
+    animation-duration: 7s;
+  }
+
+.wl-animate-duration-9 {
+    animation-duration: 9s;
+  }
 
 @font-face {
   font-family: 'FXAiQingQiXiangSuo';
@@ -2353,5 +2451,3 @@ video {
 .\[\&\:not\(\:first-child\)\]\:wl-mt-16:not(:first-child) {
   margin-top: 4rem
 }
-
-

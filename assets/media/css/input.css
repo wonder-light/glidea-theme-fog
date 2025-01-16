@@ -61,6 +61,20 @@
   }
 }
 
+@layer utilities {
+  .wl-animate-duration-5 {
+    animation-duration: 5s;
+  }
+  
+  .wl-animate-duration-7 {
+    animation-duration: 7s;
+  }
+  
+  .wl-animate-duration-9 {
+    animation-duration: 9s;
+  }
+}
+
 .wl-text-split {
   &:after, &:before {
     content: attr(data-text);
@@ -115,5 +129,3 @@
     }
   }
 }
-
-
