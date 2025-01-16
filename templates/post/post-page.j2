@@ -1,0 +1,32 @@
+{# --------------- 上下页👇 ---------------- #}
+<div class="wl-mt-2.5 wl-flex wl-justify-between wl-w-full">
+  {% if post.prevPost %}
+    <a class="wl-block wl-rounded-xl wl-w-2/5 wl-shadow-blur wl-max-h-52 wl-relative" data-pjax href="{{ post.prevPost.link }}">
+      <img class="wl-rounded-xl wl-h-full wl-w-full wl-object-cover" src="{{ post.prevPost.feature }}" alt="{{ post.prevPost.title }}">
+      <h4 class="wl-absolute wl-bottom-2.5 wl-text-white wl-line-clamp-1 wl-p-2.5 wl-text-center">{{ post.prevPost.title }}</h4>
+    </a>
+  {% else %}
+    <div></div>
+  {% endif %}
+  {% if post.nextPost %}
+    <a class="wl-block wl-rounded-xl wl-w-2/5 wl-shadow-blur wl-max-h-52 wl-relative" data-pjax href="{{ post.nextPost.link }}">
+      <img class="wl-rounded-xl wl-h-full wl-w-full wl-object-cover" src="{{ post.nextPost.feature }}" alt="{{ post.nextPost.title }}">
+      <h4 class="wl-absolute wl-bottom-2.5 wl-text-white wl-line-clamp-1 wl-p-2.5 wl-text-center">{{ post.nextPost.title }}</h4>
+    </a>
+  {% else %}
+    <div></div>
+  {% endif %}
+</div>
+{# --------------- 上下页👆 ---------------- #}
+{# --------------- 返回顶部👇 ---------------- #}
+<div class="m-xl:wl-hidden" id="wk-toggle">
+  <div class="wl-fixed wl-bottom-24 wl-right-64 wl-z-10 wl-cursor-pointer ">
+    <div class="wl-bg-black wl-w-12 wl-h-12 wl-flex wl-items-center wl-justify-center wl-rounded-full">
+      <i class="wl-text-white fa fa-angle-double-up"></i>
+    </div>
+  </div>
+</div>
+{# --------------- 返回顶部👆 ---------------- #}
+{# --------------- 阅读模式👇 ---------------- #}
+<div class="wl-bg-white/70 wl-text-orange-400 wl-fixed wl-z-10 wl-bottom-10 wl-right-64 wl-w-12 wl-leading-10 wl-text-3xl wl-rounded-xl wl-cursor-pointer m-xl:wl-hidden" onclick="SitePost.readingMode()">阅</div>
+{# --------------- 阅读模式👆 ---------------- #}

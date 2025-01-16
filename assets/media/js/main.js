@@ -190,10 +190,22 @@ class SitePost {
   }
   
   static readingMode() {
-    SitePost.#readingMode ? (SiteMenu.open(), $("#wl-side-tabs").fadeIn(4 * fadeTime), $("#wl-bg").fadeIn(4 * fadeTime), $("#wl-side-all")
-      .fadeIn(4 * fadeTime), $(".markdownIt-TOC a").css("color", "antiquewhite"), SitePost.#readingMode = !1) : (SiteMenu.close(), $("#wl-side-tabs")
-      .fadeOut(4 * fadeTime), $("#wl-bg").fadeOut(4 * fadeTime), $("#wl-side-all").fadeOut(4 * fadeTime), $(".markdownIt-TOC a")
-      .css("color", "black"), SitePost.#readingMode = !0)
+    if (SitePost.#readingMode) {
+      SiteMenu.open();
+      $("#wl-side-tabs").fadeIn(4 * fadeTime);
+      $("#wl-bg").fadeIn(4 * fadeTime);
+      $("#wl-side-all").fadeIn(4 * fadeTime);
+      $(".markdownIt-TOC a").css("color", "antiquewhite");
+      SitePost.#readingMode = false;
+    }
+    else {
+      SiteMenu.close();
+      $("#wl-side-tabs").fadeOut(4 * fadeTime);
+      $("#wl-bg").fadeOut(4 * fadeTime);
+      $("#wl-side-all").fadeOut(4 * fadeTime);
+      $(".markdownIt-TOC a").css("color", "black");
+      SitePost.#readingMode = true;
+    }
   }
   
   static _code() {

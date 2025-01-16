@@ -1,0 +1,25 @@
+{# ---------标签👇--------- #}
+<div class="wl-pt-2.5 wl-pl-2.5 wl-text-sm wl-text-white wl-font-bold wl-flex wl-items-center wl-gap-2.5">
+  <span class="wl-rounded-xl wl-py-1.25 wl-px-2.5 wl-bg-rose-500">
+    <i class="fa fa-calendar"></i>{{ post.date|substring(end=10) }}
+  </span>
+  <span class="wl-rounded-xl wl-py-1.25 wl-px-2.5 wl-bg-orange-400">
+    <i class="fa fa-clock-o"></i>{{ post.stats.text }}
+  </span>
+  {% for tag in post.tags %}
+    <a class="wl-py-1.25 wl-px-2.5 wl-rounded-xl wl-border-2 wl-border-solid wl-text-green-400 hover:wl-text-cyan-400 wl-border-current" data-pjax href="{{ tag.link }}">
+      <i class="fa fa-tag"></i>{{ tag.name }}
+    </a>
+  {% endfor %}
+</div>
+{# ---------标签👆--------- #}
+{# ---------标题👇--------- #}
+<div class="wl-text-center wl-mt-8">
+  <h2 class="wl-text-2xl" id="p-title">{{ post.title }}</h2>
+  <h4 class="wl-mt-5">
+    <i aria-hidden="true" class="fa fa-eye" style="color: #FF8C00;"></i>
+    &nbsp;&nbsp;热度 :
+    <i id="wl-hot-num" class="wl-font-serif">loading...</i>
+  </h4>
+</div>
+{# ---------标题👆--------- #}

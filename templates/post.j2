@@ -9,5 +9,30 @@
 {# --------------- 头部👆 ---------------- #}
 {# --------------- 内容👇 ---------------- #}
 {% block content %}
+  {# ---------封面👇--------- #}
+  <div class="wl-w-full wl-min-h-100 wl-rounded-md wl-overflow-hidden wl-shadow-blur">
+    <img alt="{{ post.title }}" class="wl-w-full wl-h-full wl-rounded-md wl-object-cover" src="{{ post.feature }}">
+  </div>
+  {# ---------封面👆--------- #}
+  <div class="wl-relative wl-bg-white wl-shadow-blur wl-rounded-xl">
+    {% include './post/post-head.j2' ignore missing with context %}
+    <div class="wl-markdown-text wl-font-sans wl-text-base wl-leading-10 wl-z-10 wl-px-5 wl-pt-14 wl-pb-12 wl-text-left">
+      {#
+          可以在这里找一些 markdown 样式, http://zlyd.iccnconn.com/markdowncss/index.html
+          {% set item = '<link rel="stylesheet" type="text/css" href="http://zlyd.iccnconn.com/markdowncss/stylelib/typora-maize-theme-master/maize.css"></head>' %}
+          <iframe class="wl-w-full" srcdoc="<head>{{ item|e }}</head><body>{{ post.content|e }}</body>" id="frame_content" scrolling="no" frameborder="0" onload="this.height=this.contentWindow.document.documentElement.scrollHeight">
+          </iframe>
+      #}
+      {{ post.content }}
+    </div>
+    <hr class="wl-w-5/6 wl-mx-auto wl-my-5 wl-border-solid wl-border-2 wl-border-amber-400">
+    {% include './post/post-footer.j2' ignore missing with context %}
+    {% if post.toc %}
+      <div class="wl-fixed wl-top-12 wl-right-12 wl-z-10 wl-w-40 wl-text-left m-xl:wl-hidden wl-text-white wl-transition-all">{{ post.toc }}</div>
+    {% endif %}
+  </div>
+  {% include './post/post-page.j2' ignore missing with context %}
+  {% include './post/post-comment.j2' ignore missing with context %}
+  <div class="wl-h-8"></div>
 {% endblock %}
 {# --------------- 内容👆 ---------------- #}

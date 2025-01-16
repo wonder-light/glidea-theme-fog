@@ -1,0 +1,34 @@
+{# --------------- 赞赏👇 ---------------- #}
+{% if site.customConfig.donateChoice %}
+  <div class="wl-flex wl-justify-center wl-pb-5 wl-text-white wl-text-3xl wl-font-bold wl-font-serif">
+    <span class="wl-h-12 wl-w-12 wl-rounded-full wl-cursor-pointer wl-flex wl-items-center wl-justify-center wl-bg-rose-500" onclick="Utils.donateSwitch()">赏</span>
+  </div>
+  <div class="wl-flex wl-justify-center wl-pb-5">
+    <img alt="赞赏" class="wl-w-52 wl-h-52 wl-hidden" id="wl-donate" src="/media/images/reward_qrcode.png">
+  </div>
+{% endif %}
+{# --------------- 赞赏👆 ---------------- #}
+{# --------------- 信息👇 ---------------- #}
+<div class="wl-mt-8 wl-mx-8 wl-pb-12">
+  <ul class="wl-py-2 wl-px-4 wl-text-left wl-border-l-3 wl-border-solid wl-border-red-500 wl-bg-gray-100">
+    <li class="wl-p-1.25"><strong>文章作者：</strong>{{ themeConfig.siteAuthor }}</li>
+    <li class="wl-p-1.25"><strong>原文链接：</strong>{{ post.link }}</li>
+    <li class="wl-p-1.25"><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用
+      <i class="fa fa-creative-commons"></i> MIT 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</div>
+{# --------------- 信息👆 ---------------- #}
+{# --------------- 分享👇 ---------------- #}
+{% if site.customConfig.shareChoice %}
+  <div class="wl-flex wl-justify-end wl-pb-2.5 wl-mr-5" id="share-post">
+    {% set names = ['qq','wechat','weibo','qzone','douban','facebook','twitter'] %}
+    {% set images = ['qqs','wechats','weibos','qzones','doubans','facebooks','twitter'] %}
+    {% for name in names %}
+      <a class="{{ name }}" href="">
+        <i><img alt="{{ name }}" class="wl-w-8 wl-ml-2.5" src="{{ themeConfig.domain }}/media/images/{{ images[loop.index0] }}.png"></i>
+      </a>
+    {% endfor %}
+  </div>
+{% endif %}
+{# --------------- 分享👆 ---------------- #}

@@ -1,0 +1,20 @@
+<div class="wl-w-full wl-z-10 wl-text-white wl-bg-black/70 wl-rounded-xl wl-shadow-blur wl-mt-24" id="wl-comment">
+  <div class="wl-text-left wl-p-8">
+    <div id="comment-id"></div>
+  </div>
+</div>
+{# --------------- 文章热度功能和评论整合👇 ---------------- #}
+{% if site.customConfig.commentChoice %}
+  {% if site.customConfig.commentChoice == 'twikoo' %}
+    <script>
+      twikoo.init({
+        // https://api-nianian.netlify.app/.netlify/functions/twikoo
+        envId: '{{ site.customConfig.twikooId }}',
+        el: '#comment-id',
+        // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，如果您的环境地域不是上海，需传此参数
+        // path: 'window.location.pathname', // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+      })
+    </script>
+  {% endif %}
+{% endif %}
+{# --------------- 文章热度功能和评论整合👆 ---------------- #}
