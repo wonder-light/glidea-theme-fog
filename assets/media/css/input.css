@@ -55,6 +55,12 @@
   }
 }
 
+.markdown-toc {
+  a {
+    @apply wl-transition-all wl-duration-200;
+  }
+}
+
 .wl-text-split {
   &:after, &:before {
     content: attr(data-text);

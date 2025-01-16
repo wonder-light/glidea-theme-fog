@@ -21,6 +21,9 @@ module.exports = {
       },
       borderWidth: {
         '3': '3px',
+      },
+      boxShadow: {
+        'blur': '-10px 10px 10px #0000007F',
       }
     },
   },

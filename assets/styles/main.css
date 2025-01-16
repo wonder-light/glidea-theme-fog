@@ -24,7 +24,7 @@ body, html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #dcfce7;
+  background-color: #57e8b0;
   border-radius: 10px
 }
 
@@ -42,7 +42,7 @@ hr {
 }
 
 i {
-  font-family: kaiti
+  font-family: kaiti, serif;
 }
 
 img, video {
@@ -56,7 +56,7 @@ a {
 }
 
 a:hover {
-    color: #faebd7;
+    color: #22D3EE;
     text-decoration: none
   }
 
@@ -458,15 +458,6 @@ body {
 .wl-text-violet-400 {
   --tw-text-opacity: 1;
   color: rgb(167 139 250/var(--tw-text-opacity))
-}
-
-.wl-shadow-2xl, .wl-shadow-blur {
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
-}
-
-.wl-shadow-blur {
-  --tw-shadow: 10px 10px 10px rgba(0, 0, 0, .5);
-  --tw-shadow-colored: 10px 10px 10px var(--tw-shadow-color)
 }
 
 .wl-shadow-lg, .wl-shadow-xl {
@@ -1172,6 +1163,10 @@ video {
 
 .wl-bottom-0 {
   bottom: 0px
+}
+
+.wl-bottom-10 {
+  bottom: 2.5rem
 }
 
 .wl-bottom-2\.5 {
@@ -2024,6 +2019,11 @@ video {
   color: rgb(255 237 213 / var(--tw-text-opacity, 1))
 }
 
+.wl-text-orange-400 {
+  --tw-text-opacity: 1;
+  color: rgb(251 146 60 / var(--tw-text-opacity, 1))
+}
+
 .wl-text-purple-600 {
   --tw-text-opacity: 1;
   color: rgb(147 51 234 / var(--tw-text-opacity, 1))
@@ -2049,6 +2049,12 @@ video {
 .wl-shadow-2xl {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+}
+
+.wl-shadow-blur {
+  --tw-shadow: -10px 10px 10px #0000007F;
+  --tw-shadow-colored: -10px 10px 10px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
 }
 
@@ -2177,6 +2183,12 @@ video {
   --wl-art-bg: #00000019;
   --wl-section-color: #ce8e4c;
   --wl-selection-bg: #586e75;
+}
+
+.markdown-toc a {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms
 }
 
 .wl-text-split:after, .wl-text-split:before {

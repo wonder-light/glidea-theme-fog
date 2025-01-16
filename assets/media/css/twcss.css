@@ -112,15 +112,6 @@ body {
   color: rgb(167 139 250/var(--tw-text-opacity))
 }
 
-.wl-shadow-2xl, .wl-shadow-blur {
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
-}
-
-.wl-shadow-blur {
-  --tw-shadow: 10px 10px 10px rgba(0, 0, 0, .5);
-  --tw-shadow-colored: 10px 10px 10px var(--tw-shadow-color)
-}
-
 .wl-shadow-lg, .wl-shadow-xl {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
 }
@@ -135,7 +126,6 @@ body {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
 }
 
-
 .wl-animate-duration-5 {
   animation-duration: 5s
 }
@@ -146,16 +136,6 @@ body {
 
 .wl-animate-duration-9 {
   animation-duration: 9s
-}
-
-.markdownIt-TOC a {
-  font-size: .875rem;
-  line-height: 1.25rem;
-  --tw-text-opacity: 1;
-  color: rgb(255 237 213/var(--tw-text-opacity));
-  transition-duration: .3s;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1)
 }
 
 .img-loading {
