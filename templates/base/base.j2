@@ -15,11 +15,22 @@
   {% endblock %}
   <div id="wl-content" class="wl-w-full wl-relative">
     {% block sidebar %}
-      {# --------------- pc端菜单栏👇 ---------------- #}
-      {% include './bar/sidebar.j2' ignore missing with context %}
-      {# --------------- pc端菜单栏👆 ---------------- #}
+      {% if site.customConfig.menuPosition == 'top' %}
+        {# --------------- 顶部菜单栏👇 ---------------- #}
+        {% include './bar/topbar.j2' ignore missing with context %}
+        {# --------------- 顶部菜单栏👆 ---------------- #}
+        {# --------------- 横幅👇 ---------------- #}
+        {% include './common/banner.j2' ignore missing with context %}
+        {# --------------- 横幅👆 ---------------- #}
+      {% else %}
+        {# --------------- 侧边菜单栏👇 ---------------- #}
+        {% include './bar/sidebar.j2' ignore missing with context %}
+        {# --------------- 侧边菜单栏👆 ---------------- #}
+      {% endif %}
     {% endblock %}
-    <div id="wl-main" class="wl-text-center wl-relative wl-transition-all wl-duration-700 wl-px-4 wl-ml-[25%] wl-w-7/12 wl-min-h-dvh wl-flex wl-flex-col wl-justify-between">
+    {# 菜单位置在顶部时, 左右边距要自动 #}
+    {% set clas = 'wl-mx-auto' if site.customConfig.menuPosition == 'top' else 'wl-ml-[25%]' %}
+    <div id="wl-main" class="wl-text-center wl-relative wl-transition-all wl-duration-700 {{ clas }} wl-w-7/12 wl-min-h-dvh wl-flex wl-flex-col wl-justify-between">
       {% block content %}
       {% endblock %}
     </div>

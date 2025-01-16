@@ -1,0 +1,20 @@
+{# ----------------- 顶部菜单栏👇 ------------------------ #}
+<div class="wl-fixed wl-z-20 wl-top-0 wl-inset-x-0 wl-p-4 wl-transition-all">
+  <div class="wl-mx-48 wl-flex wl-justify-between wl-items-center wl-content-center">
+    <div class="wl-group wl-flex wl-gap-8 wl-justify-center wl-font-kaiti wl-text-center wl-text-base wl-font-bold">
+      {% for menu in menus %}
+        <a class="wl-text-orange-100 wl-flex wl-items-center wl-justify-center" href="{{ menu.link|e }}" data-pjax>
+          <i><img class="wl-menu-icon wl-w-5 wl-cursor-pointer" src="" alt="{{ menu.name }}"></i>
+          &nbsp;
+          <span class="wl-text-split wl-text-xl wl-text-transparent wl-uppercase wl-leading-4 wl-border-t wl-border-solid wl-border-t-transparent wl-relative wl-top-1/4" data-text="{{ menu.name }}">
+              {{ menu.name }}
+            </span>
+        </a>
+      {% endfor %}
+    </div>
+    <div class="wl-flex wl-justify-center wl-rounded-full -wl-m-3">
+      <img id="wl-avatar" class="wl-w-24 wl-rounded-full wl-overflow-hidden wl-transition-all wl-duration-1000 hover:wl-rotate-360" src="{{ themeConfig.domain }}/images/avatar.png?v={{ site.utils.now }}" alt="头像">
+    </div>
+  </div>
+</div>
+{# ----------------- 顶部菜单栏👆 ------------------------ #}

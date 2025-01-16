@@ -21,7 +21,7 @@
     </div>
     {# 音乐栏👆 #}
     <div class="wl-flex wl-justify-center wl-rounded-full wl-mt-10">
-      <img id="wl-avatar" class="wl-w-24 wl-rounded-full wl-overflow-hidden wl-shadow-2xl wl-transition-all wl-duration-1000 hover:wl-rotate-360" src="{{ themeConfig.domain }}/images/avatar.png?v=1731812219940" alt="头像">
+      <img id="wl-avatar" class="wl-w-24 wl-rounded-full wl-overflow-hidden wl-shadow-2xl wl-transition-all wl-duration-1000 hover:wl-rotate-360" src="{{ themeConfig.domain }}/images/avatar.png?v={{ site.utils.now }}" alt="头像">
     </div>
     <div class="wl-font-kaiti wl-mt-5 wl-text-center wl-text-2xl wl-font-bold wl-text-orange-100 site-name">{{ themeConfig.siteAuthor }}</div>
     <span id="wordAnim1" class="wl-font-kaiti wl-mt-4 wl-text-center wl-text-xs wl-text-white wl-flex wl-justify-center site-description" data-text='["{{ themeConfig.siteDescription }}"]'>&nbsp;</span>
@@ -95,11 +95,6 @@
   </div>
 </div>
 {# --------------- 左侧菜单栏👆 ------------------------ #}
-
-{# ----------------- 顶部菜单栏👇 ------------------------ #}
-
-{# ----------------- 顶部菜单栏👆 ------------------------ #}
-
 
 {# ------ 根据自定义配置声明变量👇 --------------------- #}
 <div id="side-post-title" title="{{ site.posts|length }}" content="{{ site.posts|map(attribute='title')|join('')|length }}" class="wl-hidden"></div>

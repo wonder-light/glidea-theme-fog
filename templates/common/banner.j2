@@ -1,0 +1,9 @@
+{# ----------------- 横幅👇 ------------------------ #}
+{% if site.customConfig.menuPosition == 'top' %}
+  {% set clas = 'wl-min-h-dvh' if site.isHomepage else 'wl-h-[40dvh] wl-pt-24' %}
+  <div id="wl-banner" class="{{ clas }} wl-w-full wl-flex wl-gap-8 wl-justify-center wl-flex-col">
+    <div class="wl-font-kaiti wl-text-center wl-text-4xl wl-font-bold wl-text-orange-100 site-name">{{ themeConfig.siteAuthor }}</div>
+    <span id="wordAnim1" class="wl-font-kaiti wl-text-center wl-text-2xl wl-text-white wl-flex wl-justify-center site-description" data-text='["{{ themeConfig.siteDescription }}"]'>&nbsp;</span>
+  </div>
+{% endif %}
+{# ----------------- 横幅👆 ------------------------ #}
