@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postcss:css": "postcss ./assets/media/css/input.css -o ./assets/styles/main.css",
-    "tailwindcss:build": "npx tailwindcss -i ./assets/media/css/input.css -o ./assets/styles/main.css --minify"
+    "tailwindcss": "npx tailwindcss -i ./assets/media/css/input.css -o ./assets/styles/main.css --minify",
+    "uglifyjs": "uglifyjs ./assets/media/js/main.js --compress --mangle --output C:\\Users\\wonder\\AppData\\Roaming\\com.nianian\\glidea\\output\\media\\js\\main.js"
   },
   "keywords": [
     "glidea",
@@ -22,6 +23,7 @@
     "postcss-import": "^16.1.0",
     "postcss-nesting": "^13.0.1",
     "postcss-unique-selectors": "^7.0.3",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "uglify-js": "^3.19.3"
   }
 }
