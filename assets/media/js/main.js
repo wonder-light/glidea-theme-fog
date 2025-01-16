@@ -295,6 +295,7 @@ class SitePost {
   
   // 获取 post 热度
   static getHot() {
+    if (!SitePost.isPost()) return;
     if (SitePost.#postNumChoice && 'default' !== SitePost.#commentsChoice) {
       let pathname = window.location.pathname;
       if (-1 === pathname.search('post')) return false;
@@ -312,7 +313,6 @@ class SitePost {
   // 更新 post
   static update() {
     if (!SitePost.isPost()) return;
-    SitePost.getHot();
     if (SitePost.#shareChoice) Utils.shareInit();
     if ('default' === SitePost.#commentsChoice) $('#wl-comment').hide();
     Utils.imgLazyLoad();
@@ -447,7 +447,6 @@ class Utils {
   static one() {
     Utils.updateLoading();
     Utils.switchTheme(true);
-    SitePost.updateTotalView(true, true);
     Utils.update();
     if (Utils.isMobile()) {
       let el = $('#wl-bg');
@@ -462,6 +461,7 @@ class Utils {
     Utils.updateWordAnim('#wordAnim2');
     SitePost.update();
     Utils.updateBanner();
+    Utils.scopedCss();
   }
   
   // 更新横幅的高度
@@ -904,5 +904,64 @@ class Utils {
       $('#wl-moon').attr('src', '/media/images/moon.png');
     }
     localStorage.setItem('theme-mode', theme);
+  }
+  
+  /// 给 CSS 添加父类
+  static scopedCss(cssStyle, parentElement){
+    /**
+     * Add a parent selector to all selectors passed in css
+     * @param style
+     * @param parent
+     * @returns {string}
+     */
+    function scoped (style, parent) {
+      //Css class name cannot start with a number
+      if (/^[0-9]/.test(parent)) {
+        parent = '_' + parent
+      }
+      
+      //Ensure global uniqueness
+      var symbol = '____'
+      parent = '.' + symbol + parent + symbol
+      
+      //Handle normal css
+      var css = normalCssScoped(style, parent)
+      
+      //Handle special css
+      var match = css.match(/(?<=@media.*\(.*\) \{)(([^\{\}]*\{[^\{\}]+\}[^\{\}]*)+)(?<=\})/g) || []
+      match.forEach(function (innerCss) {
+        css = css.replace(innerCss, ' ' + normalCssScoped(innerCss, parent))
+      })
+      
+      return css.replace(new RegExp(symbol, 'gm'), '')
+    }
+    
+    /**
+     * Replace basic css without media queries, animation functions
+     * @param style
+     * @param parent
+     * @returns {string}
+     */
+    function normalCssScoped (style, parent) {
+      
+      var css = style
+        .replace(/\/\*(.*)\*\//g, '')
+        .replace(/\s+/g, ' ')                                 //Compressed blank
+        .replace(/\s*{/g, ' {')
+        .replace(/\s*}/g, ' }')
+        .replace(/}(\s[^}])/g, '}\n$1')
+        .replace(/^\s+/gm, '')
+        .replace(/^([^@}])/gm, parent + ' $1')
+        .replace(/,/g, ',' + parent);
+      
+      (css.match(/{(([^{}]*{[^{}]+}[^{}]*)*)}|{[^{}]*}/g) || []).forEach(function (v) {
+        //Restore the string in braces
+        css = css.replace(v, v.replace(new RegExp(parent, 'g'), ''))
+      })
+      
+      return css
+    }
+    
+    return scoped(cssStyle, parentElement);
   }
 }

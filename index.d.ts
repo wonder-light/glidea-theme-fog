@@ -52,24 +52,21 @@ declare class Fog {
   siteMenuFont: string;
   // 文章正文字体
   postFont: string;
-  
-  
-  
-  // 是否开启看板娘
-  live2d: boolean;
- 
   // 是否开启站点创建时间
   siteGoTimeChoice: boolean;
   //输入日期（格式:2020/22/02）
   siteGoTime: string;
   // 是否开启访客统计, 不蒜子会影响网页加载速度，请慎重考虑
-  sitenumChoice: boolean;
+  siteNumChoice: boolean;
   // 是否开启文章阅读量统计, 需要在配置页面填写Leancloud_id和key值
-  postnumChoice: boolean;
+  postNumChoice: boolean;
   //填写网站备案号，如无则空着即可
   recordText: string;
-  //博客文章下版权声明内的作者名称
-  postAuthor: string;
+  
+  
+  
+  // 是否开启看板娘
+  live2d: boolean;
   // 是否开启文章分享转载功能
   shareChoice: boolean;
   // 是否开启文章赞赏功能, 请在下方放置赞赏图片外链

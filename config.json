@@ -121,6 +121,7 @@
       "note": ""
     },
     
+    
     {
       "name": "live2d",
       "label": "是否开启看板娘",
@@ -129,7 +130,6 @@
       "type": "switch",
       "note": ""
     },
-    
     {
       "name": "siteGoTimeChoice",
       "label": "是否开启站点创建时间",
@@ -147,7 +147,7 @@
       "note": "输入日期（格式:2020/22/02）"
     },
     {
-      "name": "sitenumChoice",
+      "name": "siteNumChoice",
       "label": "是否开启访客统计",
       "group": "统计",
       "value": false,
@@ -155,7 +155,7 @@
       "note": "不蒜子会影响网页加载速度，请慎重考虑！"
     },
     {
-      "name": "postnumChoice",
+      "name": "postNumChoice",
       "label": "是否开启文章阅读量统计",
       "group": "统计",
       "value": false,
@@ -169,14 +169,6 @@
       "value": "Copyright © 2020  备案号: 鄂ICP备...号",
       "type": "input",
       "note": "填写网站备案号，如无则空着即可"
-    },
-    {
-      "name": "postAuthor",
-      "label": "文章作者",
-      "group": "文章",
-      "value": "",
-      "type": "input",
-      "note": "博客文章下版权声明内的作者名称"
     },
     {
       "name": "shareChoice",

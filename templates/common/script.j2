@@ -18,6 +18,9 @@
   SitePost.initValue(true, 'twikoo', 'https://api-nianian.netlify.app/.netlify/functions/article-hot', '');
   JQG.add(
     Utils.one.bind(null),
+    {% if site.customConfig.siteNumChoice %}
+      SitePost.updateTotalView.bind(null),
+    {% endif %}
     Utils.loadOhLive2D.bind(null, {
       "mobileShow": true,
       "source": "{{ themeConfig.domain }}",
@@ -90,16 +93,25 @@
         "motionMessage": false,
       },
     }),
-    Utils.updateSiteTime.bind(null, '{{ site.customConfig.siteGoTime }}'),
+    {% if site.customConfig.siteGoTimeChoice %}
+      Utils.updateSiteTime.bind(null, '{{ site.customConfig.siteGoTime }}'),
+    {% endif %}
     SiteMenu.init.bind(null, '{{ site.customConfig.menuPosition }}', {
       {% for icon in site.customConfig.icons %}"{{ icon.menuName }}":"{{ icon.iconUrl }}",{% endfor %}
     }),
     Utils.log.bind(null, `jquery:ready - ${ Date.now() }`),
   );
   JQG.addPjax(
+    {% if site.customConfig.postNumChoice %}
+      SitePost.getHot.bind(null),
+    {% endif %}
     Utils.update.bind(null),
-    SitePost.updateTotalView.bind(null),
-    Utils.updateSiteTime.bind(null, '{{ site.customConfig.siteGoTime }}'),
+    {% if site.customConfig.siteNumChoice %}
+      SitePost.updateTotalView.bind(null),
+    {% endif %}
+    {% if site.customConfig.siteGoTimeChoice %}
+      Utils.updateSiteTime.bind(null, '{{ site.customConfig.siteGoTime }}'),
+    {% endif %}
     Utils.log.bind(null, `pjax:complete - ${ Date.now() }`),
   );
 </script>

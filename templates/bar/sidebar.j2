@@ -78,7 +78,8 @@
         {% if site.customConfig.siteGoTimeChoice %}
           <div id="site-go-times" class="wl-inline wl-text-xs">载入时间中...</div>
         {% endif %}
-        <div id="vistornum" style="margin:0">
+        {% if site.customConfig.siteNumChoice %}
+          <div id="vistornum" style="margin:0">
             <span id="container_site_uv">
               <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
               总访问量:<span id="value_site_pv"></span>
@@ -86,10 +87,18 @@
               <i class="fa fa-user" aria-hidden="true"></i>
               访问人数:<span id="value_site_uv" style="color: lightgreen"></span>
             </span>
-        </div>
-        <div class="wl-text-center wl-text-base">
-          {{ themeConfig.footerInfo }}
-        </div>
+          </div>
+        {% endif %}
+        {% if themeConfig.footerInfo %}
+          <div class="wl-text-center ">
+            {{ themeConfig.footerInfo }}
+          </div>
+        {% endif %}
+        {% if site.customConfig.recordText %}
+          <div class="wl-text-center ">
+            {{ site.customConfig.recordText }}
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>
