@@ -455,8 +455,8 @@ class Utils {
   // 开始时调用一次
   static one() {
     Utils.updateLoading();
-    Utils.switchTheme(!0);
-    SitePost.updateTotalView(!0, !0);
+    Utils.switchTheme(true);
+    SitePost.updateTotalView(true, true);
     Utils.update();
     if(Utils.isMobile()) {
       let el = $('#wl-bg');
@@ -622,101 +622,223 @@ class Utils {
     return result;
   }
 
-  static getApi(t = 'get', e, a, i) {
-    let s = new XMLHttpRequest;
-    s.open(t, e, !0), s.send(null), s.onreadystatechange = function() {4 === s.readyState && (200 === s.status ? a(s.responseText) : i(s.status));};
+  // get API
+  static getApi(method = 'get', url, call, statusCall) {
+    let request = new XMLHttpRequest;
+    request.open(method, url, true);
+    request.send(null);
+    request.onreadystatechange = function() {
+      if(4 === request.readyState) {
+        200 === request.status ? call(request.responseText) : statusCall(request.status);
+      }
+    };
   }
 
-  static apiGetPostContent(t) {
-    var e, a;
-    Utils.checkPostCache() ||
-    (e = t, (a = document.createElement('link')).href = e, a.rel = 'preload', a.as = 'fetch', a.crossOrigin = 'anonymous', document.head.appendChild(a), Utils.getApi('get', t, function(t) {
-      var e, a;
-      e = JSON.parse(t), localStorage.setItem('posts-num', '' + e.posts.length), a = e.posts.reduce((t, e) => t +
-                                                                                                              e.title.length, 0), Utils.log('content 获取成功', e.posts, a), localStorage.setItem('posts-title-len', '' +
-                                                                                                                                                                                                                     a), localStorage.setItem(SiteSearch.storageKey, t), SiteSearch.getPostStorageContent();
-    }, function(t) {Utils.log(t);}));
+  // API 获取 post 内容
+  static apiGetPostContent(url) {
+    if(Utils.checkPostCache()) return;
+    let el = document.createElement('link');
+    el.href = url;
+    el.rel = 'preload';
+    el.as = 'fetch';
+    el.crossOrigin = 'anonymous';
+    document.head.appendChild(el);
+    Utils.getApi(
+      'get', url,
+      function(text) {
+        let json = JSON.parse(text);
+        localStorage.setItem('posts-num', '' + json.posts.length);
+        let length = json.posts.reduce((t, e) => t + e.title.length, 0);
+        Utils.log('content 获取成功', json.posts, length);
+        localStorage.setItem('posts-title-len', '' + length);
+        localStorage.setItem(SiteSearch.storageKey, text);
+        SiteSearch.getPostStorageContent();
+      },
+      function(status) {
+        Utils.log(status);
+      }
+    );
   }
 
+  // 顶部背景切换
   static topShareBgSwitch() {
-    var t = $('#social-menu');
-    'none' === t.css('display') ? t.show().animate({ zoom: '1', opacity: '1' }, 300, 'linear') : t.animate({
-      zoom: '0', opacity: '0'
-    }, 300, 'linear', function() {$(this).hide();});
-  }
-
-  static backToTopInit() {
-    $('#wk-toggle').click(function() {$('html,body').animate({ scrollTop: '0px' }, 800);}), $(window)
-      .scroll(function() {30 < $(window).scrollTop() ? $('#wk-toggle').fadeIn(8 * fadeTime) : $('#wk-toggle').fadeOut(2 * fadeTime);});
-  }
-
-  static replaceAvatar() {
-    var e = $('.tk-avatar-img');
-    for(let t = 0; t < e.length; t++) {
-      -1 !== e.eq(t).attr('src')?.search('cn.gravatar.com') && e.eq(t)
-                                                                .attr('src', window.location.origin + '/media/images/comavatar.png%>');
+    var el = $('#social-menu');
+    if('none' === el.css('display')) {
+      el.show().animate({ zoom: '1', opacity: '1' }, 300, 'linear');
+    }
+    else {
+      el.animate({ zoom: '0', opacity: '0' }, 300, 'linear', function() {
+        $(this).hide();
+      });
     }
   }
 
-  static showQQ(t) {'' !== t ? window.location.href = 'tencent://message/?uin=' + t + '&Site=&Menu=yes' : alert('博主暂未设置QQ联系方式');}
+  // 回到顶部
+  static backToTopInit() {
+    $('#wk-toggle').click(function() {
+      $('html,body').animate({ scrollTop: '0px' }, 800);
+    });
+    $(window).scroll(function() {
+      let toggle = $('#wk-toggle');
+      if(30 < $(window).scrollTop()) {
+        toggle.fadeIn(8 * fadeTime);
+      }
+      else {
+        toggle.fadeOut(2 * fadeTime);
+      }
+    });
+  }
 
-  static showWechat(t) {return alert('博主微信号：' + t), !1;}
+  // 替换头像
+  static replaceAvatar() {
+    let el = $('.tk-avatar-img');
+    for(let i = 0; i < el.length; i++) {
+      if(-1 !== el.eq(i).attr('src')?.search('cn.gravatar.com')) {
+        el.eq(i).attr('src', window.location.origin + '/media/images/comavatar.png%>');
+      }
+    }
+  }
 
+  // 显示QQ
+  static showQQ(qq) {
+    if(qq) {
+      window.location.href = 'tencent://message/?uin=' + qq + '&Site=&Menu=yes';
+    }
+    else {
+      alert('博主暂未设置QQ联系方式');
+    }
+  }
+
+  // 显示微信
+  static showWechat(wechat) {
+    alert('博主微信号：' + wechat);
+    return false;
+  }
+
+  // 显示音乐播放器
   static showAplayer() {
-    var t = $('.aplayer');
-    t.length <= 0 || ('block' === t.css('display') ? t.fadeOut(4 * fadeTime) : t.fadeIn(4 * fadeTime));
+    let el = $('.aplayer');
+    if(el.length <= 0) return;
+    if('block' === el.css('display')) {
+      el.fadeOut(4 * fadeTime);
+    }
+    else {
+      el.fadeIn(4 * fadeTime);
+    }
   }
 
+  // 音乐播放器
   static aplayerPlay() {
-    var t, e = document.querySelectorAll('meting-js')[0]?.aplayer;
-    e && (t = $('#wl-m-aplayer'), !0 === e.paused ? (e.play(), e.lrc.hide(), t.removeClass('fa-circle-play'), t.addClass('fa-circle-pause'))
-                                                  : (e.pause(), t.addClass('fa-circle-play'), t.removeClass('fa-circle-pause')));
+    let nodes = document.querySelectorAll('meting-js');
+    if(nodes.length === 0) return;
+    let aplayer = nodes[0].aplayer;
+    if(!aplayer) return;
+    let el = $('#wl-m-aplayer');
+    if(true === aplayer.paused) {
+      aplayer.play();
+      aplayer.lrc.hide();
+      el.removeClass('fa-circle-play');
+      el.addClass('fa-circle-pause');
+    }
+    else {
+      aplayer.pause();
+      el.addClass('fa-circle-play');
+      el.removeClass('fa-circle-pause');
+    }
   }
 
+  // 分享初始化
   static shareInit() {
     new Share('#share-post', {
-      title: $('#p-title').html(), initialized: !0, description: $('meta[name="description"]').attr('content'), image: $('#wl-avatar').attr('src'),
-      sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'facebook', 'twitter', 'google'], wechatQrcodeTitle: '微信扫一扫：分享',
-      wechatQrcodeHelper: '<p>微信里扫一下二维码</p><p>便可将本文分享至朋友圈。</p>', disabled: ['google', 'linkedin'], wechatQrcodePosition: 'bottom'
+      title: $('#p-title').html(),
+      initialized: true,
+      description: $('meta[name="description"]').attr('content'),
+      image: $('#wl-avatar').attr('src'),
+      sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'facebook', 'twitter', 'google'],
+      wechatQrcodeTitle: '微信扫一扫：分享',
+      wechatQrcodeHelper: '<p>微信里扫一下二维码</p><p>便可将本文分享至朋友圈。</p>',
+      disabled: ['google', 'linkedin'],
+      wechatQrcodePosition: 'bottom'
     });
   }
 
+  // 赞赏开关
   static donateSwitch() {
-    var t = Utils.donateSwitch.open ?? !1, e = $('#wl-donate');
-    t ? e.fadeOut(4 * fadeTime) : e.fadeIn(4 * fadeTime), Utils.donateSwitch.open = !t;
+    let open = Utils.donateSwitch.open ?? false;
+    let donate = $('#wl-donate');
+    open ? donate.fadeOut(4 * fadeTime) : donate.fadeIn(4 * fadeTime);
+    Utils.donateSwitch.open = !open;
   }
 
+  // 代码复制初始化
   static codeCopyInit() {
-    var t = $('pre code');
-    t.length <= 0 || (t.each(function(t) {
-      var e = $(this), t = 'code_id_' + t, a = (e.attr('id', t), Math.round(e.height() / parseFloat(e.css('line-height'))));
-      a <= 0 ||
-      e.before(`<button class="copy-bt wl-w-24 wl-absolute wl-right-16 wl-rounded wl-text-white wl-bg-sky-400 wl-m-0 wl-font-kaiti wl-transition-all wl-duration-300" data-clipboard-target="#${ t }">复制代码</button>`);
-    }), (t = new ClipboardJS('.copy-bt')).on('success', async function(t) {
-      var e = $(t.trigger);
-      e.html('复制成功~'), e.removeClass('wl-bg-sky-400')
-                            .addClass('wl-bg-purple-400'), t.clearSelection(), await Utils.sleep(8e3), e.html('复制代码'), e.removeClass('wl-bg-purple-400')
-                                                                                                                            .addClass('wl-bg-sky-400');
-    }), t.on('error', function(t) {alert('矮油，复制失败了...手动复制吧勇士！'), t.clearSelection();}));
+    let nodes = $('pre code');
+    if(nodes.length <= 0) return;
+    nodes.each(function(node) {
+      let el = $(this);
+      let id = 'code_id_' + node;
+      el.attr('id', id);
+      let num = Math.round(el.height() / parseFloat(el.css('line-height')));
+      if(num <= 0) return;
+      el.before(`<button class="copy-bt wl-w-24 wl-absolute wl-right-16 wl-rounded wl-text-white wl-bg-sky-400 wl-m-0 wl-font-kaiti wl-transition-all wl-duration-300" data-clipboard-target="#${ id }">复制代码</button>`);
+    });
+    let clipboardJS = new ClipboardJS('.copy-bt');
+    clipboardJS.on('success', async function(copy) {
+      let el = $(copy.trigger);
+      el.html('复制成功~');
+      el.removeClass('wl-bg-sky-400').addClass('wl-bg-purple-400');
+      copy.clearSelection();
+      await Utils.sleep(8e3);
+      el.html('复制代码');
+      el.removeClass('wl-bg-purple-400').addClass('wl-bg-sky-400');
+    });
+    clipboardJS.on('error', function(copy) {
+      alert('矮油，复制失败了...手动复制吧勇士！');
+      copy.clearSelection();
+    });
   }
 
-  static imgLazyLoad(e = null) {
-    let a = $('img').filter(function() {
-      var t = $(this).attr('class');
-      return null == t || t === e;
+  // 图片懒加载
+  static imgLazyLoad(clasAttr = null) {
+    let nodes = $('img').filter(function() {
+      var attr = $(this).attr('class');
+      return null == attr || attr === clasAttr;
     });
 
-    function i() {
-      let t = $(this).height() + $(document).scrollTop();
-      a.each(function() {$(this).offset().top < t && ($(this).trigger('appear'), a = a.not(this));}), a.length <= 0 && $(window).unbind('scroll', i);
+    function loadImg() {
+      let height = $(this).height() + $(document).scrollTop();
+      nodes.each(function() {
+        if($(this).offset().top < height) {
+          $(this).trigger('appear');
+          nodes = nodes.not(this);
+        }
+      });
+      if(nodes.length <= 0) {
+        $(window).unbind('scroll', loadImg);
+      }
     }
 
-    Utils.log('imgLazyLoad loads', a), a.each(function() {
-      let t = $(this), e = (t.attr('class', 'lazy-load'), t.attr('src'));
-      t.attr('data-original', e), t.addClass('img-loading'), t.attr('src', '/media/images/imgloading.gif'), t.wrap(`<span data-fancybox="images" href="${ e }"></span>`), t.one('appear', function() {t.attr('src', e), t.on('load', function() {t.removeClass('img-loading');});});
-    }), $(window).bind('scroll', i), i();
+    Utils.log('imgLazyLoad loads', nodes);
+    nodes.each(function() {
+      let el = $(this);
+      el.attr('class', 'lazy-load');
+      let src = el.attr('src');
+      el.attr('data-original', src);
+      el.addClass('img-loading');
+      el.attr('src', '/media/images/imgloading.gif');
+      el.wrap(`<span data-fancybox="images" href="${ src }"></span>`);
+      el.one('appear', function() {
+        el.attr('src', src);
+        el.on('load', function() {
+          el.removeClass('img-loading');
+        });
+      });
+    });
+    $(window).bind('scroll', loadImg);
+    loadImg();
   }
 
+  // 加载 Live2d
   static loadOhLive2D(config) {
     if(typeof wlLive2d != 'undefined' && wlLive2d != null) {
       Utils.loadOhLive2D.config = config ?? Utils.loadOhLive2D.config;
@@ -724,34 +846,64 @@ class Utils {
     }
   }
 
+  // 拖拽 Live2d
   static dragLive2d() {
-    let r = $('#oml-stage'), c = (r.addClass('oml-right'), !0), d = {
+    let stage = $('#oml-stage');
+    stage.addClass('oml-right');
+    let isLeft = true;
+    let size = {
       w: Math.min(window.screen.width, window.visualViewport.width, window.innerWidth),
       h: Math.min(window.screen.height, window.visualViewport.height, window.innerHeight)
     };
-    Utils.log('dragLive2d - gl', d), r.mousedown(function(t) {
-      let e = t.clientX, a = t.clientY, i = $(this), s = i.width(), o = i.height(), n = i.position();
+    Utils.log('dragLive2d - gl', size);
+    stage.mousedown(function(event) {
+      let clientX = event.clientX;
+      let clientY = event.clientY;
+      let el = $(this);
+      let width = el.width();
+      let height = el.height();
+      let position = el.position();
 
-      function l() {i.unbind('mousemove').unbind('mouseup').unbind('mouseover');}
+      function end() {
+        el.unbind('mousemove')
+          .unbind('mouseup')
+          .unbind('mouseover');
+      }
 
-      i.mousemove(function(t) {
-        n.left = Math.max(0, Math.min(n.left + t.clientX - e, d.w - s)), n.top = Math.max(0, Math.min(n.top + t.clientY - a, d.h -
-                                                                                                                             o)), e = t.clientX, a = t.clientY, n.left <
-                                                                                                                                                                .4 *
-                                                                                                                                                                d.w &&
-                                                                                                                                                                c &&
-                                                                                                                                                                (i.removeClass('oml-right'), c = !1);
-        n.left > .6 * d.w && !c && (r.addClass('oml-right'), c = !0);
-        i.css('left', n.left).css('top', n.top);
-      }), i.mouseup(l), i.mouseover(l);
+      el.mousemove(function(event) {
+        position.left = Math.max(0, Math.min(position.left + event.clientX - clientX, size.w - width));
+        position.top = Math.max(0, Math.min(position.top + event.clientY - clientY, size.h - height));
+        clientX = event.clientX;
+        clientY = event.clientY;
+        if(position.left < 0.4 * size.w && isLeft) {
+          el.removeClass('oml-right');
+          isLeft = false;
+        }
+        if(position.left > 0.6 * size.w && !isLeft) {
+          stage.addClass('oml-right');
+          isLeft = true;
+        }
+        el.css('left', position.left).css('top', position.top);
+      });
+      el.mouseup(end);
+      el.mouseover(end);
     });
   }
 
-  static switchTheme(t = !1) {
-    let e = localStorage.getItem('theme-mode') ?? 'light';
-    t || (e = 'light' === e ? 'dark' : 'light'), $('html').attr('theme', e);
-    t = Utils.isMobile() ? $('#wl-bg-m') : $('#wl-bg');
-    'dark' === e ? (t.fadeOut(8 * fadeTime), $('#wl-moon').attr('src', '/media/images/sun.png')) : (t.fadeIn(8 * fadeTime), $('#wl-moon')
-      .attr('src', '/media/images/moon.png')), localStorage.setItem('theme-mode', e);
+  // 切换主题
+  static switchTheme(switchTheme = false) {
+    let theme = localStorage.getItem('theme-mode') ?? 'light';
+    switchTheme || (theme = 'light' === theme ? 'dark' : 'light');
+    $('html').attr('theme', theme);
+    let el = Utils.isMobile() ? $('#wl-bg-m') : $('#wl-bg');
+    if('dark' === theme) {
+      el.fadeOut(8 * fadeTime);
+      $('#wl-moon').attr('src', '/media/images/sun.png');
+    }
+    else {
+      el.fadeIn(8 * fadeTime);
+      $('#wl-moon').attr('src', '/media/images/moon.png');
+    }
+    localStorage.setItem('theme-mode', theme);
   }
 }
