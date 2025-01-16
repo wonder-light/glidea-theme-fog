@@ -1,0 +1,39 @@
+{% extends './base/base.j2' %}
+{# --------------- 头部👇 ---------------- #}
+{% block head %}
+  {% set siteTitle = ['说说',themeConfig.siteName]|join(' | ') %}
+  {% set siteKeys = ['说说',themeConfig.siteAuthor,'小站','世界','博客','blog']|join(',') %}
+  {% set siteDescription = themeConfig.siteDescription %}
+  {{ super() }}
+{% endblock %}
+{# --------------- 头部👆 ---------------- #}
+{# --------------- 内容👇 ---------------- #}
+{% block content %}
+  {% if site.customConfig.friendsChoice %}
+    {# --------------- 波浪动画👇 ---------------- #}
+    <div class="wl-animate-fade-in wl-flex wl-justify-center wl-mt-5">
+      <div class="wl-w-128 wl-h-52 wl-bg-gray-100 wl-rounded-md wl-overflow-hidden wl-relative wl-shadow-2xl">
+        <p class="wl-absolute wl-left-0 wl-z-10 wl-w-full wl-top-28 wl-text-white wl-text-2xl font-serif wl-uppercase wl-tracking-4">友人帐</p>
+        <span class="wl-absolute wl-w-200 wl-h-200 wl-rounded-43 wl-bottom-1/4 -wl-left-36 wl-animate-spin wl-animate-duration-5 wl-bg-sky-400 wl-bg-opacity-40 "></span>
+        <span class="wl-absolute wl-w-200 wl-h-200 wl-rounded-43 wl-bottom-1/4 -wl-left-36 wl-animate-spin wl-animate-duration-7 wl-bg-sky-400 wl-bg-opacity-40"></span>
+        <span class="wl-absolute wl-w-200 wl-h-200 wl-rounded-43 wl-bottom-1/4 -wl-left-36 wl-animate-spin wl-animate-duration-9 wl-bg-red-500 wl-bg-opacity-10"></span>
+      </div>
+    </div>
+    {# --------------- 波浪动画👆 ---------------- #}
+    <div class="wl-relative wl-grid wl-grid-cols-2 wl-gap-4 wl-mt-12 wl-min-h-70vh wl-px-12 wl-animate-fade-in wl-text-white wl-rounded-lg">
+      <div class="wl-col-span-2 wl-bg-cyan-200/40 wl-p-8 wl-min-h-12 wl-text-left wl-rounded-lg wl-border-x-8 wl-border-solid wl-border-cyan-200 wl-text-xl">
+        {{ site.customConfig.friendsRule }}
+      </div>
+      {% for friend in site.customConfig.friends %}
+        <a class="wl-block wl-h-24 wl-mt-5 wl-text-orange-100/50 wl-bg-cyan-200/40 wl-overflow-hidden wl-break-words wl-rounded-lg" href="{{ friend.siteLink }}" target="_blank">
+          <img alt="{{ friend.siteName }}" class="wl-w-24 wl-h-24 wl-float-left" src="{{ friend.siteLogo }}">
+          <h2 class="wl-text-xl wl-font-light wl-m-0 wl-mt-4 wl-text-orange-100">{{ friend.siteName }}</h2>
+          <h3 class="wl-font-light wl-text-sm wl-m-0 wl-mt-2.5 wl-text-white wl-whitespace-nowrap wl-overflow-hidden">{{ friend.description }}</h3>
+        </a>
+      {% endfor %}
+    </div>
+    {% include './post/post-comment.j2' ignore missing with context %}
+    <div class="wl-h-8"></div>
+  {% endif %}
+{% endblock %}
+{# --------------- 内容👆 ---------------- #}

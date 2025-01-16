@@ -149,13 +149,13 @@ declare class Fog {
   //是否开启数学公式, 开启后支持数学公式（影响博客加载速度）
   Mathchoice: boolean;
   //是否开启友链
-  friendschoice: boolean;
+  friendsChoice: boolean;
   //提示信息
-  friendsrule: string;
+  friendsRule: string;
   //友链
   friends: Array<FriendItem>;
   //是否开启说说
-  talkchoice: boolean;
+  talkChoice: boolean;
   //说说
   talks: Array<TalkItem>;
   //图标icon, 默认值：Home / Archive / Tag / About / Talk / Friends (填写时删除空格)

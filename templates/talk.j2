@@ -9,21 +9,23 @@
 {# --------------- 头部👆 ---------------- #}
 {# --------------- 内容👇 ---------------- #}
 {% block content %}
-  {% set talks = site.customConfig.talks if site.customConfig.talks else [] %}
-  <div class="wl-overflow-x-hidden wl-animate-fade-in m-xl:wl-w-11/12 m-xl:wl-mx-auto m-xl:wl-mt-16">
-    {% for talk in talks %}
-      <div class="wl-w-full wl-h-32 wl-relative wl-shadow-blur wl-mt-5 wl-mb-8 wl-rounded-xl wl-border-solid wl-border wl-bg-gray-100">
-        {% if talk.img %}
-          <img alt="{{ talk.text }}" class="wl-absolute wl-h-full wl-right-0 wl-rounded-xl mask-img-110 wl-transition-all wl-duration-300 hover:wl-opacity-70" src="{{ talk.img }}">
-        {% endif %}
-        <div class="wl-pt-5 wl-pl-5 wl-text-left">
-          <span class="wl-text-lg wl-font-bold wl-mr-2.5 wl-text-violet-400">{{ talk.author }}</span>
-          •
-          <span class="wl-ml-2.5 wl-text-gray-400">{{ talk.time }}</span>
+  {% if site.customConfig.talkChoice %}
+    {% set talks = site.customConfig.talks if site.customConfig.talks else [] %}
+    <div class="wl-overflow-x-hidden wl-animate-fade-in m-xl:wl-w-11/12 m-xl:wl-mx-auto m-xl:wl-mt-16">
+      {% for talk in talks %}
+        <div class="wl-w-full wl-h-32 wl-relative wl-shadow-blur wl-mt-5 wl-mb-8 wl-rounded-xl wl-border-solid wl-border wl-bg-gray-100">
+          {% if talk.img %}
+            <img alt="{{ talk.text }}" class="wl-absolute wl-h-full wl-right-0 wl-rounded-xl mask-img-110 wl-transition-all wl-duration-300 hover:wl-opacity-70" src="{{ talk.img }}">
+          {% endif %}
+          <div class="wl-pt-5 wl-pl-5 wl-text-left">
+            <span class="wl-text-lg wl-font-bold wl-mr-2.5 wl-text-violet-400">{{ talk.author }}</span>
+            •
+            <span class="wl-ml-2.5 wl-text-gray-400">{{ talk.time }}</span>
+          </div>
+          <div class="wl-mt-7 wl-ml-7 wl-line-clamp-1 wl-w-4/5 wl-text-left wl-text-lg">{{ talk.text }}</div>
         </div>
-        <div class="wl-mt-7 wl-ml-7 wl-line-clamp-1 wl-w-4/5 wl-text-left wl-text-lg">{{ talk.text }}</div>
-      </div>
-    {% endfor %}
-  </div>
+      {% endfor %}
+    </div>
+  {% endif %}
 {% endblock %}
 {# --------------- 内容👆 ---------------- #}

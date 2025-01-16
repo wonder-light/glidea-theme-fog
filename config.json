@@ -550,7 +550,7 @@
       "note": "开启后支持数学公式（影响博客加载速度）"
     },
     {
-      "name": "friendschoice",
+      "name": "friendsChoice",
       "label": "是否开启友链",
       "group": "友链",
       "value": true,
@@ -558,7 +558,7 @@
       "note": ""
     },
     {
-      "name": "friendsrule",
+      "name": "friendsRule",
       "label": "添加友链提示",
       "group": "友链",
       "value": "<p>暂无提示</p><p>暂无提示</p>",
@@ -601,7 +601,7 @@
       "note": ""
     },
     {
-      "name": "talkchoice",
+      "name": "talkChoice",
       "label": "是否开启说说",
       "group": "说说",
       "value": false,
