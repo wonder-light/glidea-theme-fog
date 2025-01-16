@@ -73,59 +73,38 @@
   .wl-animate-duration-9 {
     animation-duration: 9s;
   }
+  
+  .wl-markdown-text {
+    @apply wl-font-kaiti;
+  }
 }
 
 .wl-text-split {
-  &:after, &:before {
+  &::after, &::before {
     content: attr(data-text);
-    left: 0;
-    position: absolute;
-    top: -.5rem;
-    width: 100%;
-    --tw-text-opacity: 1;
-    color: rgb(255 237 213/var(--tw-text-opacity));
-    transition-duration: .15s;
-    transition-duration: .3s;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(.4, 0, .2, 1)
+    /* 字体颜色 */
+    @apply wl-absolute wl-left-0 wl-w-full -wl-top-2 wl-text-orange-100 wl-transition-all wl-duration-300 wl-ease-in-out;
   }
   
-  .wl-group:nth-child(odd) &:hover:before {
-    left: -.25rem
-  }
+  @apply group-odd:hover:before:-wl-left-1 group-even:hover:before:wl-left-1;
+  @apply group-odd:hover:after:wl-left-1 group-even:after:before:-wl-left-1;
   
-  .wl-group:nth-child(2n) &:hover:before {
-    left: .25rem
-  }
   
-  &:before {
+  &::before {
     clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%)
   }
   
-  .wl-group:nth-child(odd) &:hover:after {
-    left: .25rem
-  }
-  
-  .wl-group:nth-child(2n) &:hover:after {
-    left: -.25rem
-  }
-  
-  &:after {
+  &::after {
     clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%)
   }
   
   &:hover {
-    border-style: solid;
-    border-top-width: 1px;
-    --tw-border-opacity: 1;
-    border-color: rgb(34 211 238/var(--tw-border-opacity))
-  }
-  
-  &:hover {
-    &:after, &:before {
-      --tw-text-opacity: 1;
-      color: rgb(165 243 252/var(--tw-text-opacity));
-      transition-delay: .1s
+    /* 分割线颜色 */
+    @apply wl-border-cyan-400 wl-border-solid wl-border-t-1;
+    
+    &::after, &::before {
+      /* 悬停后的颜色 */
+      @apply wl-text-cyan-200 wl-delay-100 wl-content-[attr(data-text)];
     }
   }
 }

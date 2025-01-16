@@ -20,6 +20,7 @@ module.exports = {
         '200': '50rem',
       },
       borderWidth: {
+        '1': '1px',
         '3': '3px',
       },
       boxShadow: {
@@ -27,6 +28,10 @@ module.exports = {
       },
       borderRadius: {
         '43': '43%',
+      },
+      fontFamily: {
+        'kaiti': ['kaiti'],
+        'awesome': ['Font Awesome 6 Free'],
       },
     },
   },
