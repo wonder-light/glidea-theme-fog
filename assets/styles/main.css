@@ -486,16 +486,6 @@ body {
   animation-duration: 9s
 }
 
-.markdownIt-TOC a {
-  font-size: .875rem;
-  line-height: 1.25rem;
-  --tw-text-opacity: 1;
-  color: rgb(255 237 213/var(--tw-text-opacity));
-  transition-duration: .3s;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1)
-}
-
 .img-loading {
   background: rgba(204, 204, 214, .4);
   border-radius: 20px;
@@ -1290,6 +1280,10 @@ video {
   margin-bottom: 1.25rem
 }
 
+.wl-mb-8 {
+  margin-bottom: 2rem
+}
+
 .wl-ml-1\.25 {
   margin-left: 0.3125rem
 }
@@ -1344,6 +1338,10 @@ video {
 
 .wl-mt-5 {
   margin-top: 1.25rem
+}
+
+.wl-mt-7 {
+  margin-top: 1.75rem
 }
 
 .wl-mt-8 {
@@ -1883,6 +1881,10 @@ video {
   padding-left: 1rem
 }
 
+.wl-pl-5 {
+  padding-left: 1.25rem
+}
+
 .wl-pl-6 {
   padding-left: 1.5rem
 }
@@ -2031,6 +2033,11 @@ video {
 
 .wl-text-transparent {
   color: transparent
+}
+
+.wl-text-violet-400 {
+  --tw-text-opacity: 1;
+  color: rgb(167 139 250 / var(--tw-text-opacity, 1))
 }
 
 .wl-text-white {
@@ -2258,6 +2265,10 @@ video {
 .hover\:wl-text-purple-600:hover {
   --tw-text-opacity: 1;
   color: rgb(147 51 234 / var(--tw-text-opacity, 1))
+}
+
+.hover\:wl-opacity-70:hover {
+  opacity: 0.7
 }
 
 .wl-group:hover .group-hover\:-wl-translate-x-full {
