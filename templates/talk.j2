@@ -11,7 +11,7 @@
 {% block content %}
   {% if site.customConfig.talkChoice %}
     {% set talks = site.customConfig.talks if site.customConfig.talks else [] %}
-    <div class="wl-overflow-x-hidden wl-animate-fade-in m-xl:wl-w-11/12 m-xl:wl-mx-auto m-xl:wl-mt-16">
+    <div class="wl-overflow-x-hidden wl-animate-fade-in">
       {% for talk in talks %}
         <div class="wl-w-full wl-h-32 wl-relative wl-shadow-blur wl-mt-5 wl-mb-8 wl-rounded-xl wl-border-solid wl-border wl-bg-gray-100">
           {% if talk.img %}

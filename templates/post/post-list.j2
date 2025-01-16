@@ -1,17 +1,5 @@
-<!-- 移动端 -->
-<div class="xl:wl-hidden m-xl:wl-block">
-  <!-- 移动端欢迎页 -->
-
-  <div class="wl-min-w-dvh wl-min-h-dvh wl-flex wl-flex-col wl-justify-center wl-items-center wl-bg-cover wl-animate-fade-in" style="background: url('/media/images/custom-mobilebgimage.jpg')">
-    <div class="wl-rounded-full wl-w-32 wl-h-32 wl-mb-5">
-      <img class="wl-w-full wl-h-full wl-rounded-full wl-overflow-x-hidden wl-rotate-0 hover:wl-rotate-360 wl-transition-all wl-duration-1000" src="https://blog.nianian.cn/images/avatar.png?v=1731812219940" alt="头像">
-    </div>
-    <span id="wordAnim2" class="wl-mt-5 wl-text-xl wl-text-white" data-text='["阴阳有序, 命运无常"]'></span>
-  </div>
-</div>
-
 {# ---------添加 Post 列表👇--------- #}
-<div class="wl-w-full wl-animate-fade-in m-xl:wl-w-11/12 m-xl:wl-mt-16 m-xl:wl-mx-auto">
+<div class="wl-w-full wl-animate-fade-in">
   {% from './macro/post-list.j2' import postLists with context %}
   {{ postLists(posts) }}
 </div>

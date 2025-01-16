@@ -112,12 +112,3 @@
     }
   </style>
 </div>
-<script>
-  function scaleView() {
-    let vw = Math.min(window.screen.width, window.visualViewport.width, window.innerWidth);// || window.visualViewport.width || document.documentElement.clientWidth;
-    let scale = Math.max(0.45, Math.min(1.0, Math.floor(vw / 13) / 100));
-    document.getElementById('wl-view').content = `width=device-width, initial-scale=${ scale }, user-scalable=yes`;
-  }
-
-  (window.onresize = scaleView)();
-</script>

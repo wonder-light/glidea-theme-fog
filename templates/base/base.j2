@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" id="wl-view">
+  <meta name="viewport" content="user-scalable=yes" id="wl-view">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta http-equiv="x-pjax-version" content="v123">
   {% block head %}
@@ -13,13 +13,13 @@
   {% block loading %}
     {% include './common/loading.j2' ignore missing with context %}
   {% endblock %}
-  <div id="wl-content" class="wl-w-full xl:wl-relative">
+  <div id="wl-content" class="wl-w-full wl-relative">
     {% block sidebar %}
       {# --------------- pc端菜单栏👇 ---------------- #}
       {% include './bar/sidebar.j2' ignore missing with context %}
       {# --------------- pc端菜单栏👆 ---------------- #}
     {% endblock %}
-    <div id="wl-main" class="wl-text-center wl-relative wl-transition-all wl-duration-700 xl:wl-px-4 xl:wl-ml-[25%] xl:wl-w-7/12 wl-min-h-dvh wl-flex wl-flex-col wl-justify-between">
+    <div id="wl-main" class="wl-text-center wl-relative wl-transition-all wl-duration-700 wl-px-4 wl-ml-[25%] wl-w-7/12 wl-min-h-dvh wl-flex wl-flex-col wl-justify-between">
       {% block content %}
       {% endblock %}
     </div>

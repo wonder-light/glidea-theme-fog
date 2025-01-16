@@ -5,7 +5,7 @@
 {% endif %}
 {% if site.customConfig.aplayerChoice %}
   <!-- aplayer播放器加载👇 -->
-  <div class="wl-fixed wl-inset-x-0 wl-bottom-0 wl-z-20 wl-m-0 wl-bg-white m-xl:wl-hidden">
+  <div class="wl-fixed wl-inset-x-0 wl-bottom-0 wl-z-20 wl-m-0 wl-bg-white">
     <meting-js id="3779629" server="netease" type="playlist" order="list" loop="all" preload="auto" autoplay="false" fixed="true" mini="true" muted="muted">
     </meting-js>
   </div>
@@ -17,7 +17,7 @@
 <script>
   SitePost.initValue(true, 'twikoo', 'https://api-nianian.netlify.app/.netlify/functions/article-hot', '');
   JQG.add(
-    Utils.one,
+    Utils.one.bind(null),
     Utils.loadOhLive2D.bind(null, {
       "mobileShow": true,
       "source": "{{ themeConfig.domain }}",

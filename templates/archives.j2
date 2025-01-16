@@ -9,15 +9,15 @@
 {# --------------- 头部👆 ---------------- #}
 {# --------------- 内容👇 ---------------- #}
 {% block content %}
-  <div class="wl-min-h-dvh wl-animate-fade-in wl-bg-zinc-800/50 wl-shadow-blur wl-rounded-lg wl-pb-12 wl-text-white m-xl:wl-mt-16">
+  <div class="wl-min-h-dvh wl-animate-fade-in wl-bg-zinc-800/50 wl-shadow-blur wl-rounded-lg wl-pb-12 wl-text-white">
     {# { 2019: [...], 2018: [...] } #}
     {% set years = posts|groupby(attribute='date',filter='substring',named={'start': 0, 'end': 4}) %}
     {% for year, items in years %}
       <div class="wl-pt-12 wl-pl-12 wl-text-4xl wl-font-bold wl-text-left wl-underline">{{ year }}</div>
-      <ul class="wl-mt-5 wl-px-24 wl-relative wl-list-none m-xl:wl-p-0">
+      <ul class="wl-mt-5 wl-px-24 wl-relative wl-list-none wl-p-0">
         {% for post in items %}
           <li class="wl-relative wl-w-4/5 wl-bg-white/70 wl-ml-7 wl-p-3.5 wl-pl-6 wl-rounded-md wl-shadow-lg [&:not(:first-child)]:wl-mt-16">
-          <span class="archives-dot wl-w-0.5 wl-h-full wl-opacity-80 wl-absolute -wl-left-8 wl-top-0 wl-bg-rose-500 m-xl:wl-hidden">
+          <span class="archives-dot wl-w-0.5 wl-h-full wl-opacity-80 wl-absolute -wl-left-8 wl-top-0 wl-bg-rose-500">
             <span class="wl-w-3.5 wl-h-3.5 wl-border-2 wl-border-white wl-border-solid wl-rounded-full wl-absolute wl-bg-rose-500 wl-top-0 -wl-left-1.25"></span>
             <span class="wl-w-3.5 wl-h-3.5 wl-border-2 wl-border-white wl-border-solid wl-rounded-full wl-absolute wl-bg-rose-500 wl-bottom-0 -wl-left-1.25"></span>
           </span>

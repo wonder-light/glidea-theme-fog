@@ -1,6 +1,7 @@
 
 body, html {
-  font-size: 16px
+  font-size: 16px;
+  min-width: 1200px;
 }
 
 ::-moz-selection {
@@ -53,9 +54,9 @@ img, video {
 a {
   color: #ffffff;
   text-decoration: none;
-  
+
   &:hover {
-    color: #22D3EE;
+    color: #22d3ee;
     text-decoration: none
   }
 }
