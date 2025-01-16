@@ -90,7 +90,7 @@
         "motionMessage": false,
       },
     }),
-    Utils.updateSiteTime.bind(null, '2024/02/14'),
+    Utils.updateSiteTime.bind(null, '{{ site.customConfig.siteGoTime }}'),
     SiteMenu.init.bind(null, '{{ site.customConfig.menuPosition }}', {
       {% for icon in site.customConfig.icons %}"{{ icon.menuName }}":"{{ icon.iconUrl }}",{% endfor %}
     }),
@@ -99,7 +99,7 @@
   JQG.addPjax(
     Utils.update.bind(null),
     SitePost.updateTotalView.bind(null),
-    Utils.updateSiteTime.bind(null, {{ site.customConfig.siteGoTime }}),
+    Utils.updateSiteTime.bind(null, '{{ site.customConfig.siteGoTime }}'),
     Utils.log.bind(null, `pjax:complete - ${ Date.now() }`),
   );
 </script>

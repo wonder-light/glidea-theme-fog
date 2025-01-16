@@ -11,11 +11,11 @@
         <div class="wl-text-2xl wl-mt-5 wl-font-bold wl-line-clamp-1 article-title">{{ post.title }}</div>
         <div class="wl-mt-8 wl-text-xs wl-text-white wl-font-bold">
           <span class="wl-rounded-xl wl-ml-2.5 wl-py-1.25 wl-px-2.5 wl-bg-rose-500">
-            <i class="wl-mr-2.5 fa fa-calendar-days"></i>{{ post.date|substring(end=19) }}
+            <i class="wl-mr-2 fa fa-calendar"></i>{{ post.date|substring(end=19) }}
           </span>
           {% if post.stats and post.stats.text %}
             <span class="wl-rounded-xl wl-ml-2.5 wl-py-1.25 wl-px-2.5 wl-bg-orange-400">
-              <i class="wl-mr-2.5 fa fa-clock"></i> {{ post.stats.text }}
+              <i class="wl-mr-2 fa fa-clock-o"></i> {{ post.stats.text }}
             </span>
           {% endif %}
         </div>
