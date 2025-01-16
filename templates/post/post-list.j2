@@ -1,7 +1,7 @@
 {# ---------添加 Post 列表👇--------- #}
 <div class="wl-w-full wl-animate-fade-in">
   {% from './macro/post-list.j2' import postLists with context %}
-  {{ postLists(posts) }}
+  {{ postLists(posts, site.customConfig.postListMode) }}
 </div>
 {# ---------添加 Post 列表👇--------- #}
 {# ---------进度条👇--------- #}

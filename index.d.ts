@@ -28,14 +28,14 @@ declare class IconItem {
 }
 
 declare class Fog {
-  // 是否开启看板娘
-  live2d: boolean;
   // 菜单栏布局
   menuPosition: 'top' | 'left';
   // 文章列表风格
   postListMode: 'default' | 'elegant';
-  // 优雅模式武侠风
-  elegantMen: boolean;
+  
+  
+  // 是否开启看板娘
+  live2d: boolean;
   // 网站名称颜色 默认：antiquewhite
   siteNameColor: string;
   // 网站描述颜色 默认：white

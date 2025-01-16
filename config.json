@@ -5,14 +5,6 @@
   "repository": "https://github.com/850552586/gridea-theme-fog",
   "customConfig": [
     {
-      "name": "live2d",
-      "label": "是否开启看板娘",
-      "group": "布局",
-      "value": true,
-      "type": "switch",
-      "note": ""
-    },
-    {
       "name": "menuPosition",
       "label": "菜单栏布局",
       "group": "布局",
@@ -48,9 +40,12 @@
       ],
       "note": "两种风格"
     },
+    
+    
+    
     {
-      "name": "elegantMen",
-      "label": "优雅模式武侠风",
+      "name": "live2d",
+      "label": "是否开启看板娘",
       "group": "布局",
       "value": true,
       "type": "switch",

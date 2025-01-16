@@ -1,0 +1,24 @@
+{% macro postListItem(post) -%}
+  {# ---------显示 Post 列表的单个项👇--------- #}
+  <div class="wl-mb-16 wl-w-full">
+    <a class="wl-w-full wl-relative wl-rounded-xl wl-shadow-blur wl-text-white hover:wl-text-white" data-pjax href="{{ post.link }}">
+      <img src="{{ post.feature }}" alt="{{ post.title }}">
+      <div class="wl-absolute wl-z-10 wl-bottom-2.5">
+        <div class="wl-text-2xl wl-my-5 wl-pl-4 wl-line-clamp-1 article-title">{{ post.title }}</div>
+      </div>
+    </a>
+    {% if post.tags|length > 0 %}
+      <div class='wl-w-full wl-mt-4 wl-text-sm {{ 'wl-text-right' if isEven else 'wl-text-left' }}'>
+        {% for tag in post.tags %}
+          <span class="wl-font-bold">
+            <a class="wl-ml-1.25 wl-py-1.25 wl-px-2.5 wl-rounded-xl wl-border-3 wl-border-solid wl-text-green-400 hover:wl-text-cyan-400 wl-border-current"
+               data-pjax href="{{ tag.link }}">
+              <i class="fa fa-tag"></i>{{ tag.name }}
+            </a>
+          </span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  {# ---------显示 Post 列表的单个项👆--------- #}
+{%- endmacro %}
