@@ -202,109 +202,6 @@
     },
     
     {
-      "name": "commentChoice",
-      "label": "第三方评论系统选择",
-      "group": "配置",
-      "value": "default",
-      "type": "select",
-      "note": "valine需要配置Leancloud，twikoo需要配置cloudbase",
-      "options": [
-        {
-          "label": "不使用",
-          "value": "default"
-        },
-        {
-          "label": "valine",
-          "value": "valine"
-        },
-        {
-          "label": "twikoo",
-          "value": "twikoo"
-        }
-      ]
-    },
-    {
-      "name": "Leancloud_appId",
-      "label": "Leancloud_appId",
-      "group": "配置",
-      "value": "",
-      "type": "input",
-      "note": "[valine/阅读量统计] Leancloud_appId"
-    },
-    {
-      "name": "Leancloud_key",
-      "label": "Leancloud_key",
-      "group": "配置",
-      "value": "",
-      "type": "input",
-      "note": "[valine/阅读量统计] Leancloud_key"
-    },
-    {
-      "name": "twikooId",
-      "label": "cloudbase环境id",
-      "group": "配置",
-      "value": "",
-      "type": "input",
-      "note": "[twikoo] 配置查看文档 https://twikoo.js.org/"
-    },
-    {
-      "name": "bbchoice",
-      "label": "是否开启哔哔",
-      "group": "配置",
-      "value": false,
-      "type": "switch",
-      "note": "[丰富版说说系统]配置查看文档"
-    },
-    {
-      "name": "bbname",
-      "label": "哔哔-昵称",
-      "group": "配置",
-      "value": "",
-      "type": "input",
-      "note": "哔哔-昵称"
-    },
-    {
-      "name": "bbavatar",
-      "label": "哔哔-头像",
-      "group": "配置",
-      "value": "",
-      "type": "input",
-      "note": "请输入头像外链【可以填写自己站点头像地址】"
-    },
-    {
-      "name": "bblimit",
-      "label": "哔哔-加载条数",
-      "group": "配置",
-      "value": "5",
-      "type": "input",
-      "note": "哔哔-每次加载的数目，默认值：5"
-    },
-    {
-      "name": "bbgif",
-      "label": "哔哔-加载动画",
-      "group": "配置",
-      "value": "https://7.dusays.com/2021/03/04/d2d5e983e2961.gif",
-      "type": "input",
-      "note": "哔哔-加载时gif动画（请输入外链），默认：https://7.dusays.com/2021/03/04/d2d5e983e2961.gif"
-    },
-    {
-      "name": "bbonetalkchoice",
-      "label": "是否开启哔哔-ontalk",
-      "group": "配置",
-      "value": false,
-      "type": "switch",
-      "note": "首页轮播哔哔消息"
-    },
-    {
-      "name": "bbjson",
-      "label": "哔哔云存储json地址",
-      "group": "配置",
-      "value": "",
-      "type": "input",
-      "note": "首页轮播哔哔消息时配置"
-    },
-    
-    {
       "name": "socialChoice",
       "label": "社交按钮开关",
       "group": "社交",
@@ -879,9 +776,9 @@
     },
     
     {
-      "name": "instantchoice",
-      "label": "即时通讯工具",
-      "group": "即时通讯",
+      "name": "commentChoice",
+      "label": "第三方评论系统选择",
+      "group": "配置",
       "value": "default",
       "type": "select",
       "options": [
@@ -890,31 +787,94 @@
           "value": "default"
         },
         {
-          "label": "Daovoice",
-          "value": "daovoice"
+          "label": "twikoo",
+          "value": "twikoo"
         },
         {
-          "label": "Crisp",
-          "value": "crisp"
+          "label": "waline",
+          "value": "waline"
+        },
+        {
+          "label": "gitalk",
+          "value": "gitalk"
+        },
+        {
+          "label": "disqus",
+          "value": "disqus"
         }
-      ],
-      "note": "请自行查阅介绍"
+      ]
     },
     {
-      "name": "daovoice_id",
-      "label": "app_id",
-      "group": "即时通讯",
+      "name": "twikooId",
+      "label": "twikoo Id",
+      "group": "配置",
       "value": "",
       "type": "input",
-      "note": "[使用daovoice时配置]在控制台-安装到网站-appid里的内容复制过来"
+      "note": "[twikoo] 配置查看文档 https://twikoo.js.org/"
     },
     {
-      "name": "crisp_id",
-      "label": "网站id",
-      "group": "即时通讯",
+      "name": "walineId",
+      "label": "waline Id",
+      "group": "配置",
       "value": "",
       "type": "input",
-      "note": "[使用Crisp时配置] 在设置-网站设置-网站id里的内容复制过来"
+      "note": "[waline] 配置查看文档 https://waline.js.org/guide/get-started/"
+    },
+    {
+      "name": "bbchoice",
+      "label": "是否开启哔哔",
+      "group": "配置",
+      "value": false,
+      "type": "switch",
+      "note": "[丰富版说说系统]配置查看文档"
+    },
+    {
+      "name": "bbname",
+      "label": "哔哔-昵称",
+      "group": "配置",
+      "value": "",
+      "type": "input",
+      "note": "哔哔-昵称"
+    },
+    {
+      "name": "bbavatar",
+      "label": "哔哔-头像",
+      "group": "配置",
+      "value": "",
+      "type": "input",
+      "note": "请输入头像外链【可以填写自己站点头像地址】"
+    },
+    {
+      "name": "bblimit",
+      "label": "哔哔-加载条数",
+      "group": "配置",
+      "value": "5",
+      "type": "input",
+      "note": "哔哔-每次加载的数目，默认值：5"
+    },
+    {
+      "name": "bbgif",
+      "label": "哔哔-加载动画",
+      "group": "配置",
+      "value": "https://7.dusays.com/2021/03/04/d2d5e983e2961.gif",
+      "type": "input",
+      "note": "哔哔-加载时gif动画（请输入外链），默认：https://7.dusays.com/2021/03/04/d2d5e983e2961.gif"
+    },
+    {
+      "name": "bbonetalkchoice",
+      "label": "是否开启哔哔-ontalk",
+      "group": "配置",
+      "value": false,
+      "type": "switch",
+      "note": "首页轮播哔哔消息"
+    },
+    {
+      "name": "bbjson",
+      "label": "哔哔云存储json地址",
+      "group": "配置",
+      "value": "",
+      "type": "input",
+      "note": "首页轮播哔哔消息时配置"
     }
   ]
 }
