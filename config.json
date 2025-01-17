@@ -206,8 +206,8 @@
       "name": "donateImg",
       "label": "赞赏图",
       "group": "文章",
-      "value": "",
-      "type": "input",
+      "value": "/media/images/reward_qrcode.png",
+      "type": "picture",
       "note": "请输入图片外链"
     },
     {

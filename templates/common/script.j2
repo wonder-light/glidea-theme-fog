@@ -27,6 +27,9 @@
     {% if site.customConfig.siteGoTimeChoice %}
       Utils.updateSiteTime.bind(null, '{{ site.customConfig.siteGoTime }}'),
     {% endif %}
+    {% if site.customConfig.shareChoice %}
+      Utils.shareInit.bind(null, '{{ themeConfig.domain }}'),
+    {% endif %}
   ];
   JQG.add(
     SitePost.initValue.bind(null, true, 'twikoo', ''),

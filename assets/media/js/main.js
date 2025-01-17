@@ -273,8 +273,6 @@ class SitePost {
   static #commentsChoice;
   // 兰纳键
   static #commentKey;
-  // 开启分享
-  static #shareChoice = false;
   // 开启阅读模式
   static #readingMode = false;
   
@@ -283,7 +281,6 @@ class SitePost {
    *
    * @param {boolean} postNumChoice 是否开启文章阅读量统计
    * @param {boolean} comment 是否开启评论
-   * @param commentId
    * @param commentKey
    */
   static initValue(postNumChoice, comment, commentKey) {
@@ -317,7 +314,6 @@ class SitePost {
   // 更新 post
   static update() {
     if (!SitePost.isPost()) return;
-    if (SitePost.#shareChoice) Utils.shareInit();
     if ('default' === SitePost.#commentsChoice) $('#wl-comment').hide();
     Utils.imgLazyLoad();
     Utils.codeCopyInit();
@@ -753,17 +749,25 @@ class Utils {
   }
   
   // 分享初始化
-  static shareInit() {
-    new Share('#share-post', {
-      title: $('#p-title').html(),
-      initialized: true,
-      description: $('meta[name="description"]').attr('content'),
-      image: $('#wl-avatar').attr('src'),
-      sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'facebook', 'twitter', 'google'],
-      wechatQrcodeTitle: '微信扫一扫：分享',
-      wechatQrcodeHelper: '<p>微信里扫一下二维码</p><p>便可将本文分享至朋友圈。</p>',
-      disabled: ['google', 'linkedin'],
-      wechatQrcodePosition: 'bottom',
+  static shareInit(baseUrl) {
+    //Sharer.init();
+    let share = $('#share-post');
+    if(!share) return;
+    jsSocials.shares.qq={
+      label: "qq",
+      logo: "fa fa-qq",
+      shareUrl: "https://connect.qq.com/widget/shareqq/iframe_index.html?url={url}&text={text}&via={via}&hashtags={hashtags}",
+    };
+    jsSocials.shares.qzone={
+      label: "qzone",
+      logo: `${baseUrl}/media/images/qzone.png`,
+      shareUrl: "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={url}&text={text}&via={via}&hashtags={hashtags}",
+    };
+    share.jsSocials({
+      shares: ["qq", "qzone", "email", "twitter", "facebook", "whatsapp"],
+      text: $('#post-title').text(),
+      showLabel: false,
+      showCount: false,
     });
   }
   

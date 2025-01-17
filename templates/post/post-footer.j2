@@ -21,14 +21,9 @@
 {# --------------- 信息👆 ---------------- #}
 {# --------------- 分享👇 ---------------- #}
 {% if site.customConfig.shareChoice %}
-  <div class="wl-flex wl-justify-end wl-pb-2.5 wl-mr-5" id="share-post">
+  <div class="wl-flex wl-justify-end wl-pb-5 wl-mr-5" id="share-post">
     {% set names = ['qq','wechat','weibo','qzone','douban','facebook','twitter'] %}
     {% set images = ['qqs','wechats','weibos','qzones','doubans','facebooks','twitter'] %}
-    {% for name in names %}
-      <a class="{{ name }}" href="">
-        <i><img alt="{{ name }}" class="wl-w-8 wl-ml-2.5" src="{{ themeConfig.domain }}/media/images/{{ images[loop.index0] }}.png"></i>
-      </a>
-    {% endfor %}
   </div>
 {% endif %}
 {# --------------- 分享👆 ---------------- #}

@@ -108,3 +108,23 @@
     }
   }
 }
+
+.jssocials-shares {
+  @apply wl-flex wl-items-center wl-gap-2.5 wl-h-5;
+}
+
+.jssocials-share-link {
+  @apply wl-flex;
+}
+
+.jssocials-share-logo {
+  @apply wl-h-4;
+}
+
+.jssocials-share-qq {
+  background: #34d6f3;
+}
+
+.jssocials-share-qzone {
+  background: #f39434;
+}

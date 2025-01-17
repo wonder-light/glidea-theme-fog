@@ -1492,10 +1492,6 @@ video {
   width: 58.333333%;
 }
 
-.wl-w-8 {
-  width: 2rem;
-}
-
 .wl-w-9 {
   width: 2.25rem;
 }
@@ -2333,6 +2329,29 @@ video {
       --tw-content: attr(data-text);
       content: var(--tw-content);
     }
+
+.jssocials-shares {
+  display: flex;
+  height: 1.25rem;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.jssocials-share-link {
+  display: flex;
+}
+
+.jssocials-share-logo {
+  height: 1.25rem;
+}
+
+.jssocials-share-qq {
+  background: #34d6f3;
+}
+
+.jssocials-share-qzone {
+  background: #f39434;
+}
 
 .hover\:wl-bg-cyan-200\/75:hover {
   background-color: rgb(165 243 252 / 0.75);
