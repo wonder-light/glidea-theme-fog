@@ -30,7 +30,6 @@
       SitePost.getHot.bind(null, '{{ site.customConfig.postNumUrl }}'),
     {% endif %}
     {% if site.customConfig.siteNumChoice %}
-      {# TODO: 访客数量统计的 URL #}
       SitePost.updateTotalView.bind(null, '{{ site.customConfig.siteNumUrl }}'),
     {% endif %}
     {% if site.customConfig.siteGoTimeChoice %}
