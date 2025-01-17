@@ -150,7 +150,7 @@
       "group": "统计",
       "value": "",
       "type": "input",
-      "note": "需要调用的访客统计URL"
+      "note": "需要调用的访客统计URL, POST 方法"
     },
     {
       "name": "postNumChoice",
@@ -166,7 +166,7 @@
       "group": "统计",
       "value": "",
       "type": "input",
-      "note": "用于统计文章的访问数量"
+      "note": "用于统计文章的访问数量, POST 方法"
     },
     {
       "name": "recordText",
@@ -774,7 +774,6 @@
       ],
       "note": "消息数据集合"
     },
-    
     {
       "name": "commentChoice",
       "label": "第三方评论系统选择",
@@ -819,62 +818,6 @@
       "value": "",
       "type": "input",
       "note": "[waline] 配置查看文档 https://waline.js.org/guide/get-started/"
-    },
-    {
-      "name": "bbchoice",
-      "label": "是否开启哔哔",
-      "group": "配置",
-      "value": false,
-      "type": "switch",
-      "note": "[丰富版说说系统]配置查看文档"
-    },
-    {
-      "name": "bbname",
-      "label": "哔哔-昵称",
-      "group": "配置",
-      "value": "",
-      "type": "input",
-      "note": "哔哔-昵称"
-    },
-    {
-      "name": "bbavatar",
-      "label": "哔哔-头像",
-      "group": "配置",
-      "value": "",
-      "type": "input",
-      "note": "请输入头像外链【可以填写自己站点头像地址】"
-    },
-    {
-      "name": "bblimit",
-      "label": "哔哔-加载条数",
-      "group": "配置",
-      "value": "5",
-      "type": "input",
-      "note": "哔哔-每次加载的数目，默认值：5"
-    },
-    {
-      "name": "bbgif",
-      "label": "哔哔-加载动画",
-      "group": "配置",
-      "value": "https://7.dusays.com/2021/03/04/d2d5e983e2961.gif",
-      "type": "input",
-      "note": "哔哔-加载时gif动画（请输入外链），默认：https://7.dusays.com/2021/03/04/d2d5e983e2961.gif"
-    },
-    {
-      "name": "bbonetalkchoice",
-      "label": "是否开启哔哔-ontalk",
-      "group": "配置",
-      "value": false,
-      "type": "switch",
-      "note": "首页轮播哔哔消息"
-    },
-    {
-      "name": "bbjson",
-      "label": "哔哔云存储json地址",
-      "group": "配置",
-      "value": "",
-      "type": "input",
-      "note": "首页轮播哔哔消息时配置"
     }
   ]
 }

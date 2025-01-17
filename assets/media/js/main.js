@@ -261,8 +261,6 @@ class SiteSearch {
 
 // post 数据
 class SitePost {
-  // 显示 post 热度数量
-  static #postNumChoice = true;
   /**
    * 开启评论的评论类型
    *
@@ -284,7 +282,6 @@ class SitePost {
    * @param commentKey
    */
   static initValue(postNumChoice, commentsChoice, commentKey) {
-    SitePost.#postNumChoice = postNumChoice;
     SitePost.#commentsChoice = commentsChoice;
     SitePost.#commentKey = commentKey;
   }
@@ -296,19 +293,12 @@ class SitePost {
   
   // 获取 post 热度
   static getHot(url) {
-    if (!SitePost.isPost()) return;
-    if (SitePost.#postNumChoice && 'default' !== SitePost.#commentsChoice) {
-      let pathname = window.location.pathname;
-      if (-1 === pathname.search('post')) return false;
-      if (!pathname.endsWith('/')) {
-        pathname += '/';
-      }
-      if ('twikoo' === SitePost.#commentsChoice) {
-        SitePost._twikooHot(url, pathname);
-      } else {
-        SitePost._valineHot(url, pathname);
-      }
+    if (!SitePost.isPost() || !url) return;
+    let pathname = window.location.pathname;
+    if (!pathname.endsWith('/')) {
+      pathname += '/';
     }
+    SitePost._twikooHot(url, pathname);
   }
   
   // 更新 post
@@ -361,37 +351,6 @@ class SitePost {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
       svg: { fontCache: 'global' },
     };
-  }
-  
-  // valine 评论热度
-  static _valineHot(postHotUrl, url) {
-    let id = postHotUrl;
-    let key = SitePost.#commentKey;
-    AV.init({ appId: id, appKey: key });
-    let av = new AV.Query('Counter');
-    av.equalTo('url', url);
-    av.find().then(function (elements) {
-      if (0 === elements.length) {
-        let av = new (AV.Object.extend('Counter'));
-        av.save({ time: 1, title: p_title, url: pl, xid: pl })
-          .then(function (t) {
-            let el = $('#wl-hot-num');
-            el.eq(0).html(1);
-            el.eq(1).html(1);
-          });
-      } else {
-        let id = elements[0].id;
-        let av = AV.Object.createWithoutData('Counter', id);
-        let time = elements[0].attributes.time + 1;
-        av.set('time', time);
-        av.save();
-        let el = $('#wl-hot-num');
-        el.eq(0).html(1);
-        el.eq(1).html(1);
-      }
-    }, function (t) {
-      Utils.log('valine get hot error', t);
-    });
   }
   
   // twikoo 评论热度
