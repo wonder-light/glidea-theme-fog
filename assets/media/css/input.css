@@ -45,6 +45,7 @@
   --wl-selection-bg: #586e75;
 }
 
+
 @layer components {
   .mask-img-110 {
     mask-image: linear-gradient(110deg, transparent 20%, #ffffff 50%)
@@ -52,12 +53,6 @@
   
   .mask-img-250 {
     mask-image: linear-gradient(250deg, transparent 20%, #ffffff 50%)
-  }
-}
-
-.markdown-toc {
-  a {
-    @apply wl-transition-all wl-duration-200;
   }
 }
 
@@ -74,51 +69,63 @@
     animation-duration: 9s;
   }
   
+  .markdown-toc {
+    a {
+      @apply wl-transition-all wl-duration-200;
+    }
+  }
+  
   .wl-markdown-text {
     @apply wl-font-kaiti;
   }
-}
-
-.wl-text-split {
-  &::after, &::before {
-    content: attr(data-text);
-    /* 字体颜色 */
-    @apply wl-absolute wl-left-0 wl-w-full -wl-top-2 wl-text-orange-100 wl-transition-all wl-duration-300 wl-ease-in-out;
-  }
   
-  @apply group-odd:hover:before:-wl-left-1 group-even:hover:before:wl-left-1;
-  @apply group-odd:hover:after:wl-left-1 group-even:after:before:-wl-left-1;
-  
-  
-  &::before {
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%)
-  }
-  
-  &::after {
-    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%)
-  }
-  
-  &:hover {
-    /* 分割线颜色 */
-    @apply wl-border-cyan-400 wl-border-solid wl-border-t-1;
-    
+  .wl-text-split {
     &::after, &::before {
-      /* 悬停后的颜色 */
-      @apply wl-text-cyan-200 wl-delay-100 wl-content-[attr(data-text)];
+      content: attr(data-text);
+      /* 字体颜色 */
+      @apply wl-absolute wl-left-0 wl-w-full -wl-top-2 wl-text-orange-100 wl-transition-all wl-duration-300 wl-ease-in-out;
+    }
+    
+    @apply group-odd:hover:before:-wl-left-1 group-even:hover:before:wl-left-1;
+    @apply group-odd:hover:after:wl-left-1 group-even:after:before:-wl-left-1;
+    
+    
+    &::before {
+      clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%)
+    }
+    
+    &::after {
+      clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%)
+    }
+    
+    &:hover {
+      /* 分割线颜色 */
+      @apply wl-border-cyan-400 wl-border-solid wl-border-t-1;
+      
+      &::after, &::before {
+        /* 悬停后的颜色 */
+        @apply wl-text-cyan-200 wl-delay-100 wl-content-[attr(data-text)];
+      }
     }
   }
-}
-
-.jssocials-shares {
-  @apply wl-flex wl-items-center wl-gap-2.5 wl-h-5;
-}
-
-.jssocials-share-link {
-  @apply wl-flex;
-}
-
-.jssocials-share-logo {
-  @apply wl-h-4;
+  
+  .img-loading {
+    background: rgba(204, 204, 214, .4);
+    border-radius: 20px;
+    padding: 30%
+  }
+  
+  .jssocials-shares {
+    @apply wl-flex wl-items-center wl-gap-2.5 wl-h-5;
+  }
+  
+  .jssocials-share-link {
+    @apply wl-flex;
+  }
+  
+  .jssocials-share-logo {
+    @apply wl-h-4;
+  }
 }
 
 .jssocials-share-qq {

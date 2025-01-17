@@ -280,12 +280,12 @@ class SitePost {
   /**
    *
    * @param {boolean} postNumChoice 是否开启文章阅读量统计
-   * @param {boolean} comment 是否开启评论
+   * @param {boolean} commentsChoice 是否开启评论
    * @param commentKey
    */
-  static initValue(postNumChoice, comment, commentKey) {
+  static initValue(postNumChoice, commentsChoice, commentKey) {
     SitePost.#postNumChoice = postNumChoice;
-    SitePost.#commentsChoice = comment;
+    SitePost.#commentsChoice = commentsChoice;
     SitePost.#commentKey = commentKey;
   }
   
@@ -459,7 +459,6 @@ class Utils {
     Utils.updateWordAnim('#wordAnim2');
     SitePost.update();
     Utils.updateBanner();
-    Utils.scopedCss();
   }
   
   // 更新横幅的高度
@@ -814,7 +813,7 @@ class Utils {
   // 图片懒加载
   static imgLazyLoad(clasAttr = null) {
     let nodes = $('img').filter(function () {
-      var attr = $(this).attr('class');
+      let attr = $(this).attr('class');
       return null == attr || attr === clasAttr;
     });
     
@@ -838,7 +837,7 @@ class Utils {
       let src = el.attr('src');
       el.attr('data-original', src);
       el.addClass('img-loading');
-      el.attr('src', '/media/images/imgloading.gif');
+      el.attr('src', '/media/images/img-loading.gif');
       el.wrap(`<span data-fancybox="images" href="${ src }"></span>`);
       el.one('appear', function () {
         el.attr('src', src);

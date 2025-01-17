@@ -118,12 +118,6 @@ body {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
 }
 
-.img-loading {
-  background: rgba(204, 204, 214, .4);
-  border-radius: 20px;
-  padding: 30%
-}
-
 .lazy-load {
   cursor: pointer
 }
