@@ -667,17 +667,17 @@
           "name": "menuName",
           "type": "input",
           "value": "",
-          "note": "对应菜单名称"
+          "note": "对应菜单名称, 如首页,归档,标签等等"
         },
         {
           "label": "图标（外链）",
           "name": "iconUrl",
           "type": "input",
           "value": "",
-          "note": "使用默认值 / 或填写图标外链"
+          "note": "填写图标链接, 如: /media/images/Home.png, https://..."
         }
       ],
-      "note": "默认值：Home / Archive / Tag / About / Talk / Friends (填写时删除空格)"
+      "note": "默认值：首页/归档/标签/关于/说说/友人帐 (填写时删除空格)"
     },
     {
       "name": "aplayerChoice",
@@ -723,19 +723,45 @@
       "group": "音乐播放器",
       "value": "",
       "type": "input",
-      "note": ""
+      "note": "比如在这个链接中 [https://music.163.com/#/album?id=195683561], ID 就是 195683561"
+    },
+    {
+      "name": "aplayerIdType",
+      "label": "歌单ID类型",
+      "group": "音乐播放器",
+      "value": "playlist",
+      "type": "select",
+      "note": "",
+      "options": [
+        {
+          "label": "歌曲列表",
+          "value": "playlist"
+        },
+        {
+          "label": "专辑",
+          "value": "album"
+        },
+        {
+          "label": "搜索列表",
+          "value": "search"
+        },
+        {
+          "label": "艺术家",
+          "value": "artist"
+        }
+      ]
     },
     {
       "name": "aplayerOrder",
       "label": "播放模式",
       "group": "音乐播放器",
-      "value": "default",
+      "value": "list",
       "type": "select",
       "note": "",
       "options": [
         {
           "label": "顺序播放",
-          "value": "default"
+          "value": "list"
         },
         {
           "label": "随机播放",

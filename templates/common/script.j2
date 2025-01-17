@@ -6,7 +6,16 @@
 {% if site.customConfig.aplayerChoice %}
   <!-- aplayer播放器加载👇 -->
   <div class="wl-fixed wl-inset-x-0 wl-bottom-0 wl-z-20 wl-m-0 wl-bg-white">
-    <meting-js id="3779629" server="netease" type="playlist" order="list" loop="all" preload="auto" autoplay="false" fixed="true" mini="true" muted="muted">
+    <meting-js id="{{ site.customConfig.aplayerId }}"
+               server="{{ site.customConfig.aplayerServer }}"
+               type="{{ site.customConfig.aplayerIdType }}"
+               order="{{ site.customConfig.aplayerOrder }}"
+               loop="all"
+               preload="auto"
+               autoplay="{{ site.customConfig.aplayerAutoplay }}"
+               fixed="true"
+               mini="true"
+               muted="muted">
     </meting-js>
   </div>
   <script src="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
