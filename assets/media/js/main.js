@@ -449,10 +449,7 @@ class Utils {
     Utils.updateLoading();
     Utils.switchTheme(true);
     Utils.update();
-    if (Utils.isMobile()) {
-      let el = $('#wl-bg');
-      el.attr('src', el.attr('mobile-src'));
-    }
+    Utils.updateBgImage();
     Utils.dragLive2d();
   }
   
@@ -481,12 +478,19 @@ class Utils {
   
   // 是 手机端
   static isMobile() {
-    return Math.min(window.screen.width, window.visualViewport.width, window.innerWidth) <= 1200;
+    return Math.min(window.screen.width, window.visualViewport.width, window.innerWidth) < 1200;
   }
   
   // 随机颜色
   static randomColor() {
     return '#' + Math.floor(16777215 * Math.random()).toString(16);
+  }
+  
+  // 更新背景图片
+  static updateBgImage() {
+    let el = $('#wl-bg');
+    if (!el) return;
+    el.attr('src', Utils.isMobile() ? el.attr('mobile-src') : el.attr('pc-src'));
   }
   
   // 更新标签颜色
@@ -752,15 +756,15 @@ class Utils {
   static shareInit(baseUrl) {
     //Sharer.init();
     let share = $('#share-post');
-    if(!share) return;
-    jsSocials.shares.qq={
+    if (!share) return;
+    jsSocials.shares.qq = {
       label: "qq",
       logo: "fa fa-qq",
       shareUrl: "https://connect.qq.com/widget/shareqq/iframe_index.html?url={url}&text={text}&via={via}&hashtags={hashtags}",
     };
-    jsSocials.shares.qzone={
+    jsSocials.shares.qzone = {
       label: "qzone",
-      logo: `${baseUrl}/media/images/qzone.png`,
+      logo: `${ baseUrl }/media/images/qzone.png`,
       shareUrl: "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={url}&text={text}&via={via}&hashtags={hashtags}",
     };
     share.jsSocials({
