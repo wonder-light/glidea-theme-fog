@@ -11,7 +11,8 @@
 {% block content %}
   {# ---------封面👇--------- #}
   <div class="wl-w-full wl-min-h-100 wl-rounded-md wl-overflow-hidden wl-shadow-blur">
-    <img alt="{{ post.title }}" class="wl-w-full wl-h-full wl-rounded-md wl-object-cover" src="{{ post.feature }}">
+    {% set imgSrc = site.customConfig.postDefaultLink if site.customConfig.bgChoice == 'link' else (themeConfig.domain + site.customConfig.postDefaultImage) %}
+    <img alt="{{ post.title }}" class="wl-w-full wl-h-full wl-rounded-md wl-object-cover" src="{{ post.feature if post.feature else imgSrc }}">
   </div>
   {# ---------封面👆--------- #}
   <div class="wl-relative wl-bg-white wl-shadow-blur wl-rounded-xl">

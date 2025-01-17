@@ -1,16 +1,19 @@
 {# --------------- 上下页👇 ---------------- #}
 <div class="wl-mt-2.5 wl-flex wl-justify-between wl-w-full">
+  {% set imgSrc = site.customConfig.postDefaultLink if site.customConfig.bgChoice == 'link' else (themeConfig.domain + site.customConfig.postDefaultImage) %}
   {% if post.prevPost %}
+    {% set feature = post.prevPost.feature if post.prevPost.feature else imgSrc %}
     <a class="wl-block wl-rounded-xl wl-w-2/5 wl-shadow-blur wl-max-h-52 wl-relative" data-pjax href="{{ post.prevPost.link }}">
-      <img class="wl-rounded-xl wl-h-full wl-w-full wl-object-cover" src="{{ post.prevPost.feature }}" alt="{{ post.prevPost.title }}">
+      <img class="wl-rounded-xl wl-h-full wl-w-full wl-object-cover" src="{{ feature }}" alt="{{ post.prevPost.title }}">
       <h4 class="wl-absolute wl-bottom-2.5 wl-text-white wl-line-clamp-1 wl-p-2.5 wl-text-center">{{ post.prevPost.title }}</h4>
     </a>
   {% else %}
     <div></div>
   {% endif %}
   {% if post.nextPost %}
+    {% set feature = post.nextPost.feature if post.nextPost.feature else imgSrc %}
     <a class="wl-block wl-rounded-xl wl-w-2/5 wl-shadow-blur wl-max-h-52 wl-relative" data-pjax href="{{ post.nextPost.link }}">
-      <img class="wl-rounded-xl wl-h-full wl-w-full wl-object-cover" src="{{ post.nextPost.feature }}" alt="{{ post.nextPost.title }}">
+      <img class="wl-rounded-xl wl-h-full wl-w-full wl-object-cover" src="{{ feature }}" alt="{{ post.nextPost.title }}">
       <h4 class="wl-absolute wl-bottom-2.5 wl-text-white wl-line-clamp-1 wl-p-2.5 wl-text-center">{{ post.nextPost.title }}</h4>
     </a>
   {% else %}

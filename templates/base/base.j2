@@ -36,11 +36,9 @@
     </div>
   </div>
   {% block background %}
-    <!------------ 加载全局背景图功能👇（开始时没有写好，这功能有点鸡肋/(ㄒoㄒ)/~~） -->
-    <img id="wl-bg" class="wl-fixed wl-w-full wl-h-full wl-inset-0 -wl-z-10 wl-backdrop-blur-sm wl-object-cover wl-blur-xs"
-         src="{{ themeConfig.domain }}/media/images/custom-bgimage.png"
-         mobile-src="{{ themeConfig.domain }}/media/images/custom-mobilebg.jpg" alt="背景">
-    <!------------ 加载全局背景图功能👆（开始时没有写好，这功能有点鸡肋/(ㄒoㄒ)/~~） -->
+    {# --------------- 全局背景图👇 ---------------- #}
+    {% include './common/background.j2' ignore missing with context %}
+    {# --------------- 全局背景图👆 ---------------- #}
   {% endblock %}
   {% block script %}
     {% include './common/script.j2' ignore missing with context %}

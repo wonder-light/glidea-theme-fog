@@ -2,7 +2,8 @@
   {# ---------显示 Post 列表的单个项👇--------- #}
   <div class="wl-mb-16 wl-w-full">
     <a class="wl-w-full wl-relative wl-rounded-xl wl-shadow-blur wl-text-white hover:wl-text-white" data-pjax href="{{ post.link }}">
-      <img src="{{ post.feature }}" alt="{{ post.title }}">
+      {% set imgSrc = site.customConfig.postDefaultLink if site.customConfig.bgChoice == 'link' else (themeConfig.domain + site.customConfig.postDefaultImage) %}
+      <img src="{{ post.feature if post.feature else imgSrc }}" alt="{{ post.title }}">
       <div class="wl-absolute wl-z-10 wl-bottom-2.5">
         <div class="wl-text-2xl wl-my-5 wl-pl-4 wl-line-clamp-1 article-title">{{ post.title }}</div>
       </div>

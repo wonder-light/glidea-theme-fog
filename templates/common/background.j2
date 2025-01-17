@@ -1,0 +1,11 @@
+{# ------------ 加载全局背景图功能👇（开始时没有写好，这功能有点鸡肋/(ㄒoㄒ)/~~） #}
+{% if site.customConfig.bgChoice == 'link' %}
+  <img id="wl-bg" class="wl-fixed wl-w-full wl-h-full wl-inset-0 -wl-z-10 wl-backdrop-blur-sm wl-object-cover wl-blur-xs"
+       src="{{ site.customConfig.bgImageLink }}"
+       mobile-src="{{ site.customConfig.mobileBgImageLink }}" alt="背景">
+{% else %}
+<img id="wl-bg" class="wl-fixed wl-w-full wl-h-full wl-inset-0 -wl-z-10 wl-backdrop-blur-sm wl-object-cover wl-blur-xs"
+     src="{{ themeConfig.domain }}{{ site.customConfig.bgImage }}"
+     mobile-src="{{ themeConfig.domain }}{{ site.customConfig.mobileBgImage }}" alt="背景">
+{% endif %}
+{# ------------ 加载全局背景图功能👆（开始时没有写好，这功能有点鸡肋/(ㄒoㄒ)/~~） #}

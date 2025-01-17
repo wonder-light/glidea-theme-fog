@@ -406,7 +406,7 @@
     },
     
     {
-      "name": "bgchoice",
+      "name": "bgChoice",
       "label": "图片加载方式",
       "group": "背景图",
       "value": "link",
@@ -424,79 +424,51 @@
       ]
     },
     {
-      "name": "postdefaultimagelink",
+      "name": "bgImageLink",
+      "label": "背景虚化图-外链",
+      "group": "背景图",
+      "value": "",
+      "type": "input"
+    },
+    {
+      "name": "mobileBgImageLink",
+      "label": "移动端背景图-外链",
+      "group": "背景图",
+      "value": "",
+      "type": "input"
+    },
+    {
+      "name": "postDefaultLink",
       "label": "文章封面默认背景图-外链",
       "group": "背景图",
       "value": "",
       "type": "input"
     },
     {
-      "name": "tagimagelink",
-      "label": "标签云页面置顶图-外链",
-      "group": "背景图",
-      "value": "",
-      "type": "input"
-    },
-    {
-      "name": "bgimagelink",
-      "label": "全局背景虚化图-外链",
-      "group": "背景图",
-      "value": "",
-      "type": "input"
-    },
-    {
-      "name": "mobilebgimagelink",
-      "label": "移动端首页图-外链",
-      "group": "背景图",
-      "value": "",
-      "type": "input"
-    },
-    {
-      "name": "mobileplbgimagelink",
-      "label": "移动端全局背景图-外链",
-      "group": "背景图",
-      "value": "",
-      "type": "input"
-    },
-    {
-      "name": "postdefaultimage",
-      "label": "文章封面默认背景图",
-      "group": "背景图",
-      "value": "/media/images/custom-postdefaultimage.png",
-      "type": "picture-upload",
-      "note": "本地上传"
-    },
-    {
-      "name": "tagimage",
-      "label": "标签云页面置顶图",
-      "group": "背景图",
-      "value": "/media/images/custom-tagimage.png",
-      "type": "picture-upload",
-      "note": "本地上传"
-    },
-    {
-      "name": "bgimage",
+      "name": "bgImage",
       "label": "全局背景虚化图",
       "group": "背景图",
-      "value": "/media/images/custom-bgimage.png",
+      "value": "/media/images/custom-bg-image.png",
       "type": "picture-upload",
       "note": "本地上传"
     },
     {
-      "name": "mobilebgimage",
-      "label": "移动端首页图",
+      "name": "mobileBgImage",
+      "label": "移动端背景图",
       "group": "背景图",
-      "value": "/media/images/custom-mobilebgimage.jpg",
+      "value": "/media/images/custom-mobile-bg-image.jpg",
       "type": "picture-upload",
       "note": "本地上传"
     },
     {
-      "name": "mobileplbgimage",
-      "label": "移动端全局背景图",
+      "name": "postDefaultImage",
+      "label": "文章封面默认背景图",
       "group": "背景图",
-      "value": "/media/images/custom-mobilebg.jpg",
-      "type": "picture-upload"
+      "value": "/media/images/custom-post-default-image.png",
+      "type": "picture-upload",
+      "note": "本地上传"
     },
+    
     {
       "name": "codetheme",
       "label": "代码主题",

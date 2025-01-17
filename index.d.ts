@@ -92,6 +92,20 @@ declare class Fog {
   wyy: string;
   //链接地址
   steam: string;
+  //图片加载方式, 选择本地上传便在下方选项添加图片，选择外链则在下方输入框输入外链链接【推荐使用外链】
+  bgChoice: 'default' | 'link';
+  // 背景虚化图-外链
+  bgImageLink: string;
+  // 移动端背景图-外链
+  mobileBgImageLink: string;
+  // 文章封面默认背景图-外链
+  postDefaultLink: string;
+  // 全局背景虚化图
+  bgImage: string;
+  // 移动端背景图
+  mobileBgImage: string;
+  // 文章封面默认背景图
+  postDefaultImage: string;
   
   
   
@@ -120,20 +134,6 @@ declare class Fog {
   //首页轮播哔哔消息时配置
   bbjson: string;
   
-  //图片加载方式, 选择本地上传便在下方选项添加图片，选择外链则在下方输入框输入外链链接【推荐使用外链】
-  bgchoice: 'default' | 'link';
-  //input
-  postdefaultimagelink: string;
-  //input
-  tagimagelink: string;
-  //input
-  bgimagelink: string;
-  //input
-  mobilebgimagelink: string;
-  //input
-  mobileplbgimagelink: string;
-  //本地上传
-  postdefaultimage: string;
   //本地上传
   tagimage: string;
   //本地上传
