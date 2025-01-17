@@ -662,19 +662,35 @@ class Utils {
     }
   }
   
-  // 显示QQ
-  static showQQ(qq) {
-    if (qq) {
-      window.location.href = 'tencent://message/?uin=' + qq + '&Site=&Menu=yes';
-    } else {
-      alert('博主暂未设置QQ联系方式');
+  /**
+   * 打开设计网站
+   * @param {string} type 社交类型
+   * @param {string} url 社交 URL
+   */
+  static openSocial(type, url) {
+    switch (type) {
+      case 'QQ':
+        if(!url) {
+          alert('博主暂未设置QQ联系方式');
+          return;
+        }
+        if(!url.startsWith('http')) {
+          // QQ 号
+          url = 'tencent://message/?uin=' + url + '&Site=&Menu=yes';
+        }
+        break;
+      case 'wechat':
+        if(!url) {
+          alert('博主暂未设置微信联系方式');
+          return;
+        }
+        if(!url.startsWith('http')) {
+          // QQ 号
+          url = 'weixin://contacts/profile/' + url;
+        }
+        break;
     }
-  }
-  
-  // 显示微信
-  static showWechat(wechat) {
-    alert('博主微信号：' + wechat);
-    return false;
+    window.open(url);
   }
   
   // 显示音乐播放器

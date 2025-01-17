@@ -41,10 +41,9 @@
       </span>
         {% set items = ['github', 'QQ', 'zhihu', 'bilibili', 'wechat', 'weibo', 'wyy', 'steam'] %}
         {% for item in items %}
-          {% if site.customConfig[item] %}
-            {% set itemValue = site.customConfig[item] %}
-            {% set attr = ('href="'+itemValue+'"') if (item != 'QQ' and item != 'wechat') else (['onclick="Utils.show', item|capitalize, '(', "'", itemValue, "'", ')"']|join('')) %}
-            <a class="wl-flex-1 wl-flex wl-justify-center wl-z-10" {{ attr }} target="_blank">
+          {% set itemValue = site.customConfig[item] %}
+          {% if itemValue %}
+            <a class="wl-flex-1 wl-flex wl-justify-center wl-z-10" onclick="Utils.openSocial('{{ item }}', '{{ itemValue }}')" target="_blank">
               <i>
                 <img class="wl-w-5 wl-cursor-pointer" src="{{ themeConfig.domain }}/media/images/{{ item }}.png" alt="{{ item }}">
               </i>

@@ -184,7 +184,6 @@
       "type": "picture",
       "note": "请输入图片外链"
     },
-    
     {
       "name": "socialChoice",
       "label": "社交按钮开关",
@@ -275,7 +274,6 @@
       "type": "input",
       "note": "链接地址"
     },
-    
     {
       "name": "bgChoice",
       "label": "图片加载方式",
