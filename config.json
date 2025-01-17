@@ -155,12 +155,28 @@
       "note": "不蒜子会影响网页加载速度，请慎重考虑！"
     },
     {
+      "name": "siteNumUrl",
+      "label": "访客统计URL",
+      "group": "统计",
+      "value": "",
+      "type": "input",
+      "note": "需要调用的访客统计URL"
+    },
+    {
       "name": "postNumChoice",
       "label": "是否开启文章阅读量统计",
       "group": "统计",
       "value": false,
       "type": "switch",
-      "note": "需要在配置页面填写Leancloud_id和key值！"
+      "note": "需要填写下方的URL地址！"
+    },
+    {
+      "name": "postNumUrl",
+      "label": "文章阅读量统计URL",
+      "group": "统计",
+      "value": "",
+      "type": "input",
+      "note": "用于统计文章的访问数量"
     },
     {
       "name": "recordText",

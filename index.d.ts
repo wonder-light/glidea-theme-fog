@@ -58,8 +58,12 @@ declare class Fog {
   siteGoTime: string;
   // 是否开启访客统计, 不蒜子会影响网页加载速度，请慎重考虑
   siteNumChoice: boolean;
+  // 访客统计URL
+  siteNumUrl: string;
   // 是否开启文章阅读量统计, 需要在配置页面填写Leancloud_id和key值
   postNumChoice: boolean;
+  // 文章阅读量统计URL
+  postNumUrl: string;
   //填写网站备案号，如无则空着即可
   recordText: string;
   

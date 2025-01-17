@@ -15,12 +15,23 @@
   <!-- aplayer播放器加载👆 -->
 {% endif %}
 <script>
-  SitePost.initValue(true, 'twikoo', 'https://api-nianian.netlify.app/.netlify/functions/article-hot', '');
-  JQG.add(
-    Utils.one.bind(null),
-    {% if site.customConfig.siteNumChoice %}
-      SitePost.updateTotalView.bind(null),
+  // 公共部分
+  let common = [
+    {% if site.customConfig.postNumChoice %}
+      SitePost.getHot.bind(null, '{{ site.customConfig.postNumUrl }}'),
     {% endif %}
+    {% if site.customConfig.siteNumChoice %}
+      {# TODO: 访客数量统计的 URL #}
+      SitePost.updateTotalView.bind(null, '{{ site.customConfig.siteNumUrl }}'),
+    {% endif %}
+    {% if site.customConfig.siteGoTimeChoice %}
+      Utils.updateSiteTime.bind(null, '{{ site.customConfig.siteGoTime }}'),
+    {% endif %}
+  ];
+  JQG.add(
+    SitePost.initValue.bind(null, true, 'twikoo', ''),
+    Utils.one.bind(null),
+    ...common,
     Utils.loadOhLive2D.bind(null, {
       "mobileShow": true,
       "source": "{{ themeConfig.domain }}",
@@ -93,25 +104,12 @@
         "motionMessage": false,
       },
     }),
-    {% if site.customConfig.siteGoTimeChoice %}
-      Utils.updateSiteTime.bind(null, '{{ site.customConfig.siteGoTime }}'),
-    {% endif %}
     SiteMenu.init.bind(null, '{{ site.customConfig.menuPosition }}', {
       {% for icon in site.customConfig.icons %}"{{ icon.menuName }}":"{{ icon.iconUrl }}",{% endfor %}
     }),
-    Utils.log.bind(null, `jquery:ready - ${ Date.now() }`),
   );
   JQG.addPjax(
-    {% if site.customConfig.postNumChoice %}
-      SitePost.getHot.bind(null),
-    {% endif %}
+    ...common,
     Utils.update.bind(null),
-    {% if site.customConfig.siteNumChoice %}
-      SitePost.updateTotalView.bind(null),
-    {% endif %}
-    {% if site.customConfig.siteGoTimeChoice %}
-      Utils.updateSiteTime.bind(null, '{{ site.customConfig.siteGoTime }}'),
-    {% endif %}
-    Utils.log.bind(null, `pjax:complete - ${ Date.now() }`),
   );
 </script>

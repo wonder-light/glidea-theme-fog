@@ -10,22 +10,32 @@ class JqueryGlobal {
   #loads = [];
   
   constructor() {
-    $(() => this.exe.call(this));
+    $(() => this.#exe.call(this));
     $(document).pjax('a[data-pjax]', '#wl-main', { fragment: '#wl-main', timeout: 8e3 })
-               .on('pjax:complete', () => this.pjax.call(this))
+               .on('pjax:complete', () => this.#exePjaxFun.call(this))
                .on('pjax:start', () => Utils.updateLoading(true))
                .on('pjax:end', () => Utils.updateLoading(false));
     window.onload && this.addLoad(window.onload);
-    window.onload = () => this.load.call(this);
+    window.onload = () => this.#exeLoadFun.call(this);
   }
   
   // 添加函数
-  add(...funs) {
-    this.#functions.push(...funs);
+  add(...items) {
+    this.#functions.push(...items);
+  }
+  
+  // 添加 pjax 方法
+  addPjax(...items) {
+    this.#pjaxFunctions.push(...items);
+  }
+  
+  // 天极爱加载后执行的函数
+  addLoad(...items) {
+    this.#loads.push(...items);
   }
   
   // 执行
-  exe() {
+  #exe() {
     for (let e of this.#functions) {
       try {
         e?.call();
@@ -36,36 +46,26 @@ class JqueryGlobal {
     }
   }
   
-  // 添加 pjax 方法
-  addPjax(...items) {
-    this.#pjaxFunctions.push(...items);
-  }
-  
-  // pjax 完成时执行
-  pjax() {
-    for (let fun of this.#pjaxFunctions) {
-      try {
-        fun?.call();
-      }
-      catch (t) {
-        Utils.log('JQG.pjax : ', t.message, fun.toString(), t);
-      }
-    }
-  }
-  
-  // 天极爱加载后执行的函数
-  addLoad(...t) {
-    this.#loads.push(...t);
-  }
-  
-  // 执行加载
-  load() {
+  // 网页加载完成后执行
+  #exeLoadFun() {
     for (let e of this.#loads) {
       try {
         e?.call();
       }
       catch (t) {
         Utils.log('JQG.loads : ', t.message, e.toString(), t);
+      }
+    }
+  }
+  
+  // 触发 pjax 后执行
+  #exePjaxFun() {
+    for (let fun of this.#pjaxFunctions) {
+      try {
+        fun?.call();
+      }
+      catch (t) {
+        Utils.log('JQG.pjax : ', t.message, fun.toString(), t);
       }
     }
   }
@@ -271,8 +271,6 @@ class SitePost {
    * @type {'default' | 'valine' | 'twikoo'}
    */
   static #commentsChoice;
-  // 评论 ID
-  static #commentId;
   // 兰纳键
   static #commentKey;
   // 开启分享
@@ -280,11 +278,17 @@ class SitePost {
   // 开启阅读模式
   static #readingMode = false;
   
-  // 初始化
-  static initValue(postNumChoice, comment, commentId, commentKey) {
+  // 初始化文章的相关数据
+  /**
+   *
+   * @param {boolean} postNumChoice 是否开启文章阅读量统计
+   * @param {boolean} comment 是否开启评论
+   * @param commentId
+   * @param commentKey
+   */
+  static initValue(postNumChoice, comment, commentKey) {
     SitePost.#postNumChoice = postNumChoice;
     SitePost.#commentsChoice = comment;
-    SitePost.#commentId = commentId;
     SitePost.#commentKey = commentKey;
   }
   
@@ -294,7 +298,7 @@ class SitePost {
   }
   
   // 获取 post 热度
-  static getHot() {
+  static getHot(url) {
     if (!SitePost.isPost()) return;
     if (SitePost.#postNumChoice && 'default' !== SitePost.#commentsChoice) {
       let pathname = window.location.pathname;
@@ -303,9 +307,9 @@ class SitePost {
         pathname += '/';
       }
       if ('twikoo' === SitePost.#commentsChoice) {
-        SitePost._twikooHot(pathname);
+        SitePost._twikooHot(url, pathname);
       } else {
-        SitePost._valineHot(pathname);
+        SitePost._valineHot(url, pathname);
       }
     }
   }
@@ -367,8 +371,8 @@ class SitePost {
   }
   
   // valine 评论热度
-  static _valineHot(url) {
-    let id = SitePost.#commentId;
+  static _valineHot(postHotUrl, url) {
+    let id = postHotUrl;
     let key = SitePost.#commentKey;
     AV.init({ appId: id, appKey: key });
     let av = new AV.Query('Counter');
@@ -398,12 +402,12 @@ class SitePost {
   }
   
   // twikoo 评论热度
-  static _twikooHot(urlPath) {
+  static _twikooHot(postHotUrl, postUrlPath) {
     $.ajax({
-      url: SitePost.#commentId,
+      url: postHotUrl,
       type: 'POST',
       timeout: 3e3,
-      data: JSON.stringify({ url: urlPath, href: window.location.href }),
+      data: JSON.stringify({ url: postUrlPath, href: window.location.href }),
       dataType: 'json',
       success: function (result) {
         let el = $('#wl-hot-num');
@@ -417,13 +421,14 @@ class SitePost {
   }
   
   /**
-   * 更新复刻统计
+   * 更新总访问量，访问人数
+   * @param {string} url 获取访问数量的 URL
    * @param {boolean} updateTotal
    * @param {boolean} updateView
    */
-  static updateTotalView(updateTotal = true, updateView = true) {
+  static updateTotalView(url, updateTotal = true, updateView = true) {
     $.ajax({
-      url: 'https://api-nianian.netlify.app/.netlify/functions/site-visits',
+      url: url,
       type: 'POST',
       timeout: 3e3,
       data: JSON.stringify({
@@ -907,14 +912,14 @@ class Utils {
   }
   
   /// 给 CSS 添加父类
-  static scopedCss(cssStyle, parentElement){
+  static scopedCss(cssStyle, parentElement) {
     /**
      * Add a parent selector to all selectors passed in css
      * @param style
      * @param parent
      * @returns {string}
      */
-    function scoped (style, parent) {
+    function scoped(style, parent) {
       //Css class name cannot start with a number
       if (/^[0-9]/.test(parent)) {
         parent = '_' + parent
@@ -942,7 +947,7 @@ class Utils {
      * @param parent
      * @returns {string}
      */
-    function normalCssScoped (style, parent) {
+    function normalCssScoped(style, parent) {
       
       var css = style
         .replace(/\/\*(.*)\*\//g, '')
