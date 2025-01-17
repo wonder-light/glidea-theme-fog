@@ -143,11 +143,6 @@ body {
   margin-bottom: 3rem
 }
 
-.live2d-wrapper {
-  left: auto;
-  right: 0
-}
-
 .\*\:wl-p-1 > * {
   padding: .25rem
 }

@@ -135,3 +135,8 @@
 .jssocials-share-qzone {
   background: #f39434;
 }
+
+.live2d-wrapper {
+  left: auto;
+  right: 0
+}

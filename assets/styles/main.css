@@ -489,11 +489,6 @@ body {
   margin-bottom: 3rem
 }
 
-.live2d-wrapper {
-  left: auto;
-  right: 0
-}
-
 .\*\:wl-p-1 > * {
   padding: .25rem
 }
@@ -2323,6 +2318,11 @@ video {
 
 .jssocials-share-qzone {
   background: #f39434;
+}
+
+.live2d-wrapper {
+  left: auto;
+  right: 0
 }
 
 .hover\:wl-bg-cyan-200\/75:hover {

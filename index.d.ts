@@ -27,6 +27,24 @@ declare class IconItem {
   iconUrl: string;
 }
 
+declare class Model {
+  // 模型地址
+  path: string;
+  // 模型偏移 X
+  positionX: number;
+  // 模型偏移 Y
+  positionY: number;
+  // 模型缩放
+  scale: number;
+  // 模型音量
+  volume: number;
+}
+
+declare class Tip {
+  // 消息文本
+  text: string;
+}
+
 declare class Fog {
   // 菜单栏布局
   menuPosition: 'top' | 'left';
@@ -112,8 +130,6 @@ declare class Fog {
   mathChoice: boolean;
   
   
-  // 是否开启看板娘
-  live2d: boolean;
   //第三方评论系统选择
   commentChoice: 'default' | 'valine' | 'twikoo';
   //[valine/阅读量统计] Leancloud_appId
@@ -150,8 +166,6 @@ declare class Fog {
   talks: Array<TalkItem>;
   //图标icon, 默认值：Home / Archive / Tag / About / Talk / Friends (填写时删除空格)
   icons: Array<IconItem>;
-  
-  
   //是否开启音乐播放器
   aplayerChoice: boolean;
   // 音乐播放器的源平台
@@ -162,6 +176,18 @@ declare class Fog {
   aplayerOrder: 'default' | 'random';
   // 音乐播放器是否自动播放
   aplayerAutoplay: boolean;
+  // 是否开启看板娘
+  live2d: boolean;
+  // 启用提示框的拖拽
+  live2dTipDrag: boolean;
+  // 提示框显示时长, 单位 ms, 默认: 3000
+  live2dTipDuration: string;
+  // 提示框隐藏时长, 单位 ms, 默认: 10000
+  live2dTipInterval: string;
+  // 模型数据集合
+  live2dModels: Array<Model>;
+  // 消息数据集合
+  live2dTips: Array<Tip>;
   
   
   // 即时通讯工具

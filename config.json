@@ -1,8 +1,8 @@
 {
   "name": "fog",
-  "version": "1.5",
-  "author": "Ericam_",
-  "repository": "https://github.com/850552586/gridea-theme-fog",
+  "version": "1.2",
+  "author": "wonder-light",
+  "repository": "https://github.com/wonder-light/glidea-theme-fog",
   "customConfig": [
     {
       "name": "menuPosition",
@@ -120,16 +120,6 @@
       "type": "input",
       "note": ""
     },
-    
-    {
-      "name": "live2d",
-      "label": "是否开启看板娘",
-      "group": "布局",
-      "value": true,
-      "type": "switch",
-      "note": ""
-    },
-    
     {
       "name": "siteGoTimeChoice",
       "label": "是否开启站点创建时间",
@@ -777,6 +767,117 @@
       "type": "switch",
       "note": ""
     },
+    {
+      "name": "live2d",
+      "label": "是否开启看板娘",
+      "group": "live2d",
+      "value": true,
+      "type": "switch",
+      "note": ""
+    },
+    {
+      "name": "live2dTipDrag",
+      "label": "启用提示框的拖拽",
+      "group": "live2d",
+      "value": true,
+      "type": "switch",
+      "note": ""
+    },
+    {
+      "name": "live2dTipDuration",
+      "label": "提示框显示时长",
+      "group": "live2d",
+      "value": "3000",
+      "type": "input",
+      "note": "单位 ms"
+    },
+    {
+      "name": "live2dTipInterval",
+      "label": "提示框隐藏时长",
+      "group": "live2d",
+      "value": "6000",
+      "type": "input",
+      "note": "单位 ms"
+    },
+    {
+      "name": "live2dModels",
+      "label": "模型",
+      "group": "live2d",
+      "type": "array",
+      "value": [],
+      "arrayItems": [
+        {
+          "label": "模型地址",
+          "name": "path",
+          "type": "input",
+          "value": "",
+          "note": "模型的 json 文件的 url 地址, 如: /media/..., https://..."
+        },
+        {
+          "label": "模型偏移 X",
+          "name": "positionX",
+          "type": "slider",
+          "min": -100,
+          "max": 100,
+          "value": 0,
+          "note": "模型在 X 轴的偏移"
+        },
+        {
+          "label": "模型偏移 Y",
+          "name": "positionY",
+          "type": "slider",
+          "min": -100,
+          "max": 100,
+          "value": 0,
+          "note": "模型在 Y 轴的偏移"
+        },
+        {
+          "label": "模型缩放",
+          "name": "scale",
+          "type": "slider",
+          "max": 200,
+          "value": 50,
+          "note": "缩放范围为 [0, 2], 所有会对值除以 100"
+        },
+        {
+          "label": "模型音量",
+          "name": "volume",
+          "type": "slider",
+          "max": 200,
+          "value": 50,
+          "note": "缩放范围为 [0, 2], 所有会对值除以 100"
+        }
+      ],
+      "note": "模型数据集合"
+    },
+    {
+      "name": "live2dTips",
+      "label": "消息",
+      "group": "live2d",
+      "type": "array",
+      "value": [
+        { "text": "好久不见，日子过得好快呢……" },
+        { "text": "大坏蛋！你都多久没理人家了呀，嘤嘤嘤～" },
+        { "text": "嗨～快来逗我玩吧！" },
+        { "text": "拿小拳拳锤你胸口！" },
+        { "text": "记得把小家加入收藏夹哦！" },
+        { "text": "了解真相，才能获得真正的自由~" },
+        { "text": "最近在看什么书呢？" },
+        { "text": "最近在玩什么游戏呢？" },
+        { "text": "今天学习了吗？" }
+      ],
+      "arrayItems": [
+        {
+          "name": "text",
+          "label": "信息文本",
+          "type": "input",
+          "value": "",
+          "note": "支持HTML"
+        }
+      ],
+      "note": "消息数据集合"
+    },
+    
     {
       "name": "instantchoice",
       "label": "即时通讯工具",

@@ -447,7 +447,7 @@ class Utils {
     Utils.switchTheme(true);
     Utils.update();
     Utils.updateBgImage();
-    Utils.dragLive2d();
+    //Utils.dragLive2d();
   }
   
   static update() {
