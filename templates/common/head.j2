@@ -39,18 +39,18 @@
 <!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>-->
 <!--<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>-->
 <script src="https://fastly.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+{# -------- 代码👇 -------- #}
 <!-- 代码高亮插件 -->
-<script src="https://fastly.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+{% if site.customConfig.codeTheme %}
+  <!-- 代码高亮主题 default, agate, base16 ...  -->
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/{{ site.customConfig.codeTheme }}.min.css">
+{% endif %}
 <!-- 代码显示行数插件 -->
-<script src="https://fastly.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
-<!-- 代码渲染风格css -->
-<link rel="stylesheet" href="{{ themeConfig.domain }}/media/css/code/material.css">
+<script src="https://fastly.jsdelivr.net/npm/highlightjs-line-numbers.js@2.9.0/dist/highlightjs-line-numbers.min.js"></script>
 <!-- 代码复制插件 -->
 <script src="https://fastly.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
-<!-- 数学公式 -->
-<link href="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script src="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/katex.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.js"></script>
+{# -------- 代码👆 -------- #}
 <!-- -----------------twikoo评论系统引入👇 --------->
 <script src="https://fastly.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js"></script>
 <!-- -----------------twikoo评论系统引入👆 --------->

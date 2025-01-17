@@ -409,7 +409,7 @@
       "name": "bgChoice",
       "label": "图片加载方式",
       "group": "背景图",
-      "value": "link",
+      "value": "default",
       "type": "select",
       "note": "选择本地上传便在下方选项添加图片，选择外链则在下方输入框输入外链链接【推荐使用外链】",
       "options": [
@@ -468,34 +468,93 @@
       "type": "picture-upload",
       "note": "本地上传"
     },
-    
     {
-      "name": "codetheme",
+      "name": "codeTheme",
       "label": "代码主题",
       "group": "代码",
       "value": "default",
       "type": "select",
       "options": [
         {
-          "label": "简约白",
+          "label": "default",
           "value": "default"
         },
         {
-          "label": "vs",
-          "value": "vs2015"
+          "label": "a11y-dark",
+          "value": "a11y-dark"
+        },
+        {
+          "label": "a11y-light",
+          "value": "a11y-light"
+        },
+        {
+          "label": "agate",
+          "value": "agate"
+        },
+        {
+          "label": "atom-one-dark",
+          "value": "atom-one-dark"
+        },
+        {
+          "label": "atom-one-light",
+          "value": "atom-one-light"
+        },
+        {
+          "label": "base16-material",
+          "value": "base16/material"
+        },
+        {
+          "label": "base16-mexico-light",
+          "value": "base16/mexico-light"
+        },
+        {
+          "label": "base16-rebecca",
+          "value": "base16/rebecca"
+        },
+        {
+          "label": "base16-unikitty-dark",
+          "value": "base16/unikitty-dark"
+        },
+        {
+          "label": "base16-unikitty-light",
+          "value": "base16/unikitty-light"
+        },
+        {
+          "label": "gradient-dark",
+          "value": "gradient-dark"
+        },
+        {
+          "label": "gradient-light",
+          "value": "gradient-light"
+        },
+        {
+          "label": "intellij-light",
+          "value": "intellij-light"
+        },
+        {
+          "label": "night-owl",
+          "value": "night-owl"
+        },
+        {
+          "label": "nord",
+          "value": "nord"
+        },
+        {
+          "label": "obsidian",
+          "value": "obsidian"
         },
         {
           "label": "rainbow",
           "value": "rainbow"
         },
         {
-          "label": "dracula",
-          "value": "dracula"
+          "label": "vs",
+          "value": "vs"
         }
       ]
     },
     {
-      "name": "Mathchoice",
+      "name": "mathChoice",
       "label": "是否开启数学公式",
       "group": "代码",
       "value": false,

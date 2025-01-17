@@ -310,27 +310,6 @@ a:hover {
   color: var(--wl-m-del);
 }
 
-.hljs-ln-numbers {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  text-align: center;
-  vertical-align: top;
-  padding-right: 5px;
-  width: 32px;
-  position: relative;
-}
-
-.hljs-ln-numbers::after {
-  content: "";
-  border: 1px solid var(--wl-m-a);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 5px;
-  height: 120%;
-}
-
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-literal,
@@ -345,6 +324,24 @@ a:hover {
 
 .navbar-inverse {
   background-color: rgba(143, 168, 171, 0.8);
+}
+
+/** 代码行号 */
+
+.hljs-ln-line.hljs-ln-numbers {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  text-align: center;
+  vertical-align: top;
+  padding-right: 5px;
+  /*width: 32px;*/
+  /*position: relative;*/
+  border-right: 1px solid var(--wl-m-a);
+}
+
+.hljs-ln-line.hljs-ln-code {
+  padding-left: 10px;
 }
 
 /*! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com*/
@@ -465,12 +462,6 @@ body {
 .wl-blur-xs {
   --tw-blur: blur(2px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
-}
-
-.img-loading {
-  background: rgba(204, 204, 214, .4);
-  border-radius: 20px;
-  padding: 30%
 }
 
 .lazy-load {
@@ -1902,10 +1893,6 @@ video {
   padding-bottom: 3rem;
 }
 
-.wl-pb-2\.5 {
-  padding-bottom: 0.625rem;
-}
-
 .wl-pb-5 {
   padding-bottom: 1.25rem;
 }
@@ -2226,6 +2213,71 @@ video {
   font-family: kaiti;
 }
 
+.wl-text-split::after, .wl-text-split::before {
+      content: attr(data-text);
+      /* 字体颜色 */
+      position: absolute;
+      left: 0px;
+      top: -0.5rem;
+      width: 100%;
+      --tw-text-opacity: 1;
+      color: rgb(255 237 213 / var(--tw-text-opacity, 1));
+      transition-property: all;
+      transition-duration: 300ms;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+.wl-group:nth-child(odd) .wl-text-split:hover::before {
+  content: var(--tw-content);
+  left: -0.25rem;
+}
+
+.wl-group:nth-child(even) .wl-text-split:hover::before {
+  content: var(--tw-content);
+  left: 0.25rem;
+}
+
+.wl-group:nth-child(odd) .wl-text-split:hover::after {
+  content: var(--tw-content);
+  left: 0.25rem;
+}
+
+.wl-group:nth-child(even) .wl-text-split::before::after {
+  content: var(--tw-content);
+  left: -0.25rem;
+}
+
+.wl-text-split::before {
+      clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%)
+    }
+
+.wl-text-split::after {
+      clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%)
+    }
+
+.wl-text-split:hover {
+      /* 分割线颜色 */
+      border-top-width: 1px;
+      border-style: solid;
+      --tw-border-opacity: 1;
+      border-color: rgb(34 211 238 / var(--tw-border-opacity, 1));
+    }
+
+.wl-text-split:hover::after, .wl-text-split:hover::before {
+        /* 悬停后的颜色 */
+        --tw-text-opacity: 1;
+        color: rgb(165 243 252 / var(--tw-text-opacity, 1));
+        transition-delay: 100ms;
+        --tw-content: attr(data-text);
+        content: var(--tw-content);
+      }
+
+.img-loading {
+    background: rgba(204, 204, 214, .4);
+    border-radius: 20px;
+    padding: 30%
+  }
+
 @font-face {
   font-family: 'FXAiQingQiXiangSuo';
   src: url('https://ericamblog.oss-cn-shanghai.aliyuncs.com/2021/FXAiQingQiXiangSuo.ttf');
@@ -2263,86 +2315,6 @@ video {
   --wl-art-bg: #00000019;
   --wl-section-color: #ce8e4c;
   --wl-selection-bg: #586e75;
-}
-
-.markdown-toc a {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
-}
-
-.wl-text-split::after, .wl-text-split::before {
-    content: attr(data-text);
-    /* 字体颜色 */
-    position: absolute;
-    left: 0px;
-    top: -0.5rem;
-    width: 100%;
-    --tw-text-opacity: 1;
-    color: rgb(255 237 213 / var(--tw-text-opacity, 1));
-    transition-property: all;
-    transition-duration: 300ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-.wl-group:nth-child(odd) .wl-text-split:hover::before {
-  content: var(--tw-content);
-  left: -0.25rem;
-}
-
-.wl-group:nth-child(even) .wl-text-split:hover::before {
-  content: var(--tw-content);
-  left: 0.25rem;
-}
-
-.wl-group:nth-child(odd) .wl-text-split:hover::after {
-  content: var(--tw-content);
-  left: 0.25rem;
-}
-
-.wl-group:nth-child(even) .wl-text-split::before::after {
-  content: var(--tw-content);
-  left: -0.25rem;
-}
-
-.wl-text-split::before {
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%)
-  }
-
-.wl-text-split::after {
-    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%)
-  }
-
-.wl-text-split:hover {
-    /* 分割线颜色 */
-    border-top-width: 1px;
-    border-style: solid;
-    --tw-border-opacity: 1;
-    border-color: rgb(34 211 238 / var(--tw-border-opacity, 1));
-  }
-
-.wl-text-split:hover::after, .wl-text-split:hover::before {
-      /* 悬停后的颜色 */
-      --tw-text-opacity: 1;
-      color: rgb(165 243 252 / var(--tw-text-opacity, 1));
-      transition-delay: 100ms;
-      --tw-content: attr(data-text);
-      content: var(--tw-content);
-    }
-
-.jssocials-shares {
-  display: flex;
-  height: 1.25rem;
-  align-items: center;
-  gap: 0.625rem;
-}
-
-.jssocials-share-link {
-  display: flex;
-}
-
-.jssocials-share-logo {
-  height: 1.25rem;
 }
 
 .jssocials-share-qq {

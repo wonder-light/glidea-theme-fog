@@ -247,25 +247,6 @@
   color: var(--wl-m-del);
 }
 
-.hljs-ln-numbers {
-  user-select: none;
-  text-align: center;
-  vertical-align: top;
-  padding-right: 5px;
-  width: 32px;
-  position: relative;
-}
-
-.hljs-ln-numbers::after {
-  content: "";
-  border: 1px solid var(--wl-m-a);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 5px;
-  height: 120%;
-}
-
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-literal,
@@ -280,4 +261,19 @@
 
 .navbar-inverse {
   background-color: rgba(143, 168, 171, 0.8);
+}
+
+/** 代码行号 */
+.hljs-ln-line.hljs-ln-numbers {
+  user-select: none;
+  text-align: center;
+  vertical-align: top;
+  padding-right: 5px;
+  /*width: 32px;*/
+  /*position: relative;*/
+  border-right: 1px solid var(--wl-m-a);
+}
+
+.hljs-ln-line.hljs-ln-code {
+  padding-left: 10px;
 }

@@ -349,21 +349,18 @@ class SitePost {
   static _code() {
     hljs.initHighlightingOnLoad();
     hljs.initLineNumbersOnLoad({ singleLine: true });
-    document.querySelectorAll('pre code').forEach(el => {
+    /*document.querySelectorAll('pre code').forEach(el => {
       hljs.highlightBlock(el);
       hljs.lineNumbersBlock(el);
-    });
+    });*/
   }
   
   // 渲染数学公式
   static _renderMath() {
-    if ('function' != typeof renderMathInElement) return;
-    renderMathInElement(document.body, {
-      delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-      ],
-    });
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' },
+    };
   }
   
   // valine 评论热度
@@ -590,12 +587,12 @@ class Utils {
   
   // 显示是否在加载中
   static updateLoading(isLoading = false) {
-    var e = $('#wl-loading');
-    if (e.length <= 0) return;
-    isLoading ? e.fadeIn(8 * fadeTime) : e.fadeOut(8 * fadeTime);
-    if (null == e.attr('content')) {
+    let el = $('#wl-loading');
+    if (el.length <= 0) return;
+    isLoading ? el.fadeIn(8 * fadeTime) : el.fadeOut(8 * fadeTime);
+    if (null == el.attr('content')) {
       JQG.addLoad(() => Utils.updateLoading(false));
-      e.attr('content', 'init');
+      el.attr('content', 'init');
     }
   }
   
@@ -792,9 +789,9 @@ class Utils {
       el.attr('id', id);
       let num = Math.round(el.height() / parseFloat(el.css('line-height')));
       if (num <= 0) return;
-      el.before(`<button class="copy-bt wl-w-24 wl-absolute wl-right-16 wl-rounded wl-text-white wl-bg-sky-400 wl-m-0 wl-font-kaiti wl-transition-all wl-duration-300" data-clipboard-target="#${ id }">复制代码</button>`);
+      el.before(`<button class="clipboard-button wl-w-24 wl-absolute wl-right-16 wl-rounded wl-text-white wl-bg-sky-400 wl-m-0 wl-font-kaiti wl-transition-all wl-duration-300" data-clipboard-target="#${ id }">复制代码</button>`);
     });
-    let clipboardJS = new ClipboardJS('.copy-bt');
+    let clipboardJS = new ClipboardJS('.clipboard-button');
     clipboardJS.on('success', async function (copy) {
       let el = $(copy.trigger);
       el.html('复制成功~');
