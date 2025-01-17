@@ -121,7 +121,6 @@
       "note": ""
     },
     
-    
     {
       "name": "live2d",
       "label": "是否开启看板娘",
@@ -130,6 +129,7 @@
       "type": "switch",
       "note": ""
     },
+    
     {
       "name": "siteGoTimeChoice",
       "label": "是否开启站点创建时间",
@@ -210,6 +210,7 @@
       "type": "picture",
       "note": "请输入图片外链"
     },
+    
     {
       "name": "commentChoice",
       "label": "第三方评论系统选择",
@@ -312,6 +313,7 @@
       "type": "input",
       "note": "首页轮播哔哔消息时配置"
     },
+    
     {
       "name": "socialChoice",
       "label": "社交按钮开关",
@@ -402,22 +404,7 @@
       "type": "input",
       "note": "链接地址"
     },
-    {
-      "name": "search",
-      "label": "是否开启搜索框",
-      "group": "搜索框",
-      "value": true,
-      "type": "switch",
-      "note": ""
-    },
-    {
-      "name": "searchplaceholder",
-      "label": "搜索框提示文字",
-      "group": "搜索框",
-      "value": "标题搜索 ⚆_⚆ つ♡",
-      "type": "input",
-      "note": ""
-    },
+    
     {
       "name": "bgchoice",
       "label": "图片加载方式",

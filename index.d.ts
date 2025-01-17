@@ -66,17 +66,37 @@ declare class Fog {
   postNumUrl: string;
   //填写网站备案号，如无则空着即可
   recordText: string;
-  
-  
-  
-  // 是否开启看板娘
-  live2d: boolean;
   // 是否开启文章分享转载功能
   shareChoice: boolean;
   // 是否开启文章赞赏功能, 请在下方放置赞赏图片外链
   donateChoice: boolean;
   //请输入图片外链
   donateImg: string;
+  //社交按钮开关, 是否开启个人社交信息展示栏
+  socialChoice: 'default' | 'close';
+  //社交按钮上的文字显示
+  socialText: string;
+  //链接地址
+  github: string;
+  //QQ号
+  QQ: string;
+  //链接地址
+  zhihu: string;
+  //链接地址
+  bilibili: string;
+  //链接地址
+  wechat: string;
+  //链接地址
+  weibo: string;
+  //链接地址
+  wyy: string;
+  //链接地址
+  steam: string;
+  
+  
+  
+  // 是否开启看板娘
+  live2d: boolean;
   //第三方评论系统选择
   commentChoice: 'default' | 'valine' | 'twikoo';
   //[valine/阅读量统计] Leancloud_appId
@@ -99,30 +119,7 @@ declare class Fog {
   bbonetalkchoice: boolean;
   //首页轮播哔哔消息时配置
   bbjson: string;
-  //社交按钮开关, 是否开启个人社交信息展示栏
-  socialChoice: 'default' | 'close';
-  //社交按钮上的文字显示
-  socialText: string;
-  //链接地址
-  github: string;
-  //QQ号
-  QQ: string;
-  //链接地址
-  zhihu: string;
-  //链接地址
-  bilibili: string;
-  //链接地址
-  wechat: string;
-  //链接地址
-  weibo: string;
-  //链接地址
-  wyy: string;
-  //链接地址
-  steam: string;
-  //是否开启搜索框
-  search: boolean;
-  //
-  searchplaceholder: string;
+  
   //图片加载方式, 选择本地上传便在下方选项添加图片，选择外链则在下方输入框输入外链链接【推荐使用外链】
   bgchoice: 'default' | 'link';
   //input
