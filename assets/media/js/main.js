@@ -269,30 +269,6 @@ class SitePost {
     return -1 !== window.location.pathname.indexOf('post');
   }
   
-  // 获取 post 热度
-  static getHot(url) {
-    if (!SitePost.isPost() || !url) return;
-    let pathname = window.location.pathname;
-    if (!pathname.endsWith('/')) {
-      pathname += '/';
-    }
-    $.ajax({
-      url: url,
-      type: 'POST',
-      timeout: 3e3,
-      data: JSON.stringify({ url: pathname, href: window.location.href }),
-      dataType: 'json',
-      success: function (result) {
-        let el = $('#wl-hot-num');
-        el.eq(0).html(result.hot);
-        el.eq(1).html(result.hot);
-      },
-      error: function (t) {
-        Utils.log('twikoo get hot error', t);
-      },
-    });
-  }
-  
   // 更新 post
   static update() {
     if (!SitePost.isPost()) return;

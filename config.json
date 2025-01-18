@@ -164,7 +164,7 @@
       "name": "postNumUrl",
       "label": "文章阅读量统计脚本",
       "group": "统计",
-      "value": "",
+      "value": "<script>$('#wl-hot-num').html('20');</script>",
       "type": "textarea",
       "note": "支持 HTML"
     },
