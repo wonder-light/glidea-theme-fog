@@ -298,7 +298,21 @@ class SitePost {
     if (!pathname.endsWith('/')) {
       pathname += '/';
     }
-    SitePost._twikooHot(url, pathname);
+    $.ajax({
+      url: url,
+      type: 'POST',
+      timeout: 3e3,
+      data: JSON.stringify({ url: pathname, href: window.location.href }),
+      dataType: 'json',
+      success: function (result) {
+        let el = $('#wl-hot-num');
+        el.eq(0).html(result.hot);
+        el.eq(1).html(result.hot);
+      },
+      error: function (t) {
+        Utils.log('twikoo get hot error', t);
+      },
+    });
   }
   
   // 更新 post
@@ -351,25 +365,6 @@ class SitePost {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
       svg: { fontCache: 'global' },
     };
-  }
-  
-  // twikoo 评论热度
-  static _twikooHot(postHotUrl, postUrlPath) {
-    $.ajax({
-      url: postHotUrl,
-      type: 'POST',
-      timeout: 3e3,
-      data: JSON.stringify({ url: postUrlPath, href: window.location.href }),
-      dataType: 'json',
-      success: function (result) {
-        let el = $('#wl-hot-num');
-        el.eq(0).html(result.hot);
-        el.eq(1).html(result.hot);
-      },
-      error: function (t) {
-        Utils.log('twikoo get hot error', t);
-      },
-    });
   }
   
   /**

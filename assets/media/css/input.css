@@ -136,7 +136,7 @@
   background: #f39434;
 }
 
-.live2d-wrapper {
+.live2d-fixed.live2d-wrapper {
   left: auto;
   right: 0
 }
