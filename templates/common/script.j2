@@ -26,21 +26,15 @@
 <script>
   // 公共部分
   let common = [
-    {% if site.customConfig.postNumChoice %}
-      SitePost.getHot.bind(null, '{{ site.customConfig.postNumUrl }}'),
-    {% endif %}
-    {% if site.customConfig.siteNumChoice %}
-      SitePost.updateTotalView.bind(null, '{{ site.customConfig.siteNumUrl }}'),
-    {% endif %}
     {% if site.customConfig.siteGoTimeChoice %}
       Utils.updateSiteTime.bind(null, '{{ site.customConfig.siteGoTime }}'),
     {% endif %}
     {% if site.customConfig.shareChoice %}
       Utils.shareInit.bind(null, '{{ themeConfig.domain }}'),
     {% endif %}
+    SitePost.updateComment.bind(null, '{{ site.customConfig.commentChoice }}'),
   ];
   JQG.add(
-    SitePost.initValue.bind(null, true, 'twikoo', ''),
     Utils.one.bind(null),
     ...common,
     Utils.loadOhLive2D.bind(null, {

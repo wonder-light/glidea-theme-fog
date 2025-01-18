@@ -40,5 +40,10 @@
   {% include './post/post-page.j2' ignore missing with context %}
   {% include './post/post-comment.j2' ignore missing with context %}
   <div class="wl-h-8"></div>
+  {#------ 文章热度脚本👇 ------#}
+  {% if site.customConfig.postNumChoice %}
+    {{ site.customConfig.postNumUrl }}
+  {% endif %}
+  {#------ 文章热度脚本👆 ------#}
 {% endblock %}
 {# --------------- 内容👆 ---------------- #}

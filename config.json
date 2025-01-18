@@ -142,7 +142,7 @@
       "group": "统计",
       "value": false,
       "type": "switch",
-      "note": "不蒜子会影响网页加载速度，请慎重考虑！"
+      "note": "使用百度统计,当然也可以使用不蒜子"
     },
     {
       "name": "postNumChoice",
@@ -151,6 +151,22 @@
       "value": false,
       "type": "switch",
       "note": "需要填写配置栏中的阅读量统计URL地址！"
+    },
+    {
+      "name": "siteNumUrl",
+      "label": "访客统计脚本",
+      "group": "统计",
+      "value": "<script async src=\"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js\">\n</script>",
+      "type": "textarea",
+      "note": "支持 HTML"
+    },
+    {
+      "name": "postNumUrl",
+      "label": "文章阅读量统计脚本",
+      "group": "统计",
+      "value": "",
+      "type": "textarea",
+      "note": "支持 HTML"
     },
     {
       "name": "recordText",
@@ -800,22 +816,6 @@
       "value": "",
       "type": "input",
       "note": "[waline] 配置查看文档 https://waline.js.org/guide/get-started/"
-    },
-    {
-      "name": "siteNumUrl",
-      "label": "访客统计URL",
-      "group": "配置",
-      "value": "",
-      "type": "input",
-      "note": "需要调用的访客统计URL, POST 方法"
-    },
-    {
-      "name": "postNumUrl",
-      "label": "文章阅读量统计URL",
-      "group": "配置",
-      "value": "",
-      "type": "input",
-      "note": "用于统计文章的访问数量, POST 方法"
     }
   ]
 }

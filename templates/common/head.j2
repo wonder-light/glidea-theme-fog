@@ -58,4 +58,7 @@
   <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/jssocials@1.5.0/dist/jssocials-theme-classic.css">
   <script src="https://fastly.jsdelivr.net/npm/jssocials@1.5.0/dist/jssocials.min.js"></script>
 {% endif %}
-
+{% if site.customConfig.siteNumChoice %}
+  <!-- 是否开启访客统计 -->
+  {{ site.customConfig.siteNumUrl }}
+{% endif %}

@@ -261,30 +261,8 @@ class SiteSearch {
 
 // post 数据
 class SitePost {
-  /**
-   * 开启评论的评论类型
-   *
-   * @link Fog.commentChoice
-   *
-   * @type {'default' | 'valine' | 'twikoo'}
-   */
-  static #commentsChoice;
-  // 兰纳键
-  static #commentKey;
   // 开启阅读模式
   static #readingMode = false;
-  
-  // 初始化文章的相关数据
-  /**
-   *
-   * @param {boolean} postNumChoice 是否开启文章阅读量统计
-   * @param {boolean} commentsChoice 是否开启评论
-   * @param commentKey
-   */
-  static initValue(postNumChoice, commentsChoice, commentKey) {
-    SitePost.#commentsChoice = commentsChoice;
-    SitePost.#commentKey = commentKey;
-  }
   
   // 是 post 页面
   static isPost() {
@@ -318,16 +296,11 @@ class SitePost {
   // 更新 post
   static update() {
     if (!SitePost.isPost()) return;
-    if ('default' === SitePost.#commentsChoice) $('#wl-comment').hide();
     Utils.imgLazyLoad();
     Utils.codeCopyInit();
     SitePost._code();
     SitePost._renderMath();
     Utils.backToTopInit();
-    if ('default' === SitePost.#commentsChoice) {
-      setTimeout(Utils.replaceAvatar, 3e3);
-      setTimeout(Utils.replaceAvatar, 8e3);
-    }
   }
   
   // 阅读模式
@@ -367,28 +340,13 @@ class SitePost {
     };
   }
   
-  /**
-   * 更新总访问量，访问人数
-   * @param {string} url 获取访问数量的 URL
-   * @param {boolean} updateTotal
-   * @param {boolean} updateView
-   */
-  static updateTotalView(url, updateTotal = true, updateView = true) {
-    $.ajax({
-      url: url,
-      type: 'POST',
-      timeout: 3e3,
-      data: JSON.stringify({
-        url: window.location.origin,
-        updateTotal: updateTotal,
-        updateView: updateView,
-      }), dataType: 'json',
-      success: function (t) {
-        $('#value_site_pv').html(t.total);
-        $('#value_site_uv').html(t.view);
-      },
-      error: (t) => Utils.log('twikoo get hot error', t),
-    });
+  /// 更新评论
+  static updateComment(commentChoice) {
+    if ('default' === commentChoice) {
+      $('#wl-comment').hide();
+      setTimeout(Utils.replaceAvatar, 3e3);
+      setTimeout(Utils.replaceAvatar, 8e3);
+    }
   }
 }
 
@@ -665,21 +623,21 @@ class Utils {
   static openSocial(type, url) {
     switch (type) {
       case 'QQ':
-        if(!url) {
+        if (!url) {
           alert('博主暂未设置QQ联系方式');
           return;
         }
-        if(!url.startsWith('http')) {
+        if (!url.startsWith('http')) {
           // QQ 号
           url = 'tencent://message/?uin=' + url + '&Site=&Menu=yes';
         }
         break;
       case 'wechat':
-        if(!url) {
+        if (!url) {
           alert('博主暂未设置微信联系方式');
           return;
         }
-        if(!url.startsWith('http')) {
+        if (!url.startsWith('http')) {
           // QQ 号
           url = 'weixin://contacts/profile/' + url;
         }
