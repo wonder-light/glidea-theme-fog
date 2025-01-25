@@ -64,3 +64,25 @@
   <!-- 是否开启访客统计 -->
   {{ site.customConfig.siteNumUrl }}
 {% endif %}
+{# --------------- 文章热度功能和评论整合👇 ---------------- #}
+{% if site.customConfig.commentChoice == 'twikoo' %}
+  <!-- -----------------twikoo评论系统引入👇 --------->
+  {# 其中 integrity 的值可以在 SRI Hash Generator 查询, https://www.srihash.org/ #}
+  <script src="https://fastly.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.all.min.js" integrity="sha384-XqRjIHRB13HFGom3gYeK+L2UHxFRl5qTZN+DESSXOgiiKYCwm6ZicU3oS3oovY6H" crossorigin="anonymous"></script>
+  <!-- -----------------twikoo评论系统引入👆 --------->
+{% elif site.customConfig.commentChoice == 'waline' %}
+  <!-- -----------------waline评论系统引入👇 --------->
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css"/>
+  <!-- -----------------waline评论系统引入👆 --------->
+{% elif site.customConfig.commentChoice == 'gitalk' %}
+  <!-- -----------------gitalk评论系统引入👇 --------->
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://fastly.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+  <!-- -----------------gitalk评论系统引入👆 --------->
+{% elif site.customConfig.commentChoice == 'disqus' %}
+  <!-- -----------------disqus评论系统引入👇 --------->
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/disqusjs@3.0/dist/browser/styles/disqusjs.css">
+  <script src="https://fastly.jsdelivr.net/npm/disqusjs@3.0/dist/browser/disqusjs.es2015.umd.min.js"></script>
+  <!-- -----------------disqus评论系统引入👆 --------->
+{% endif %}
+{# --------------- 文章热度功能和评论整合👆 ---------------- #}

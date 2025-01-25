@@ -3,12 +3,9 @@
     <div id="comment-id"></div>
   </div>
 </div>
-{# --------------- 文章热度功能和评论整合👇 ---------------- #}
 
+{# --------------- 文章热度功能和评论整合👇 ---------------- #}
 {% if site.customConfig.commentChoice == 'twikoo' %}
-  <!-- -----------------twikoo评论系统引入👇 --------->
-  {# 其中 integrity 的值可以在 SRI Hash Generator 查询, https://www.srihash.org/ #}
-  <script src="https://fastly.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.all.min.js" integrity="sha384-XqRjIHRB13HFGom3gYeK+L2UHxFRl5qTZN+DESSXOgiiKYCwm6ZicU3oS3oovY6H" crossorigin="anonymous"></script>
   <script>
     twikoo.init({
       // https://api-nianian.netlify.app/.netlify/functions/twikoo
@@ -18,22 +15,16 @@
       // path: 'window.location.pathname', // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
     })
   </script>
-  <!-- -----------------twikoo评论系统引入👆 --------->
 {% elif site.customConfig.commentChoice == 'waline' %}
-  <!-- -----------------waline评论系统引入👇 --------->
-  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css"/>
   <script type="module">
     import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
     init({
       el: '#comment-id',
       serverURL: '{{ site.customConfig.walineId }}',
     });
   </script>
-  <!-- -----------------waline评论系统引入👆 --------->
 {% elif site.customConfig.commentChoice == 'gitalk' %}
-  <!-- -----------------gitalk评论系统引入👇 --------->
-  <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-  <script src="https://fastly.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
   <script>
     const gitalk = new Gitalk({
       clientID: '{{ themeConfig.gitalk.clientId }}',
@@ -47,11 +38,7 @@
     })
     gitalk.render('comment-id')
   </script>
-  <!-- -----------------gitalk评论系统引入👆 --------->
 {% elif site.customConfig.commentChoice == 'disqus' %}
-  <!-- -----------------disqus评论系统引入👇 --------->
-  <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/disqusjs@3.0/dist/browser/styles/disqusjs.css">
-  <script src="https://fastly.jsdelivr.net/npm/disqusjs@3.0/dist/browser/disqusjs.es2015.umd.min.js"></script>
   <script>
     const disqusjs = new DisqusJS({
       shortname: '{{ themeConfig.disqus.shortname }}',
@@ -63,6 +50,5 @@
     });
     disqusjs.render('#comment-id');
   </script>
-  <!-- -----------------disqus评论系统引入👆 --------->
 {% endif %}
 {# --------------- 文章热度功能和评论整合👆 ---------------- #}
