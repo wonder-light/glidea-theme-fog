@@ -80,8 +80,11 @@ class SiteMenu {
   static sideState = false;
   // 菜单位置
   static menuPosition = 'left';
-  // 菜单图标 {名称: 链接}
-  static icons = [];
+  /**
+   * 菜单图标 {名称: 链接}
+   * @type {Map<string, string>}
+   */
+  static icons = {};
   
   // 初始化
   static init(position, icons) {
@@ -127,6 +130,9 @@ class SiteMenu {
       let name = el.eq(t).attr('alt');
       let icon = SiteMenu.icons[name];
       if (icon) {
+        if (!icon.startsWith('http')) {
+          icon = Utils.baseUrl + icon;
+        }
         el.eq(t).attr('src', icon);
         el.eq(t).show();
       }
@@ -328,6 +334,8 @@ class SitePost {
 
 class Utils {
   static words = [];
+  // 基础 URL https://{user}.github.io/{repo}
+  static baseUrl = '';
   
   // 开始时调用一次
   static one() {
@@ -586,7 +594,7 @@ class Utils {
     let el = $('.tk-avatar-img');
     for (let i = 0; i < el.length; i++) {
       if (-1 !== el.eq(i).attr('src')?.search('cn.gravatar.com')) {
-        el.eq(i).attr('src', window.location.origin + '/media/images/comavatar.png%>');
+        el.eq(i).attr('src', Utils.baseUrl + '/media/images/comavatar.png%>');
       }
     }
   }
@@ -653,7 +661,7 @@ class Utils {
   }
   
   // 分享初始化
-  static shareInit(baseUrl) {
+  static shareInit() {
     //Sharer.init();
     let share = $('#share-post');
     if (!share) return;
@@ -664,7 +672,7 @@ class Utils {
     };
     jsSocials.shares.qzone = {
       label: "qzone",
-      logo: `${ baseUrl }/media/images/qzone.png`,
+      logo: `${ Utils.baseUrl }/media/images/qzone.png`,
       shareUrl: "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={url}&text={text}&via={via}&hashtags={hashtags}",
     };
     share.jsSocials({
@@ -738,7 +746,7 @@ class Utils {
       let src = el.attr('src');
       el.attr('data-original', src);
       el.addClass('img-loading');
-      el.attr('src', '/media/images/img-loading.gif');
+      el.attr('src', `${ Utils.baseUrl }/media/images/img-loading.gif`);
       el.wrap(`<span data-fancybox="images" href="${ src }"></span>`);
       el.one('appear', function () {
         el.attr('src', src);
@@ -811,10 +819,10 @@ class Utils {
     let el = Utils.isMobile() ? $('#wl-bg-m') : $('#wl-bg');
     if ('dark' === theme) {
       el.fadeOut(8 * fadeTime);
-      $('#wl-moon').attr('src', '/media/images/sun.png');
+      $('#wl-moon').attr('src', `${ Utils.baseUrl }/media/images/sun.png`);
     } else {
       el.fadeIn(8 * fadeTime);
-      $('#wl-moon').attr('src', '/media/images/moon.png');
+      $('#wl-moon').attr('src', `${ Utils.baseUrl }/media/images/moon.png`);
     }
     localStorage.setItem('theme-mode', theme);
   }

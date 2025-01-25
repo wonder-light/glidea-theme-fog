@@ -57,7 +57,7 @@
     <div class="wl-mt-2.5">
       {% for menu in menus %}
         <div class="wl-group wl-flex wl-justify-center wl-font-kaiti wl-mt-3.5 wl-text-center wl-text-base wl-font-bold wl-h-8 site-menu">
-          <a class="wl-mr-4 wl-text-orange-100 wl-flex wl-items-center wl-justify-center" href="{{ menu.link|e }}" data-pjax>
+          <a class="wl-mr-4 wl-text-orange-100 wl-flex wl-items-center wl-justify-center" href="{{ themeConfig.domain + menu.link }}" data-pjax>
             <i><img class="wl-menu-icon wl-w-5 wl-cursor-pointer" src="" alt="{{ menu.name }}"></i>
             &nbsp;
             <span class="wl-text-split wl-group wl-text-xl wl-text-transparent wl-uppercase wl-leading-4 wl-border-t wl-border-solid wl-border-t-transparent wl-relative wl-top-1/4" data-text="{{ menu.name }}">

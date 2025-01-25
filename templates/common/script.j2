@@ -24,13 +24,14 @@
   <!-- aplayer播放器加载👆 -->
 {% endif %}
 <script>
+  Utils.baseUrl = '{{ themeConfig.domain }}';
   // 公共部分
   let common = [
     {% if site.customConfig.siteGoTimeChoice %}
       Utils.updateSiteTime.bind(null, '{{ site.customConfig.siteGoTime }}'),
     {% endif %}
     {% if site.customConfig.shareChoice %}
-      Utils.shareInit.bind(null, '{{ themeConfig.domain }}'),
+      Utils.shareInit.bind(null),
     {% endif %}
     SitePost.updateComment.bind(null, '{{ site.customConfig.commentChoice }}'),
   ];
