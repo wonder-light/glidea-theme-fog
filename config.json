@@ -116,7 +116,7 @@
       "name": "postFont",
       "label": "文章正文字体",
       "group": "字体",
-      "value": "Noto Serif SC",
+      "value": "kaiti",
       "type": "input",
       "note": ""
     },
@@ -447,6 +447,14 @@
       "note": "开启后支持数学公式（影响博客加载速度）"
     },
     {
+      "name": "codeLanguages",
+      "label": "代码语言脚本",
+      "group": "代码",
+      "value": "<script src=\"https://fastly.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/languages/dart.min.js\"></script>",
+      "type": "textarea",
+      "note": "languages/<code>.min.js 将 <code> 替换为需要的语言即可"
+    },
+    {
       "name": "friendsChoice",
       "label": "是否开启友链",
       "group": "友链",
@@ -545,7 +553,32 @@
       "label": "图标",
       "group": "图标icon",
       "type": "array",
-      "value": [],
+      "value": [
+        {
+          "menuName": "首页",
+          "iconUrl": "/media/images/home.png"
+        },
+        {
+          "menuName": "归档",
+          "iconUrl": "/media/images/archive.png"
+        },
+        {
+          "menuName": "标签",
+          "iconUrl": "/media/images/tag.png"
+        },
+        {
+          "menuName": "关于",
+          "iconUrl": "/media/images/about.png"
+        },
+        {
+          "menuName": "说说",
+          "iconUrl": "/media/images/talk.png"
+        },
+        {
+          "menuName": "友人帐",
+          "iconUrl": "/media/images/friends.png"
+        }
+      ],
       "arrayItems": [
         {
           "label": "菜单栏名称",
@@ -606,9 +639,9 @@
       "name": "aplayerId",
       "label": "歌单ID",
       "group": "音乐播放器",
-      "value": "",
+      "value": "8397736865",
       "type": "input",
-      "note": "比如在这个链接中 [https://music.163.com/#/album?id=195683561], ID 就是 195683561"
+      "note": "比如在这个链接中 [https://music.163.com/#/playlist?id=8397736865], id 就是 195683561, 类型就是歌曲列表"
     },
     {
       "name": "aplayerIdType",
@@ -699,7 +732,22 @@
       "label": "模型",
       "group": "live2d",
       "type": "array",
-      "value": [],
+      "value": [
+        {
+          "path": "/media/live2d/mei/model.json",
+          "positionX": 0,
+          "positionY": 0,
+          "scale": 50,
+          "volume": 50
+        },
+        {
+          "path": "/media/live2d/violet/14.json",
+          "positionX": 0,
+          "positionY": 0,
+          "scale": 50,
+          "volume": 50
+        }
+      ],
       "arrayItems": [
         {
           "label": "模型地址",
@@ -766,8 +814,7 @@
           "name": "text",
           "label": "信息文本",
           "type": "input",
-          "value": "",
-          "note": "支持HTML"
+          "value": ""
         }
       ],
       "note": "消息数据集合"
@@ -816,6 +863,14 @@
       "value": "",
       "type": "input",
       "note": "[waline] 配置查看文档 https://waline.js.org/guide/get-started/"
+    },
+    {
+      "name": "customCss",
+      "label": "自定义 CSS",
+      "group": "样式",
+      "value": "",
+      "type": "textarea",
+      "note": "支持 CSS 样式"
     }
   ]
 }

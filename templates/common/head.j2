@@ -23,7 +23,6 @@
 
 {# 链接 #}
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-{# <link rel="stylesheet" href="{{ themeConfig.domain }}/media/css/twcss.css"> #}
 <link rel="stylesheet" href="{{ themeConfig.domain }}/styles/main.css">
 <!-- aplayer播放器加载👇 -->
 {% if site.customConfig.aplayerChoice %}
@@ -42,6 +41,9 @@
 {# -------- 代码👇 -------- #}
 <!-- 代码高亮插件 -->
 <script src="https://fastly.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+{% if site.customConfig.codeLanguages %}
+  {{ site.customConfig.codeLanguages }}
+{% endif %}
 {% if site.customConfig.codeTheme %}
   <!-- 代码高亮主题 default, agate, base16 ...  -->
   <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/{{ site.customConfig.codeTheme }}.min.css">

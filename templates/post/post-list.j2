@@ -1,7 +1,25 @@
 {# ---------添加 Post 列表👇--------- #}
 <div class="wl-w-full wl-animate-fade-in">
-  {% from './macro/post-list.j2' import postLists with context %}
-  {{ postLists(posts, site.customConfig.postListMode) }}
+  {# ---------显示 post 列表👇--------- #}
+  {% if site.customConfig.postListMode == 'elegant' %}
+    {# ---------优雅模式👇--------- #}
+    {% from './macro/post-list-item.j2' import postListItem with context %}
+    {% for post in posts %}
+      {# odd: false, even: true #}
+      {% set isEven = loop.cycle(false, true) %}
+      {{ postListItem(post, isEven) }}
+    {% endfor %}
+    {# ---------优雅模式👆--------- #}
+  {% else %}
+    {# ---------经典模式👇--------- #}
+    {% from './macro/post-list-default.j2' import postListItem with context %}
+    {% for post in posts %}
+      {# 两个 macro 放在一起时, 第二个 macro 接收的参数会直接变成 (List<Object?>, Map<Object?, Object?>), 无语的错误 #}
+      {{ postListItem([post], {}) }}
+    {% endfor %}
+    {# ---------经典模式👆--------- #}
+  {% endif %}
+  {# ---------显示 post 列表👆--------- #}
 </div>
 {# ---------添加 Post 列表👇--------- #}
 {# ---------进度条👇--------- #}
