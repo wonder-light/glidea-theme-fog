@@ -1718,11 +1718,25 @@ a:hover {
   font-family: 'FXAiQingQiXiangSuo';
   src: url('https://ericamblog.oss-cn-shanghai.aliyuncs.com/2021/FXAiQingQiXiangSuo.ttf');
 }
-.jssocials-share-qq {
-  background: #34d6f3;
+.jssocials-shares {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem
 }
-.jssocials-share-qzone {
-  background: #f39434;
+.jssocials-share-link {
+  display: flex;
+  align-items: center;
+  font-size: 1.875rem;
+  line-height: 2.25rem
+}
+.jssocials-share-qq .jssocials-share-link {
+  color: #6097ff;
+}
+.jssocials-share-qzone .jssocials-share-logo {
+  height: 2rem;
+  --tw-scale-x: 1.25;
+  --tw-scale-y: 1.25;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
 }
 .live2d-fixed.live2d-wrapper {
   left: auto;
