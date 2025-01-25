@@ -10,52 +10,12 @@
 }
 
 @layer base {
-  :root {
-    --wl-color: antiquewhite;
-    --wl-font-color: black;
-    --wl-bg: white;
-    --wl-b-bg: transparent;
-    --wl-art-bg: white;
-    --wl-section-color: #ce8e4c;
-    --wl-selection-bg: #cceae7;
-    --wl-m-a: #ffb143;
-    --wl-m-a-img: #f68800;
-    --wl-m-a-hover: #e46918;
-    --wl-m-pre-img: #f8f8f800;
-    --wl-m-h2-bas: #f6ae77;
-    --wl-m-h2-str: #f7ce68;
-    --wl-m-h2-end: #fbabfe;
-    --wl-m-h3: #ffc000;
-    --wl-m-h4: #ffc840;
-    --wl-m-blo-bg: #eff8f0;
-    --wl-m-blo-bd: #ffd43e;
-    --wl-m-hr: #ffc000;
-    --wl-m-li: #ffc840;
-    --wl-m-del: #595959;
-  }
-  
-  :root[theme=dark] {
-    --wl-color: antiquewhite;
-    --wl-font-color: white;
-    --wl-bg: black;
-    --wl-b-bg: #000000cc;
-    --wl-art-bg: #00000019;
-    --wl-section-color: #ce8e4c;
-    --wl-selection-bg: #586e75;
-  }
-  
-  
   body, html {
     font-size: 16px;
     min-width: 1200px;
   }
   
-  ::-moz-selection {
-    background-color: #dcfce7;
-    color: #22d3ee
-  }
-  
-  ::selection {
+  ::-moz-selection, ::selection {
     background-color: #dcfce7;
     color: #22d3ee
   }
@@ -98,16 +58,15 @@
   }
   
   a {
+    @apply wl-transition-all;
     color: #ffffff;
     text-decoration: none;
     
     &:hover {
-      color: #22d3ee;
+      color: #22d3ee !important;
       text-decoration: none
     }
   }
-  
-  
 }
 
 @layer components {
@@ -187,6 +146,7 @@
     @apply wl-h-4;
   }
   
+  /* Post 正文 */
   .wl-markdown-text {
     @apply wl-font-kaiti;
     
@@ -248,7 +208,7 @@
       @apply wl-border-solid wl-border-b-1 wl-border-amber-300 wl-text-fuchsia-500;
       
       &:hover {
-        color: #22d3ee;
+        @apply wl-text-current;
       }
     }
     
@@ -312,15 +272,25 @@
 
 /** 代码行号 */
 .hljs-ln-line.hljs-ln-numbers {
+  @apply wl-relative wl-border-amber-400 wl-border-r-1 wl-border-solid;
   user-select: none;
   text-align: center;
   vertical-align: top;
   padding-right: 5px;
   width: 32px;
-  position: relative;
-  border-right: 1px solid var(--wl-m-a);
 }
 
 .hljs-ln-line.hljs-ln-code {
   padding-left: 10px;
+}
+
+/* 目录 */
+.markdown-toc {
+  ul {
+    @apply wl-pl-8 wl-list-none;
+  }
+  
+  &.toc-reader a {
+    @apply wl-text-gray-600 hover:wl-text-current;
+  }
 }

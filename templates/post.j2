@@ -34,7 +34,7 @@
     <hr class="wl-w-5/6 wl-mx-auto wl-my-5 wl-border-solid wl-border-2 wl-border-amber-400">
     {% include './post/post-footer.j2' ignore missing with context %}
     {% if post.toc %}
-      <div class="wl-fixed wl-top-12 wl-right-12 wl-z-10 wl-w-40 wl-text-left wl-text-white wl-transition-all">{{ post.toc }}</div>
+      <div class="wl-fixed wl-top-10 wl-right-10 wl-z-10 wl-h-64 wl-max-w-64 wl-overflow-y-auto wl-text-xs wl-text-left">{{ post.toc }}</div>
     {% endif %}
   </div>
   {% include './post/post-page.j2' ignore missing with context %}

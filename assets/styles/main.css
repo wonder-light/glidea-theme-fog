@@ -578,38 +578,6 @@ video {
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
-:root {
-    --wl-color: antiquewhite;
-    --wl-font-color: black;
-    --wl-bg: white;
-    --wl-b-bg: transparent;
-    --wl-art-bg: white;
-    --wl-section-color: #ce8e4c;
-    --wl-selection-bg: #cceae7;
-    --wl-m-a: #ffb143;
-    --wl-m-a-img: #f68800;
-    --wl-m-a-hover: #e46918;
-    --wl-m-pre-img: #f8f8f800;
-    --wl-m-h2-bas: #f6ae77;
-    --wl-m-h2-str: #f7ce68;
-    --wl-m-h2-end: #fbabfe;
-    --wl-m-h3: #ffc000;
-    --wl-m-h4: #ffc840;
-    --wl-m-blo-bg: #eff8f0;
-    --wl-m-blo-bd: #ffd43e;
-    --wl-m-hr: #ffc000;
-    --wl-m-li: #ffc840;
-    --wl-m-del: #595959;
-  }
-:root[theme=dark] {
-    --wl-color: antiquewhite;
-    --wl-font-color: white;
-    --wl-bg: black;
-    --wl-b-bg: #000000cc;
-    --wl-art-bg: #00000019;
-    --wl-section-color: #ce8e4c;
-    --wl-selection-bg: #586e75;
-  }
 body, html {
     font-size: 16px;
     min-width: 1200px;
@@ -618,7 +586,7 @@ body, html {
     background-color: #dcfce7;
     color: #22d3ee
   }
-::selection {
+::-moz-selection, ::selection {
     background-color: #dcfce7;
     color: #22d3ee
   }
@@ -652,11 +620,14 @@ img, video {
     max-width: 100%
   }
 a {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
     color: #ffffff;
-    text-decoration: none;
-  }
+    text-decoration: none
+}
 a:hover {
-      color: #22d3ee;
+      color: #22d3ee !important;
       text-decoration: none
     }
 .mask-img-110 {
@@ -729,8 +700,8 @@ a:hover {
 .wl-right-0 {
   right: 0px
 }
-.wl-right-12 {
-  right: 3rem
+.wl-right-10 {
+  right: 2.5rem
 }
 .wl-right-16 {
   right: 4rem
@@ -750,8 +721,8 @@ a:hover {
 .wl-top-1\/4 {
   top: 25%
 }
-.wl-top-12 {
-  top: 3rem
+.wl-top-10 {
+  top: 2.5rem
 }
 .wl-top-2\.5 {
   top: 0.625rem
@@ -969,9 +940,6 @@ a:hover {
 .wl-w-4\/5 {
   width: 80%
 }
-.wl-w-40 {
-  width: 10rem
-}
 .wl-w-5 {
   width: 1.25rem
 }
@@ -998,6 +966,9 @@ a:hover {
 }
 .wl-w-full {
   width: 100%
+}
+.wl-max-w-64 {
+  max-width: 16rem
 }
 .wl-flex-1 {
   flex: 1 1 0%
@@ -1552,6 +1523,11 @@ a:hover {
 .wl-animate-duration-9 {
     animation-duration: 9s;
   }
+.markdown-toc a {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms
+}
 .wl-text-split::after, .wl-text-split::before {
       content: attr(data-text);
       /* 字体颜色 */
@@ -1607,6 +1583,7 @@ a:hover {
     border-radius: 20px;
     padding: 30%
   }
+/* Post 正文 */
 .wl-markdown-text {
   font-family: kaiti
 }
@@ -1703,8 +1680,8 @@ a:hover {
   color: rgb(217 70 239 / var(--tw-text-opacity, 1))
 }
 .wl-markdown-text a:hover {
-        color: #22d3ee;
-      }
+  color: currentColor
+}
 /* 图片 */
 .wl-markdown-text img {
   max-width: 100%
@@ -1767,18 +1744,33 @@ a:hover {
 }
 /** 代码行号 */
 .hljs-ln-line.hljs-ln-numbers {
+  position: relative;
+  border-right-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(251 191 36 / var(--tw-border-opacity, 1));
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
   text-align: center;
   vertical-align: top;
   padding-right: 5px;
-  width: 32px;
-  position: relative;
-  border-right: 1px solid var(--wl-m-a);
+  width: 32px
 }
 .hljs-ln-line.hljs-ln-code {
   padding-left: 10px;
+}
+/* 目录 */
+.markdown-toc ul {
+  list-style-type: none;
+  padding-left: 2rem
+}
+.markdown-toc.toc-reader a {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity, 1))
+}
+.markdown-toc.toc-reader a:hover {
+  color: currentColor
 }
 .hover\:wl-bg-cyan-200\/75:hover {
   background-color: rgb(165 243 252 / 0.75)

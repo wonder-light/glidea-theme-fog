@@ -286,14 +286,14 @@ class SitePost {
       $('#wl-side-tabs').fadeIn(4 * fadeTime);
       $('#wl-bg').fadeIn(4 * fadeTime);
       $('#wl-side-all').fadeIn(4 * fadeTime);
-      $('.markdownIt-TOC a').css('color', 'antiquewhite');
+      $('.markdown-toc').removeClass('toc-reader');
       SitePost.#readingMode = false;
     } else {
       SiteMenu.close();
       $('#wl-side-tabs').fadeOut(4 * fadeTime);
       $('#wl-bg').fadeOut(4 * fadeTime);
       $('#wl-side-all').fadeOut(4 * fadeTime);
-      $('.markdownIt-TOC a').css('color', 'black');
+      $('.markdown-toc').addClass('toc-reader');
       SitePost.#readingMode = true;
     }
   }
